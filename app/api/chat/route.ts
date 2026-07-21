@@ -148,7 +148,7 @@ export async function POST(req: NextRequest) {
     }));
 
     const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",
+      model: "llama-3.3-70b-versatile",
       messages: [{ role: "system", content: SYSTEM_PROMPT }, ...groqMessages],
       temperature: 0.65,
       max_tokens: 280,
