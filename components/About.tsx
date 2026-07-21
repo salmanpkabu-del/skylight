@@ -106,21 +106,6 @@ export default function About() {
             </p>
           </div>
 
-          {/* Bottom Stat Cards */}
-          <div className="reveal lg:col-span-4 bg-[#fafaf9] rounded-[32px] p-10 flex flex-col justify-center items-center text-center border border-brand-dark/[0.03] hover:border-brand-dark/10 transition-colors">
-            <p className="text-[54px] font-bold text-brand-dark leading-none tracking-tight mb-3">5,000+</p>
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-dark/40">Happy Travellers</p>
-          </div>
-          
-          <div className="reveal lg:col-span-4 bg-[#fafaf9] rounded-[32px] p-10 flex flex-col justify-center items-center text-center border border-brand-dark/[0.03] hover:border-brand-dark/10 transition-colors">
-            <p className="text-[54px] font-bold text-brand-dark leading-none tracking-tight mb-3">50+</p>
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-dark/40">Global Destinations</p>
-          </div>
-          
-          <div className="reveal lg:col-span-4 bg-[#fafaf9] rounded-[32px] p-10 flex flex-col justify-center items-center text-center border border-brand-dark/[0.03] hover:border-brand-dark/10 transition-colors">
-            <p className="text-[54px] font-bold text-brand-dark leading-none tracking-tight mb-3">4.9★</p>
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-dark/40">Average Rating</p>
-          </div>
         </div>
 
         {/* ── 3. Minimal Pillars ──────────────────────────── */}
