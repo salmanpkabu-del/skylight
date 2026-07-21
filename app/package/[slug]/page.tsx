@@ -67,7 +67,7 @@ export default async function PackagePage({ params }: Props) {
     ],
   };
 
-  const otherPackages = packages.filter((p) => p.slug !== pkg.slug).slice(0, 2);
+  // const otherPackages = packages.filter((p) => p.slug !== pkg.slug).slice(0, 2);
 
   return (
     <>
