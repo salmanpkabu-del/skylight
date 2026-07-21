@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "dummy_key_to_pass_build" });
 
 const SYSTEM_PROMPT = `You are Sky — a witty, warm, and efficient travel assistant for Skylight Travel, a premium agency based in Sharjah, UAE.
 
