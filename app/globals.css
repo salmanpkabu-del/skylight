@@ -295,3 +295,12 @@ body {
 .pkg-img-wrap:hover img {
   transform: scale(1.06);
 }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+.animate-map-dash {
+  animation: dash 5s linear infinite;
+}

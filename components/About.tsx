@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { Globe, CheckCircle2, Shield, ArrowRight } from "lucide-react";
+import UaeMap from "./UaeMap";
 
 const pillars = [
   {
@@ -96,7 +97,8 @@ export default function About() {
 
           {/* Side Stat Card (Years) */}
           <div className="reveal lg:col-span-4 bg-brand-dark rounded-[32px] p-10 sm:p-14 flex flex-col justify-center items-center text-center relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <UaeMap className="absolute w-[180%] h-[180%] -top-[20%] -left-[20%] text-brand-green/15 z-0 pointer-events-none transition-transform duration-1000 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none" />
             <p className="text-[100px] sm:text-[130px] leading-none tracking-tighter font-bold text-white mb-2 relative z-10"
                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               10<span className="text-brand-green">+</span>
