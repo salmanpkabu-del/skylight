@@ -53,22 +53,22 @@ export default function Navbar() {
       <header
         role="banner"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? "bg-[#012119]/95 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] py-3.5"
-            : "bg-gradient-to-b from-[#012119]/90 via-[#012119]/50 to-transparent py-4 sm:py-5 lg:py-6"
+          scrolled 
+            ? "bg-[#01251d]/90 backdrop-blur-md border-b border-white/10" 
+            : "bg-gradient-to-b from-black/75 via-black/30 to-transparent"
         }`}
       >
-        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between">
+        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 flex items-center justify-between">
           {/* LEFT — nav links desktop */}
           <nav
             aria-label="Primary navigation"
-            className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md border border-white/15 p-1 rounded-full tab-mobile:hidden shadow-lg"
+            className="flex items-center gap-2 tab-mobile:hidden"
           >
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group relative flex items-center gap-2 px-4 py-1.5 rounded-full text-xs leading-4 tracking-wider font-semibold uppercase text-white/90 hover:text-brand-green hover:bg-brand-green/10 transition-all duration-300"
+                className="group relative flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-xs leading-4 tracking-[-0.12px] font-semibold uppercase text-white/85 hover:text-brand-green hover:bg-brand-green/10 hover:border-brand-green/25 hover:shadow-[0_0_20px_rgba(166,238,66,0.15)] transition-all duration-300"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-green opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300" />
                 <span>{item.label}</span>
@@ -83,22 +83,21 @@ export default function Navbar() {
               alt="Skylight Travel"
               width={200}
               height={50}
-              className="h-8 sm:h-9 lg:h-10 w-auto object-contain invert brightness-0 tab-mobile:h-8 transition-all drop-shadow-md"
+              className="h-8 sm:h-9 lg:h-10 w-auto object-contain invert brightness-0 tab-mobile:h-8 transition-all"
               priority
             />
           </Link>
 
           {/* RIGHT — email + clock desktop */}
-          <div className="flex items-center gap-4 text-right tab-mobile:hidden bg-black/40 backdrop-blur-md border border-white/15 px-4 py-1.5 rounded-full shadow-lg">
+          <div className="flex items-center gap-6 text-right tab-mobile:hidden">
             <a
               href="mailto:info@skylighttravels.com"
-              className="text-xs leading-4 tracking-wider font-medium uppercase text-white/90 hover:text-brand-green transition-colors duration-300"
+              className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/80 hover:text-brand-green transition-colors duration-300 drop-shadow-sm"
             >
               info@skylighttravels.com
             </a>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
             <span
-              className="text-xs leading-4 tracking-wider font-semibold uppercase text-brand-green tabular-nums"
+              className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/60 tabular-nums drop-shadow-sm"
               aria-live="polite"
               aria-label={`Current UAE time: ${time}`}
             >
