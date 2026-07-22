@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Figtree, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
+import MobileQuickBar from "@/components/MobileQuickBar";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -176,6 +177,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-figtree bg-brand-dark text-white antialiased">
         {children}
         <ChatWidget />
+        <MobileQuickBar />
       </body>
     </html>
   );

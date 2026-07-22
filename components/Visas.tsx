@@ -11,19 +11,18 @@ export default function Visas() {
   const allVisas = [...visas, ...visas]; // duplicate for seamless loop
 
   return (
-    <section id="visas" className="bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
-      <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 mb-12">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+    <section id="visas" className="bg-[#012119] py-20 sm:py-24 lg:py-32 overflow-hidden border-t border-white/10">
+      <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 flex flex-col gap-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-white/10 pb-8">
           <div>
-            <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-dark/40 mb-3">
-              Visa Services
-            </p>
-            <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-brand-dark
-              md-tablet:text-[40px] mobile-max:text-[32px] mobile-max:tracking-[-1.5px]">
-              Borderless Travel<br />Starts Here
+            <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green mb-3 block">
+              Visa Assistance
+            </span>
+            <h2 className="text-[36px] sm:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-2px] font-semibold text-white">
+              Borderless Travel Starts Here
             </h2>
           </div>
-          <p className="max-w-sm text-base leading-7 text-brand-dark/60 font-medium">
+          <p className="max-w-sm text-base leading-7 text-white/60 font-medium">
             Expert visa assistance for UAE residents and expats. From e-visas to embassy appointments, we handle it all.
           </p>
         </div>

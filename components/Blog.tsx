@@ -49,22 +49,22 @@ export default function Blog() {
   }, []);
 
   return (
-    <section id="blog" ref={ref} className="bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+    <section id="blog" ref={ref} className="bg-[#012119] py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 mobile-max:mb-10">
           <div className="reveal-left">
-            <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-dark/40 mb-3">
+            <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-white/40 mb-3">
               Travel Blog
             </p>
-            <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-brand-dark
+            <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-white
               md-tablet:text-[40px] mobile-max:text-[32px] mobile-max:tracking-[-1.5px]">
               Insider Guide<br />to the World
             </h2>
           </div>
           <Link
             href="/blog"
-            className="reveal self-start md:self-end flex items-center gap-2 text-sm font-semibold tracking-[0.08em] uppercase text-brand-dark/60 hover:text-brand-dark transition-colors group"
+            className="reveal self-start md:self-end flex items-center gap-2 text-sm font-semibold tracking-[0.08em] uppercase text-white/60 hover:text-white transition-colors group"
           >
             View All Articles
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
