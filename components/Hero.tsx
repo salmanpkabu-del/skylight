@@ -73,14 +73,14 @@ export default function Hero() {
           <div style={tr(100)}>
             <h1
               className="font-semibold text-white leading-[0.88] tracking-[-0.05em]"
-              style={{ fontSize: "clamp(72px, 11vw, 152px)" }}
+              style={{ fontSize: "clamp(56px, 8.5vw, 112px)" }}
             >
               The World
             </h1>
             <p
               className="leading-[0.88] tracking-[-0.03em] text-brand-green"
               style={{
-                fontSize: "clamp(72px, 11vw, 152px)",
+                fontSize: "clamp(56px, 8.5vw, 112px)",
                 fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
                 fontStyle: "italic",
                 fontWeight: 600,
