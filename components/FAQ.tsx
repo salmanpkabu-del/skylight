@@ -34,13 +34,13 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="bg-brand-section py-20 sm:py-24 lg:py-32 overflow-hidden border-t border-white/10">
+    <section id="faq" className="bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green mb-3">
-            Help Center
-          </span>
-          <h2 className="text-[36px] sm:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-2px] font-semibold text-white">
+        <div className="max-w-3xl mx-auto mb-12 text-center">
+          <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-dark/40 mb-3">
+            Got Questions?
+          </p>
+          <h2 className="text-[52px] leading-[1.05] tracking-[-2.5px] font-semibold text-brand-dark md-tablet:text-[38px] mobile-max:text-[30px] mobile-max:tracking-[-1.5px]">
             Frequently Asked Questions
           </h2>
         </div>
