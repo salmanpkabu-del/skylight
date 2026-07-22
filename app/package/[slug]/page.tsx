@@ -92,8 +92,16 @@ export default async function PackagePage({ params }: Props) {
             quality={100} 
             sizes="100vw" 
           />
+          {/* Dot Pattern Grid Overlay across cover image for texture & contrast */}
+          <div 
+            className="absolute inset-0 pointer-events-none opacity-35 z-[1]" 
+            style={{ 
+              backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.35) 1.2px, transparent 1.2px)", 
+              backgroundSize: "16px 16px" 
+            }} 
+          />
           {/* Subtle bottom gradient overlay ONLY at bottom edge to blend into body content */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#012119] via-[#012119]/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#012119] via-[#012119]/50 to-transparent z-[2]" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
