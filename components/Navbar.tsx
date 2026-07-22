@@ -6,10 +6,10 @@ import Image from "next/image";
 import { Menu, X, MapPin, Mail, Phone } from "lucide-react";
 
 const navItems = [
-  { index: "01", label: "Packages", href: "/packages" },
-  { index: "02", label: "Visas", href: "/visas" },
-  { index: "03", label: "About", href: "/about" },
-  { index: "04", label: "Contact", href: "/contact" },
+  { label: "Packages", href: "/packages" },
+  { label: "Visas", href: "/visas" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -66,11 +66,8 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex items-baseline gap-1.5 group nav-link-underline"
+                className="flex items-baseline group nav-link-underline"
               >
-                <span className="text-[8px] leading-3 tracking-[-0.08px] font-medium uppercase text-white/60">
-                  {item.index}
-                </span>
                 <span className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white">
                   {item.label}
                 </span>
@@ -147,11 +144,8 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="flex items-baseline gap-4 group"
+                      className="flex items-baseline group"
                     >
-                      <span className="text-sm sm:text-base font-medium text-white/40 group-hover:text-brand-green transition-colors">
-                        {item.index}
-                      </span>
                       <span className="text-5xl sm:text-6xl lg:text-7xl font-medium tracking-tight text-white group-hover:text-brand-green transition-colors">
                         {item.label}
                       </span>
