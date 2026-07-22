@@ -89,10 +89,10 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="btn-green w-full py-4 flex items-center justify-center gap-2.5 text-sm font-semibold tracking-[0.1em] uppercase disabled:opacity-60 rounded-lg"
+              className="btn-green w-full py-4 text-sm font-semibold tracking-[0.1em] uppercase disabled:opacity-60 rounded-lg gap-2.5"
             >
               <Send className="w-4 h-4" />
-              {status === "sending" ? "Sending..." : "Send Message"}
+              <span>{status === "sending" ? "Sending..." : "Send Message"}</span>
             </button>
           </form>
         )}

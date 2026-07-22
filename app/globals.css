@@ -128,7 +128,9 @@ body {
 .btn-fill {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #fff;
   color: #fff;
   transition: color 0.4s ease, border-color 0.4s ease;
@@ -155,7 +157,9 @@ body {
 .btn-green {
   position: relative;
   overflow: hidden;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--brand-green);
   color: #000;
   transition: color 0.4s ease;
