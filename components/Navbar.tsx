@@ -58,17 +58,19 @@ export default function Navbar() {
             : "bg-gradient-to-b from-black/75 via-black/30 to-transparent"
         }`}
       >
-        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 py-5 sm:py-6 lg:py-7 flex items-center justify-between">
+        <div className={`w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 flex items-center justify-between ${
+          scrolled ? "py-2.5 sm:py-3" : "py-3.5 sm:py-4"
+        }`}>
           {/* LEFT — nav links desktop */}
           <nav
             aria-label="Primary navigation"
-            className="flex items-center gap-2 tab-mobile:hidden"
+            className="flex items-center gap-1.5 tab-mobile:hidden"
           >
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group relative flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-xs leading-4 tracking-[-0.12px] font-semibold uppercase text-white/85 hover:text-brand-green hover:bg-brand-green/10 hover:border-brand-green/25 hover:shadow-[0_0_20px_rgba(166,238,66,0.15)] transition-all duration-300"
+                className="group relative flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-transparent text-xs leading-4 tracking-[-0.12px] font-semibold uppercase text-white/85 hover:text-brand-green hover:bg-brand-green/10 hover:border-brand-green/25 hover:shadow-[0_0_20px_rgba(166,238,66,0.15)] transition-all duration-300"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-green opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300" />
                 <span>{item.label}</span>
@@ -81,9 +83,11 @@ export default function Navbar() {
             <Image
               src="/skylight.svg"
               alt="Skylight Travel"
-              width={200}
-              height={50}
-              className="h-8 sm:h-9 lg:h-10 w-auto object-contain invert brightness-0 tab-mobile:h-8 transition-all"
+              width={180}
+              height={42}
+              className={`w-auto object-contain invert brightness-0 transition-all ${
+                scrolled ? "h-6 sm:h-7 lg:h-7.5" : "h-7 sm:h-8 lg:h-8"
+              }`}
               priority
             />
           </Link>
