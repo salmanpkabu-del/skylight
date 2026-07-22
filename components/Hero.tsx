@@ -92,10 +92,11 @@ export default function Hero() {
 
           {/* Description */}
           <p
-            className="text-[15px] sm:text-[16px] leading-[1.8] text-white/55 max-w-[380px]"
+            className="text-[15px] sm:text-[16px] leading-[1.8] text-white/55 max-w-[580px]"
             style={tr(200)}
           >
-            Crafting premium holidays and securing seamless visas with genuine care. Trusted by over 5,000 UAE families since 2014.
+            Crafting premium holidays and securing seamless visas with genuine care.<br className="hidden sm:block" />
+            Trusted by over 5,000 UAE families since 2014.
           </p>
 
           {/* CTAs */}
