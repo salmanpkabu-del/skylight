@@ -47,9 +47,9 @@ export const packages: Package[] = [
     rating: 4.9,
     reviewCount: 87,
     groupSize: "2–15",
-    image: "/packages/uzbekistan.png",
+    image: "/packages/uzbekistan-cover.jpg",
     gallery: [
-      "/packages/uzbekistan.png",
+      "/packages/uzbekistan-cover.jpg",
       "/packages/uzbekistan-bazaar.jpg",
       "/packages/uzbekistan-mausoleum.jpg",
     ],
