@@ -205,36 +205,44 @@ export default async function PackagePage({ params }: Props) {
                   </span>
                 </div>
 
-                <div className="relative border-l-2 border-brand-green/20 ml-5 sm:ml-6 pl-6 sm:pl-8 space-y-6">
-                  {pkg.itinerary.map((day) => (
-                    <details 
-                      key={day.day} 
-                      className="group bg-brand-card/80 border border-white/10 rounded-2xl overflow-hidden hover:border-brand-green/40 transition-all duration-300"
-                      open={day.day === 1}
-                    >
-                      <summary className="flex items-center justify-between p-6 cursor-pointer list-none select-none">
-                        <div className="flex items-center gap-4">
-                          {/* Timeline node */}
-                          <div className="absolute -left-[35px] sm:-left-[43px] w-8 h-8 rounded-full bg-brand-green text-black font-bold text-xs flex items-center justify-center shadow-[0_0_15px_rgba(166,238,66,0.3)]">
-                            {day.day}
-                          </div>
-                          <div>
-                            <span className="text-[10px] font-bold tracking-widest uppercase text-brand-green block mb-0.5">
-                              Day 0{day.day}
-                            </span>
-                            <h3 className="font-semibold text-white text-base sm:text-lg leading-snug">
-                              {day.title}
-                            </h3>
-                          </div>
+                <div className="space-y-0">
+                  {pkg.itinerary.map((day, idx) => (
+                    <div key={day.day} className="flex gap-5 sm:gap-6">
+                      {/* Left: Number + Connector Line */}
+                      <div className="flex flex-col items-center flex-shrink-0 w-10">
+                        <div className="w-10 h-10 rounded-full bg-brand-green text-black font-bold text-sm flex items-center justify-center shadow-[0_0_15px_rgba(166,238,66,0.3)] z-10 flex-shrink-0">
+                          {day.day}
                         </div>
-                        <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-brand-green/10 flex items-center justify-center text-white/60 group-hover:text-brand-green transition-all">
-                          <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform duration-300" />
-                        </div>
-                      </summary>
-                      <div className="px-6 pb-6 pt-1 text-sm leading-relaxed text-white/70 border-t border-white/5">
-                        <p>{day.description}</p>
+                        {idx < pkg.itinerary.length - 1 && (
+                          <div className="w-px flex-1 bg-brand-green/20 my-2" />
+                        )}
                       </div>
-                    </details>
+
+                      {/* Right: Card */}
+                      <div className={`flex-1 ${idx < pkg.itinerary.length - 1 ? "pb-5" : ""}`}>
+                        <details
+                          className="group bg-brand-card/80 border border-white/10 rounded-2xl overflow-hidden hover:border-brand-green/40 transition-all duration-300"
+                          open={day.day === 1}
+                        >
+                          <summary className="flex items-center justify-between p-5 sm:p-6 cursor-pointer list-none select-none">
+                            <div>
+                              <span className="text-[10px] font-bold tracking-widest uppercase text-brand-green block mb-1">
+                                Day 0{day.day}
+                              </span>
+                              <h3 className="font-semibold text-white text-base sm:text-lg leading-snug">
+                                {day.title}
+                              </h3>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-white/5 group-hover:bg-brand-green/10 flex items-center justify-center text-white/60 group-hover:text-brand-green transition-all flex-shrink-0 ml-4">
+                              <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform duration-300" />
+                            </div>
+                          </summary>
+                          <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-sm leading-relaxed text-white/70 border-t border-white/5">
+                            <p>{day.description}</p>
+                          </div>
+                        </details>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
