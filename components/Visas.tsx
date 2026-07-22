@@ -42,7 +42,11 @@ export default function Visas() {
               className="flex-shrink-0 w-[280px] bg-brand-dark text-white p-7 flex flex-col gap-4 card-hover cursor-pointer"
             >
               <div className="flex items-center justify-between">
-                <span className="text-5xl">{visa.flag}</span>
+                <img
+                  src={`https://flagcdn.com/w80/${visa.code}.png`}
+                  alt={`${visa.country} flag`}
+                  className="w-10 h-7 object-cover rounded shadow-sm"
+                />
                 <span
                   className={`text-[10px] font-semibold tracking-[0.08em] uppercase px-2.5 py-1 ${
                     visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival")

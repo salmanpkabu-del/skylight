@@ -4,6 +4,7 @@ export interface Visa {
   id: string;
   country: string;
   flag: string;
+  code: string;
   processingTime: string;
   validity: string;
   type: string;
@@ -17,6 +18,7 @@ export const visas: Visa[] = [
     id: "usa",
     country: "United States",
     flag: "🇺🇸",
+    code: "us",
     processingTime: "15–30 days",
     validity: "10 years",
     type: "B1/B2 Tourist",
@@ -28,6 +30,7 @@ export const visas: Visa[] = [
     id: "schengen",
     country: "Schengen (Europe)",
     flag: "🇪🇺",
+    code: "eu",
     processingTime: "10–15 days",
     validity: "90 days / 2 years",
     type: "Short-Stay C Visa",
@@ -39,6 +42,7 @@ export const visas: Visa[] = [
     id: "new-zealand",
     country: "New Zealand",
     flag: "🇳🇿",
+    code: "nz",
     processingTime: "7–10 days",
     validity: "Multiple entries",
     type: "Visitor Visa",
@@ -50,6 +54,7 @@ export const visas: Visa[] = [
     id: "armenia",
     country: "Armenia",
     flag: "🇦🇲",
+    code: "am",
     processingTime: "On Arrival / 3 days",
     validity: "120 days",
     type: "Tourist Visa",
@@ -61,6 +66,7 @@ export const visas: Visa[] = [
     id: "azerbaijan",
     country: "Azerbaijan",
     flag: "🇦🇿",
+    code: "az",
     processingTime: "3–5 days",
     validity: "30 days",
     type: "e-Visa",
@@ -72,6 +78,7 @@ export const visas: Visa[] = [
     id: "albania",
     country: "Albania",
     flag: "🇦🇱",
+    code: "al",
     processingTime: "Visa-Free",
     validity: "90 days",
     type: "Visa-Free Entry",
@@ -83,6 +90,7 @@ export const visas: Visa[] = [
     id: "uzbekistan",
     country: "Uzbekistan",
     flag: "🇺🇿",
+    code: "uz",
     processingTime: "2–3 days",
     validity: "30 days",
     type: "e-Visa",
@@ -94,6 +102,7 @@ export const visas: Visa[] = [
     id: "georgia",
     country: "Georgia",
     flag: "🇬🇪",
+    code: "ge",
     processingTime: "Visa-Free",
     validity: "365 days",
     type: "Visa-Free Entry",

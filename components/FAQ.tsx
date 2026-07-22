@@ -36,7 +36,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
       <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mx-auto mb-12 text-center">
           <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-dark/40 mb-3">
             Got Questions?
           </p>
@@ -45,7 +45,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="max-w-3xl space-y-4">
+        <div className="max-w-3xl mx-auto space-y-4">
           {homepageFaqs.map((faq, i) => (
             <div
               key={i}

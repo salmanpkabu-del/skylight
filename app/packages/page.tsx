@@ -120,10 +120,10 @@ export default function PackagesPage() {
       {/* FAQ Section for AEO */}
       <section className="bg-white py-20 mobile-max:py-12">
         <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
-          <h2 className="text-[40px] tracking-[-2px] font-semibold text-brand-dark mb-10 mobile-max:text-3xl">
+          <h2 className="text-[40px] tracking-[-2px] font-semibold text-brand-dark mb-10 mobile-max:text-3xl text-center">
             Frequently Asked Questions
           </h2>
-          <div className="space-y-6 max-w-3xl">
+          <div className="space-y-6 max-w-3xl mx-auto">
             {faqSchema.mainEntity.map((faq, i) => (
               <div key={i} className="border-b border-brand-dark/10 pb-6">
                 <h3 className="text-lg font-semibold text-brand-dark mb-2">{faq.name}</h3>

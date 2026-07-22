@@ -117,7 +117,11 @@ export default function VisasPage() {
                 className="flex flex-col gap-5 p-7 bg-brand-card border border-white/10 hover:border-brand-green/40 transition-colors duration-300 group"
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-5xl">{visa.flag}</span>
+                  <img
+                    src={`https://flagcdn.com/w80/${visa.code}.png`}
+                    alt={`${visa.country} flag`}
+                    className="w-10 h-7 object-cover rounded shadow-sm"
+                  />
                   <span className={`text-[10px] font-semibold tracking-[0.08em] uppercase px-2.5 py-1 ${
                     visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival")
                       ? "bg-brand-green text-black"
@@ -161,8 +165,8 @@ export default function VisasPage() {
       {/* FAQ */}
       <section className="bg-white py-20 mobile-max:py-12">
         <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
-          <h2 className="text-[40px] tracking-[-2px] font-semibold text-brand-dark mb-10 mobile-max:text-3xl">Visa FAQs</h2>
-          <div className="space-y-6 max-w-3xl">
+          <h2 className="text-[40px] tracking-[-2px] font-semibold text-brand-dark mb-10 mobile-max:text-3xl text-center">Visa FAQs</h2>
+          <div className="space-y-6 max-w-3xl mx-auto">
             {visaFaqSchema.mainEntity.map((faq, i) => (
               <div key={i} className="border-b border-brand-dark/10 pb-6">
                 <h3 className="text-lg font-semibold text-brand-dark mb-2">{faq.name}</h3>
