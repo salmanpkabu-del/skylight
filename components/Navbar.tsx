@@ -60,17 +60,16 @@ export default function Navbar() {
           {/* LEFT — nav links desktop */}
           <nav
             aria-label="Primary navigation"
-            className="flex items-center gap-7 tab-mobile:hidden"
+            className="flex items-center gap-2 tab-mobile:hidden"
           >
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="flex items-baseline group nav-link-underline"
+                className="group relative flex items-center gap-2 px-4 py-2 rounded-full border border-transparent text-xs leading-4 tracking-[-0.12px] font-semibold uppercase text-white/85 hover:text-brand-green hover:bg-brand-green/10 hover:border-brand-green/25 hover:shadow-[0_0_20px_rgba(166,238,66,0.15)] transition-all duration-300"
               >
-                <span className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white">
-                  {item.label}
-                </span>
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-green opacity-0 group-hover:opacity-100 scale-0 group-hover:scale-100 transition-all duration-300" />
+                <span>{item.label}</span>
               </Link>
             ))}
           </nav>
@@ -91,7 +90,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6 text-right tab-mobile:hidden">
             <a
               href="mailto:info@skylighttravels.com"
-              className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white nav-link-underline"
+              className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/80 hover:text-brand-green transition-colors duration-300"
             >
               info@skylighttravels.com
             </a>
