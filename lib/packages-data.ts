@@ -50,8 +50,8 @@ export const packages: Package[] = [
     image: "/packages/uzbekistan.png",
     gallery: [
       "/packages/uzbekistan.png",
-      "https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=800&q=80",
-      "https://images.unsplash.com/photo-1528728329032-2972f65dfb3f?w=800&q=80",
+      "/packages/uzbekistan-bazaar.jpg",
+      "/packages/uzbekistan-mausoleum.jpg",
     ],
     badge: "Best Seller",
     highlights: ["Registan Square", "Khast Imam Complex (Oldest Quran)", "Chorsu Bazaar", "High-speed Afrosiyob Train", "Artistic Tashkent Metro"],
