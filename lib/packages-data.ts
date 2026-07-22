@@ -97,7 +97,6 @@ export const packages: Package[] = [
     reviewCount: 64,
     groupSize: "2–12",
     image: "/packages/armenia.png",
-    gallery: ["/packages/armenia.png"],
     badge: "Cultural Gem",
     highlights: ["Geghard Monastery", "Garni Temple", "Lake Sevan", "Tatev Monastery", "Yerevan Cascade"],
     inclusions: [
@@ -117,6 +116,11 @@ export const packages: Package[] = [
       { day: 5, title: "Dilijan Forest Town", description: "Explore Armenia's 'Switzerland' — the lush Dilijan nature reserve and old town workshops." },
       { day: 6, title: "Tatev Monastery", description: "Ride the world's longest non-stop double track cable car to the dramatic Tatev Monastery." },
       { day: 7, title: "Departure", description: "Morning free time in Yerevan. Transfer to Zvartnots Airport for return flight." },
+    ],
+    gallery: [
+      "/packages/armenia.png",
+      "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&q=80",
     ],
     faqs: [
       { q: "Is Armenia visa-free for UAE residents?", a: "UAE passport holders can enter Armenia visa-free. We provide full assistance for other nationalities." },
@@ -138,7 +142,11 @@ export const packages: Package[] = [
     reviewCount: 142,
     groupSize: "2–20",
     image: "/packages/thailand.png",
-    gallery: ["/packages/thailand.png"],
+    gallery: [
+      "/packages/thailand.png",
+      "https://images.unsplash.com/photo-1506665531195-3566af294710?w=800&q=80",
+      "https://images.unsplash.com/photo-1528181304800-259b08848526?w=800&q=80",
+    ],
     badge: "Most Popular",
     highlights: ["Grand Palace Bangkok", "Phi Phi Islands", "Elephant Sanctuary", "Floating Markets", "Patong Beach"],
     inclusions: [
@@ -181,7 +189,11 @@ export const packages: Package[] = [
     reviewCount: 98,
     groupSize: "2–15",
     image: "/packages/georgia.png",
-    gallery: ["/packages/georgia.png"],
+    gallery: [
+      "/packages/georgia.png",
+      "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80",
+      "https://images.unsplash.com/photo-1579893976378-0cf7503f8a48?w=800&q=80",
+    ],
     badge: "Trending",
     highlights: ["Gergeti Trinity Church", "Mtskheta Old City", "Sighnaghi Wine Town", "Narikala Fortress", "Kakheti Wine Tour"],
     inclusions: [
@@ -221,7 +233,11 @@ export const packages: Package[] = [
     reviewCount: 76,
     groupSize: "2–12",
     image: "/packages/azerbaijan.png",
-    gallery: ["/packages/azerbaijan.png"],
+    gallery: [
+      "/packages/azerbaijan.png",
+      "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80",
+      "https://images.unsplash.com/photo-1578632767115-351597cf2477?w=800&q=80",
+    ],
     badge: "Value Pick",
     highlights: ["Flame Towers", "Old City (Icheri Sheher)", "Gobustan Mud Volcanoes", "Ateshgah Fire Temple", "Heydar Aliyev Centre"],
     inclusions: [
@@ -261,7 +277,11 @@ export const packages: Package[] = [
     reviewCount: 115,
     groupSize: "2–20",
     image: "/packages/india.png",
-    gallery: ["/packages/india.png"],
+    gallery: [
+      "/packages/india.png",
+      "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80",
+      "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?w=800&q=80",
+    ],
     badge: "Family Favourite",
     highlights: ["Houseboat Stay", "Munnar Tea Gardens", "Periyar Wildlife", "Kovalam Beach", "Kathakali Dance"],
     inclusions: [

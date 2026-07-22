@@ -79,64 +79,110 @@ export default async function PackagePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[580px] lg:min-h-[640px] bg-[#012119] pt-32 pb-16 overflow-hidden flex items-end">
-        {/* Background Image with Dark Vignette */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src={pkg.image} 
-            alt={pkg.name} 
-            fill 
-            className="object-cover opacity-45 scale-105 transition-transform duration-1000" 
-            priority 
-            quality={90} 
-            sizes="100vw" 
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#012119] via-[#012119]/70 to-[#012119]/40" />
-        </div>
+      {/* Hero Section — Premium Split Editorial Layout */}
+      <section className="relative bg-[#012119] pt-32 pb-12 lg:pb-16 overflow-hidden">
+        {/* Subtle Ambient Glow background */}
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-brand-green/10 rounded-full blur-[140px] pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
           {/* Back Link & Breadcrumb */}
           <Link 
             href="/packages" 
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white/70 text-xs font-semibold uppercase tracking-wider hover:bg-white/20 hover:text-white transition-all mb-8 border border-white/10"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 backdrop-blur-md text-white/70 text-xs font-semibold uppercase tracking-wider hover:bg-white/10 hover:text-white transition-all mb-8 border border-white/10"
           >
             <ArrowLeft className="w-3.5 h-3.5" /> All Holiday Packages
           </Link>
 
-          <div className="max-w-3xl">
-            {/* Badges */}
-            <div className="flex items-center flex-wrap gap-3 mb-4">
-              <span className="bg-brand-green text-black text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full shadow-[0_0_15px_rgba(166,238,66,0.3)]">
-                {pkg.badge}
-              </span>
-              <span className="flex items-center gap-1.5 text-xs text-white/80 font-medium px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
-                <MapPin className="w-3.5 h-3.5 text-brand-green" /> {pkg.country}
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Info Column */}
+            <div className="lg:col-span-7">
+              {/* Badges */}
+              <div className="flex items-center flex-wrap gap-3 mb-5">
+                <span className="bg-brand-green text-black text-[10px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full shadow-[0_0_15px_rgba(166,238,66,0.3)]">
+                  {pkg.badge}
+                </span>
+                <span className="flex items-center gap-1.5 text-xs text-white/90 font-medium px-3.5 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm">
+                  <MapPin className="w-3.5 h-3.5 text-brand-green" /> {pkg.country} ({pkg.destination})
+                </span>
+              </div>
+
+              {/* Title & Tagline */}
+              <h1 className="text-[44px] sm:text-[56px] lg:text-[64px] leading-[1.05] tracking-[-2px] font-semibold text-white mb-4">
+                {pkg.name}
+              </h1>
+              <p className="text-base sm:text-lg text-white/75 leading-relaxed font-light mb-8 max-w-xl">
+                {pkg.tagline}
+              </p>
+
+              {/* Key Quick Info Pills */}
+              <div className="flex flex-wrap gap-3 text-xs font-medium text-white/90 mb-8">
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
+                  <Clock className="w-4 h-4 text-brand-green" />
+                  <span>{pkg.duration}</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
+                  <Users className="w-4 h-4 text-brand-green" />
+                  <span>Group: {pkg.groupSize}</span>
+                </div>
+                <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
+                  <Star className="w-4 h-4 fill-brand-green text-brand-green" />
+                  <span>{pkg.rating} <span className="text-white/40">({pkg.reviewCount} reviews)</span></span>
+                </div>
+              </div>
+
+              {/* Quick Action in Hero */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href={`https://wa.me/971582738508?text=Hi%20Skylight!%20I'm%20interested%20in%20the%20${encodeURIComponent(pkg.name)}%20package.`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 bg-brand-green text-black px-7 py-3.5 rounded-xl font-bold text-xs tracking-[0.1em] uppercase hover:bg-white transition-all duration-300 shadow-[0_0_25px_rgba(166,238,66,0.25)]"
+                >
+                  <MessageCircle className="w-4 h-4 fill-black" /> Book via WhatsApp
+                </a>
+                <div className="text-xs text-white/60">
+                  Starting from <strong className="text-white text-sm font-bold ml-1">{pkg.currency} {pkg.price.toLocaleString()}</strong>
+                </div>
+              </div>
             </div>
 
-            {/* Title & Tagline */}
-            <h1 className="text-[52px] sm:text-[64px] lg:text-[72px] leading-[1.02] tracking-[-2.5px] font-semibold text-white mb-4">
-              {pkg.name}
-            </h1>
-            <p className="text-lg sm:text-xl text-white/80 leading-relaxed font-light mb-8 max-w-2xl">
-              {pkg.tagline}
-            </p>
+            {/* Right Featured Image Showcase */}
+            <div className="lg:col-span-5">
+              <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-brand-card group">
+                <div className="relative h-[340px] sm:h-[400px] w-full">
+                  <Image 
+                    src={pkg.image} 
+                    alt={pkg.name} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-[var(--ease-spring)]" 
+                    priority 
+                    quality={95} 
+                    sizes="(max-width: 1024px) 100vw, 40vw" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#012119]/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-white bg-black/40 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10">
+                    <span className="font-semibold">Featured Destination</span>
+                    <span className="text-brand-green font-mono text-[11px]">{pkg.country}</span>
+                  </div>
+                </div>
+              </div>
 
-            {/* Key Quick Info Pills */}
-            <div className="flex flex-wrap gap-3 sm:gap-4 text-xs font-medium text-white/80">
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
-                <Clock className="w-4 h-4 text-brand-green" />
-                <span>{pkg.duration}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
-                <Users className="w-4 h-4 text-brand-green" />
-                <span>Group Size: {pkg.groupSize}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl">
-                <Star className="w-4 h-4 fill-brand-green text-brand-green" />
-                <span>{pkg.rating} <span className="text-white/40">({pkg.reviewCount} reviews)</span></span>
-              </div>
+              {/* Destination Gallery Thumbnails */}
+              {pkg.gallery && pkg.gallery.length > 0 && (
+                <div className="grid grid-cols-3 gap-3 mt-3">
+                  {pkg.gallery.slice(0, 3).map((imgUrl, i) => (
+                    <div key={i} className="relative h-20 sm:h-24 rounded-xl overflow-hidden border border-white/10 bg-brand-card group">
+                      <Image 
+                        src={imgUrl} 
+                        alt={`${pkg.name} view ${i + 1}`} 
+                        fill 
+                        className="object-cover group-hover:scale-110 transition-transform duration-500" 
+                        sizes="15vw" 
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
