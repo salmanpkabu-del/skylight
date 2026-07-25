@@ -61,6 +61,10 @@ export default async function PackagePage({ params }: Props) {
       ratingValue: pkg.rating,
       reviewCount: pkg.reviewCount,
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".tldr-summary", "h1"],
+    },
   };
 
   const breadcrumbJsonLd = {
@@ -204,6 +208,16 @@ export default async function PackagePage({ params }: Props) {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Answer-First (TL;DR) Summary Box for AEO & Voice Assistants */}
+              <div className="tldr-summary bg-gradient-to-r from-brand-green/15 via-brand-green/5 to-transparent border-l-4 border-brand-green p-6 sm:p-8 rounded-2xl border border-white/10 my-10">
+                <div className="flex items-center gap-2 text-brand-green text-xs font-bold tracking-[0.2em] uppercase mb-3">
+                  <Zap className="w-4 h-4 fill-brand-green" /> Quick Answer (TL;DR) for UAE Residents
+                </div>
+                <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
+                  The <strong>{pkg.name}</strong> holiday package from Skylight Travel Sharjah is a <strong>{pkg.duration}</strong> trip starting from <strong>{pkg.currency} {pkg.price.toLocaleString()}</strong> per person. Key inclusions feature 4-star hotel accommodations, daily breakfast, airport transfers, and guided excursions to top highlights like <strong>{pkg.highlights.slice(0, 3).join(", ")}</strong>. UAE residents benefit from <strong>fast-track e-Visa or visa-on-arrival guidance</strong> tailored to your passport nationality.
+                </p>
               </div>
 
               {/* Day-by-Day Itinerary with Timeline */}

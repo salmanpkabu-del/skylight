@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Holiday Packages from UAE 2025 | Skylight Travel",
     description: "Custom holiday packages from Sharjah & Dubai. Uzbekistan, Thailand, Georgia and more from AED 1,699.",
+    url: "https://skylighttravel.ae/packages",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skylight Travel Holiday Packages UAE" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Holiday Packages from UAE 2025 | Skylight Travel",
+    description: "Custom holiday packages from Sharjah & Dubai from AED 1,699/person.",
   },
 };
 
@@ -57,10 +64,35 @@ const faqSchema = {
   ],
 };
 
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Custom Holiday Packages from UAE",
+  description: "Curated holiday packages from Sharjah & Dubai including flights, hotels, and tours.",
+  numberOfItems: packages.length,
+  itemListElement: packages.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `https://skylighttravel.ae/package/${p.slug}`,
+    name: `${p.name} Package`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
+    { "@type": "ListItem", position: 2, name: "Holiday Packages", item: "https://skylighttravel.ae/packages" },
+  ],
+};
+
 export default function PackagesPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
 
       {/* Hero Section — Dark Luxury Theme */}

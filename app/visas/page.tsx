@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, ArrowRight, Sparkles, ArrowLeft, ShieldCheck, Clock, FileText, CheckCircle2, MessageCircle, HelpCircle } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, ArrowLeft, ShieldCheck, Clock, FileText, CheckCircle2, MessageCircle, HelpCircle, Zap } from "lucide-react";
 import { visas } from "@/lib/visas-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -11,6 +12,17 @@ export const metadata: Metadata = {
   description:
     "Expert visa assistance for UAE residents. We handle Schengen, USA, UK, Armenia, Georgia, Azerbaijan and more. Full documentation & VFS appointment support from Sharjah.",
   alternates: { canonical: "https://skylighttravel.ae/visas" },
+  openGraph: {
+    title: "Visa Assistance from UAE | Schengen, USA, UK & More",
+    description: "Expert visa assistance for UAE residents. Schengen, USA, UK, Japan & Silk Road e-Visas. 99.4% approval rate.",
+    url: "https://skylighttravel.ae/visas",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skylight Travel Visa Assistance UAE" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Visa Assistance from UAE | Skylight Travel",
+    description: "Expert visa processing for UAE residents with 99.4% approval rate.",
+  },
 };
 
 const visaSteps = [
@@ -59,10 +71,35 @@ const visaFaqSchema = {
   ],
 };
 
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Express Visa Processing Services in UAE",
+  description: "Comprehensive visa processing and VFS appointment assistance for UAE residents.",
+  numberOfItems: visas.length,
+  itemListElement: visas.map((v, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `https://skylighttravel.ae/visas/${v.id}`,
+    name: `${v.country} Visa Assistance`,
+  })),
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
+    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://skylighttravel.ae/visas" },
+  ],
+};
+
 export default function VisasPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(visaFaqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
 
       {/* Hero Section — Dark Luxury Theme */}
@@ -135,57 +172,83 @@ export default function VisasPage() {
         </div>
       </section>
 
-      {/* Visa Cards Grid Section */}
-      <section className="bg-brand-section py-20 lg:py-28 border-t border-white/10">
+      {/* Answer-First (TL;DR) Summary Banner for AEO */}
+      <section className="bg-brand-section py-12 border-t border-white/10">
         <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="bg-gradient-to-r from-brand-green/15 via-brand-green/5 to-transparent border-l-4 border-brand-green p-6 sm:p-8 rounded-2xl border border-white/10">
+            <div className="flex items-center gap-2 text-brand-green text-xs font-bold tracking-[0.2em] uppercase mb-3">
+              <Zap className="w-4 h-4 fill-brand-green" /> Quick Answer (TL;DR) for UAE Residents
+            </div>
+            <p className="text-base sm:text-lg text-white/90 leading-relaxed font-normal">
+              Skylight Travel Sharjah provides complete visa assistance for UAE residents traveling to over 100 destinations. Whether you require an express <strong>e-Visa (Uzbekistan, Azerbaijan, Thailand)</strong>, visa-free travel guidance <strong>(Georgia, Armenia, Albania)</strong>, or full consular appointment and document preparation for sticker visas <strong>(Schengen, USA, UK)</strong>, our specialists maintain a <strong>99.4% approval rate</strong> with zero hidden fees.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Visa Cards Grid Section */}
+      <section className="bg-brand-section py-16 lg:py-24 border-t border-white/10">
+        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="mb-12">
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-green mb-2">Our Visa Services</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+              Select Your Destination
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {visas.map((visa) => (
               <div
                 key={visa.id}
-                className="flex flex-col gap-5 p-7 bg-brand-card/90 border border-white/10 rounded-2xl hover:border-brand-green/40 hover:shadow-[0_0_30px_rgba(166,238,66,0.15)] transition-all duration-300 group"
+                className="flex flex-col justify-between p-7 bg-brand-card/90 border border-white/10 rounded-2xl hover:border-brand-green/40 hover:shadow-[0_0_30px_rgba(166,238,66,0.15)] transition-all duration-300 group"
               >
-                {/* Header: Flag + Tag */}
-                <div className="flex items-center justify-between">
-                  <img
-                    src={`https://flagcdn.com/w80/${visa.code}.png`}
-                    alt={`${visa.country} flag`}
-                    className="w-10 h-7 object-cover rounded shadow-sm border border-white/10"
-                  />
-                  <span className={`text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full ${
-                    visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival")
-                      ? "bg-brand-green text-black shadow-[0_0_15px_rgba(166,238,66,0.25)]"
-                      : "bg-white/10 text-white/80 border border-white/10"
-                  }`}>
-                    {visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival") ? "Visa Free" : visa.processingTime}
-                  </span>
-                </div>
+                <Link href={`/visas/${visa.id}`} className="block space-y-5 focus:outline-none">
+                  {/* Header: Flag + Tag */}
+                  <div className="flex items-center justify-between">
+                    <Image
+                      src={`https://flagcdn.com/w80/${visa.code}.png`}
+                      alt={`${visa.country} flag`}
+                      width={40}
+                      height={28}
+                      className="w-10 h-7 object-cover rounded shadow-sm border border-white/10"
+                    />
+                    <span className={`text-[10px] font-bold tracking-[0.1em] uppercase px-3 py-1 rounded-full ${
+                      visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival")
+                        ? "bg-brand-green text-black shadow-[0_0_15px_rgba(166,238,66,0.25)]"
+                        : "bg-white/10 text-white/80 border border-white/10"
+                    }`}>
+                      {visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival") ? "Visa Free" : visa.processingTime}
+                    </span>
+                  </div>
 
-                <div>
-                  <h2 className="text-xl font-semibold text-white group-hover:text-brand-green transition-colors">
-                    {visa.country}
-                  </h2>
-                  <p className="text-xs text-white/50 font-light mt-0.5">{visa.type}</p>
-                </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white group-hover:text-brand-green transition-colors flex items-center justify-between">
+                      <span>{visa.country}</span>
+                      <span className="text-xs text-brand-green opacity-0 group-hover:opacity-100 transition-opacity font-normal">View →</span>
+                    </h3>
+                    <p className="text-xs text-white/50 font-light mt-0.5">{visa.type}</p>
+                  </div>
 
-                <p className="text-xs leading-relaxed text-white/65 font-light">
-                  {visa.description}
-                </p>
+                  <p className="text-xs leading-relaxed text-white/65 font-light">
+                    {visa.description}
+                  </p>
 
-                {/* Requirements */}
-                <div className="space-y-2 pt-2 border-t border-white/5">
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Requirements</p>
-                  <ul className="space-y-1.5">
-                    {visa.requirements.slice(0, 3).map((r) => (
-                      <li key={r} className="flex items-center gap-2 text-xs text-white/70">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-green flex-shrink-0" />
-                        <span>{r}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Requirements */}
+                  <div className="space-y-2 pt-2 border-t border-white/5">
+                    <p className="text-[10px] font-semibold uppercase tracking-widest text-white/40">Requirements</p>
+                    <ul className="space-y-1.5">
+                      {visa.requirements.slice(0, 3).map((r) => (
+                        <li key={r} className="flex items-center gap-2 text-xs text-white/70">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-brand-green flex-shrink-0" />
+                          <span>{r}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Link>
 
                 {/* Footer: Price + WhatsApp CTA */}
-                <div className="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                <div className="mt-6 flex items-center justify-between pt-4 border-t border-white/5">
                   <div>
                     <p className="text-[10px] text-white/40 tracking-wider uppercase">Fee Starts</p>
                     <p className="text-lg font-bold text-brand-green">{visa.price}</p>
@@ -201,6 +264,64 @@ export default function VisasPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comprehensive Visa Comparison Table for LLM & AEO Scraping */}
+      <section className="bg-[#01251d] py-20 border-t border-white/10">
+        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="max-w-3xl mb-12">
+            <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-green mb-2">Compare Destinations</p>
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white tracking-tight">
+              UAE Resident Visa Requirements & Fees
+            </h2>
+            <p className="text-sm text-white/70 mt-2 font-light">
+              Side-by-side comparison of processing timelines and entry requirements for UAE residents.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-brand-card/90 shadow-2xl">
+            <table className="w-full text-left border-collapse min-w-[800px]">
+              <thead>
+                <tr className="border-b border-white/10 bg-white/5 text-xs font-bold uppercase tracking-wider text-brand-green">
+                  <th className="p-5">Destination</th>
+                  <th className="p-5">Visa Type</th>
+                  <th className="p-5">Processing Time</th>
+                  <th className="p-5">Starting Fee</th>
+                  <th className="p-5">Residency Requirement</th>
+                  <th className="p-5 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/5 text-sm text-white/80 font-light">
+                {visas.map((v) => (
+                  <tr key={v.id} className="hover:bg-white/[0.03] transition-colors">
+                    <td className="p-5 font-semibold text-white flex items-center gap-3">
+                      <span className="text-xl">{v.flag}</span>
+                      <Link href={`/visas/${v.id}`} className="hover:text-brand-green transition-colors underline decoration-white/20 underline-offset-4">
+                        {v.country}
+                      </Link>
+                    </td>
+                    <td className="p-5">{v.type}</td>
+                    <td className="p-5">
+                      <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/90">
+                        {v.processingTime}
+                      </span>
+                    </td>
+                    <td className="p-5 font-bold text-brand-green">{v.price}</td>
+                    <td className="p-5 text-xs text-white/60">Valid UAE Residency (3+ Months)</td>
+                    <td className="p-5 text-right">
+                      <Link
+                        href={`/visas/${v.id}`}
+                        className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-brand-green hover:text-white transition-colors"
+                      >
+                        Details →
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock } from "lucide-react";
 import { visas } from "@/lib/visas-data";
 
@@ -37,14 +38,17 @@ export default function Visas() {
           style={{ width: "max-content" }}
         >
           {allVisas.map((visa, i) => (
-            <div
+            <Link
               key={`${visa.id}-${i}`}
-              className="flex-shrink-0 w-[280px] bg-brand-dark text-white p-7 flex flex-col gap-4 card-hover cursor-pointer"
+              href={`/visas/${visa.id}`}
+              className="flex-shrink-0 w-[280px] bg-brand-dark text-white p-7 flex flex-col gap-4 card-hover cursor-pointer block group focus:outline-none"
             >
               <div className="flex items-center justify-between">
-                <img
+                <Image
                   src={`https://flagcdn.com/w80/${visa.code}.png`}
                   alt={`${visa.country} flag`}
+                  width={40}
+                  height={28}
                   className="w-10 h-7 object-cover rounded shadow-sm"
                 />
                 <span
@@ -60,7 +64,10 @@ export default function Visas() {
                 </span>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-white">{visa.country}</h3>
+                <h3 className="text-lg font-semibold text-white group-hover:text-brand-green transition-colors flex items-center justify-between">
+                  <span>{visa.country}</span>
+                  <span className="text-xs text-brand-green opacity-0 group-hover:opacity-100 transition-opacity font-normal">View →</span>
+                </h3>
                 <p className="text-sm text-white/50 mt-0.5">{visa.type}</p>
               </div>
               <div className="flex items-center gap-2 text-xs text-white/40">
@@ -68,15 +75,18 @@ export default function Visas() {
                 <span>{visa.processingTime}</span>
               </div>
               <p className="text-sm text-white/60 leading-6">{visa.description}</p>
-              <div className="text-brand-green text-xl font-semibold mt-auto">{visa.price}</div>
-            </div>
+              <div className="text-brand-green text-xl font-semibold mt-auto flex items-center justify-between">
+                <span>{visa.price}</span>
+                <span className="text-xs text-white/60 font-normal uppercase tracking-wider group-hover:text-white transition-colors">Apply</span>
+              </div>
+            </Link>
           ))}
         </div>
 
         {/* Left fade */}
-        <div className="absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 h-full w-8 sm:w-16 md:w-24 lg:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         {/* Right fade */}
-        <div className="absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-8 sm:w-16 md:w-24 lg:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* CTA */}

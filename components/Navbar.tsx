@@ -95,10 +95,10 @@ export default function Navbar() {
           {/* RIGHT — email + clock desktop */}
           <div className="flex items-center gap-6 text-right tab-mobile:hidden">
             <a
-              href="mailto:info@skylighttravels.com"
+              href="mailto:info@skylighttourism.com"
               className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/80 hover:text-brand-green transition-colors duration-300 drop-shadow-sm"
             >
-              info@skylighttravels.com
+              info@skylighttourism.com
             </a>
             <span
               className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/60 tabular-nums drop-shadow-sm"
@@ -171,9 +171,9 @@ export default function Navbar() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-white/70">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xs uppercase tracking-widest text-white/40 font-semibold mb-2">Get in touch</h3>
-                  <a href="mailto:info@skylighttravels.com" className="flex items-center gap-3 hover:text-brand-green transition-colors w-fit">
+                  <a href="mailto:info@skylighttourism.com" className="flex items-center gap-3 hover:text-brand-green transition-colors w-fit">
                     <Mail size={18} />
-                    <span className="text-sm sm:text-base">info@skylighttravels.com</span>
+                    <span className="text-sm sm:text-base">info@skylighttourism.com</span>
                   </a>
                   <a href="tel:+971582738508" className="flex items-center gap-3 hover:text-brand-green transition-colors w-fit">
                     <Phone size={18} />

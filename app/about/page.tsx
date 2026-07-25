@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { 
   Check, Users, Award, MapPin, Phone, MessageCircle, 
-  ShieldCheck, Sparkles, Clock, Globe, ArrowLeft, Star, HeartHandshake
+  ShieldCheck, Sparkles, Clock, ArrowLeft, HeartHandshake
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,38 @@ export const metadata: Metadata = {
   description:
     "Learn about Skylight Travel — Sharjah's trusted travel agency with 10+ years experience, 5,000+ happy UAE families, and dedicated consultants in Al Sajaa. Your journey, our passion.",
   alternates: { canonical: "https://skylighttravel.ae/about" },
+  openGraph: {
+    title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
+    description: "Sharjah's trusted travel agency with 10+ years experience and 5,000+ happy UAE families.",
+    url: "https://skylighttravel.ae/about",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "About Skylight Travel Sharjah UAE" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Skylight Travel | Sharjah UAE",
+    description: "Sharjah's trusted travel agency with 10+ years experience.",
+  },
+};
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Skylight Travel UAE",
+  description: "Sharjah's premier travel agency with 10+ years of experience and 5,000+ happy UAE families served.",
+  publisher: {
+    "@type": "TravelAgency",
+    name: "Skylight Travel",
+    url: "https://skylighttravel.ae",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
+    { "@type": "ListItem", position: 2, name: "About Us", item: "https://skylighttravel.ae/about" },
+  ],
 };
 
 export default function AboutPage() {
@@ -65,6 +97,8 @@ export default function AboutPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
 
       {/* Hero Section — Dark Luxury Theme with Ambient Glow */}

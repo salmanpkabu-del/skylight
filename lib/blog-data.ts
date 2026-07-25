@@ -12,6 +12,12 @@ export interface BlogPost {
     name: string;
     role: string;
   };
+  tldr?: string;
+  comparisonTable?: {
+    title: string;
+    headers: string[];
+    rows: string[][];
+  };
   content: string[];
   faqs?: { q: string; a: string }[];
 }
@@ -28,6 +34,18 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: "Skylight Travel Team",
       role: "UAE Destination Specialists",
+    },
+    tldr: "Top affordable holiday packages from the UAE in 2025 include Uzbekistan (AED 1,699), Armenia (AED 1,799), Georgia (AED 1,899), Azerbaijan (AED 1,599), and Thailand (AED 2,699). UAE residents enjoy visa-free entry or fast online e-visas to these destinations, with direct flights under 4 hours from Dubai and Sharjah.",
+    comparisonTable: {
+      title: "2025 UAE Holiday Package Comparison",
+      headers: ["Destination", "Starting Price (AED)", "Visa Requirement (UAE Residents)", "Flight Time from UAE"],
+      rows: [
+        ["Uzbekistan (Tashkent & Samarkand)", "AED 1,699", "e-Visa (2–3 Days)", "3.5 Hours"],
+        ["Armenia (Yerevan)", "AED 1,799", "Visa-Free (up to 180 days)", "3 Hours"],
+        ["Georgia (Tbilisi)", "AED 1,899", "Visa-Free / On Arrival", "3.5 Hours"],
+        ["Azerbaijan (Baku)", "AED 1,599", "e-Visa (3–5 Days)", "3 Hours"],
+        ["Thailand (Phuket / Bangkok)", "AED 2,699", "e-Visa / Visa-Free", "6 Hours"],
+      ],
     },
     content: [
       "Traveling from the UAE has never been more exciting or accessible. With direct flights from Dubai (DXB), Sharjah (SHJ), and Abu Dhabi (AUH) to over 100 global destinations, planning a short getaway or a long vacation is easier than ever.",
@@ -50,7 +68,7 @@ export const blogPosts: BlogPost[] = [
     faqs: [
       {
         q: "What is the cheapest country to travel to from the UAE?",
-        a: "Georgia, Armenia, and Azerbaijan are among the most budget-friendly destinations from the UAE, with packages starting from AED 1,699–1,799 per person including flights and hotels.",
+        a: "Georgia, Armenia, and Azerbaijan are among the most budget-friendly destinations from the UAE, with packages starting from AED 1,599–1,899 per person including flights and hotels.",
       },
       {
         q: "Do UAE residents need visas for Georgia and Armenia?",
@@ -69,6 +87,17 @@ export const blogPosts: BlogPost[] = [
     author: {
       name: "Visa Operations Team",
       role: "Senior Visa Consultants",
+    },
+    tldr: "To apply for a Schengen visa from the UAE in 2025, you must book an appointment at VFS Global or TLScontact 6–8 weeks in advance. Mandatory documents include a passport (6+ months validity), UAE residence visa (3+ months validity), employer NOC letter, 3-month stamped bank statements (minimum AED 15,000 balance), travel insurance (€30,000 coverage), and verified flight/hotel bookings. Standard processing takes 10–15 business days.",
+    comparisonTable: {
+      title: "Top Schengen Application Centers in UAE",
+      headers: ["Destination Country", "Submission Center (UAE)", "Average Appointment Wait Time", "Processing Duration"],
+      rows: [
+        ["France & Switzerland", "VFS Global (Dubai / Abu Dhabi)", "3–5 Weeks", "10–15 Working Days"],
+        ["Germany & Italy", "VFS Global / TLScontact", "4–6 Weeks", "15 Working Days"],
+        ["Spain & Netherlands", "BLS / VFS Global", "2–4 Weeks", "10–14 Working Days"],
+        ["Greece & Austria", "VFS Global", "2–3 Weeks", "10–12 Working Days"],
+      ],
     },
     content: [
       "Planning a European vacation from the UAE? Applying for a Schengen visa can feel daunting due to appointment slot shortages and strict documentation requirements. However, with proper preparation, your application can be smooth and successful.",
@@ -105,6 +134,7 @@ export const blogPosts: BlogPost[] = [
       name: "Skylight Management",
       role: "Sharjah, UAE",
     },
+    tldr: "Skylight Travel is Sharjah's premier travel agency located in Al Sajaa, serving over 5,000 happy UAE travelers with a 4.9-star rating. We specialize in custom holiday packages, express Schengen and international visa assistance, flight bookings, and Umrah packages with 100% transparent pricing and 24/7 dedicated human WhatsApp support.",
     content: [
       "Finding a travel agency that combines transparent pricing, deep destination knowledge, and genuine customer care can be a challenge. Located in Al Sajaa, Sharjah, Skylight Travel has grown over the past decade to become one of the UAE's most recommended travel partners.",
       "### 1. Transparent Pricing — Zero Hidden Fees",

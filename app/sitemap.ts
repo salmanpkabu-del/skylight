@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 import { packages } from "@/lib/packages-data";
+import { visas } from "@/lib/visas-data";
+import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://skylighttravel.ae";
@@ -11,12 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogUrls = [
-    "best-holiday-packages-uae-2025",
-    "schengen-visa-guide-uae-residents",
-    "best-travel-agency-sharjah",
-  ].map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
+  const visaUrls = visas.map((v) => ({
+    url: `${baseUrl}/visas/${v.id}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
@@ -36,5 +41,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === "" ? 1.0 : 0.9,
   }));
 
-  return [...staticUrls, ...packageUrls, ...blogUrls];
+  return [...staticUrls, ...packageUrls, ...visaUrls, ...blogUrls];
 }

@@ -169,13 +169,13 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:info@skylighttravels.com"
+                href="mailto:info@skylighttourism.com"
                 className="group flex items-center gap-4 text-white/50 hover:text-white transition-colors"
               >
                 <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-brand-black transition-all duration-300">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="text-[14px]">info@skylighttravels.com</span>
+                <span className="text-[14px]">info@skylighttourism.com</span>
               </a>
             </div>
           </div>
@@ -184,9 +184,28 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col-reverse md:flex-row md:items-center justify-between gap-8 relative z-20">
-          <p className="text-[13px] text-white/30">
-            © {new Date().getFullYear()} Skylight Travel. All rights reserved.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-[13px] text-white/40">
+            <span>© {new Date().getFullYear()} Skylight Travel. All rights reserved.</span>
+            <span className="hidden sm:inline text-white/20">•</span>
+            <span className="flex items-center gap-2">
+              Created &amp; Cared by
+              <a
+                href="https://www.jellycutstudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Jellycut Studio"
+                className="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity duration-300"
+              >
+                <Image
+                  src="/jellycut.svg"
+                  alt="Jellycut Studio"
+                  width={80}
+                  height={21}
+                  className="h-4 sm:h-[18px] w-auto invert brightness-0"
+                />
+              </a>
+            </span>
+          </div>
           
           <div className="flex items-center gap-3">
             {socials.map((s) => (

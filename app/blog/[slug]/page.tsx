@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar, User, ArrowLeft, MessageCircle, Clock } from "lucide-react";
+import { Calendar, User, ArrowLeft, MessageCircle, Clock, Zap } from "lucide-react";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blog-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -59,6 +59,10 @@ export default async function BlogPostPage({ params }: Props) {
         url: "https://skylighttravel.ae/skylight.svg",
       },
     },
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".tldr-summary", "h1"],
+    },
   };
 
   const breadcrumbJsonLd = {
@@ -113,6 +117,18 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Article Body */}
       <section className="bg-white text-brand-dark py-16 sm:py-24">
         <div className="w-full max-w-[800px] mx-auto px-5 sm:px-8">
+          {/* Answer-First TL;DR Summary Box for AEO & Voice Assistants */}
+          {post.tldr && (
+            <div className="tldr-summary mb-10 bg-[#01251d] text-white p-7 sm:p-8 rounded-2xl border-l-4 border-brand-green shadow-xl">
+              <div className="flex items-center gap-2 text-brand-green text-xs font-bold tracking-[0.2em] uppercase mb-3">
+                <Zap className="w-4 h-4 fill-brand-green" /> Quick Answer (TL;DR)
+              </div>
+              <p className="text-base sm:text-lg leading-relaxed text-white/90 font-light">
+                {post.tldr}
+              </p>
+            </div>
+          )}
+
           <div className="space-y-6 text-lg leading-relaxed text-brand-dark/80">
             {post.content.map((paragraph, index) => {
               if (paragraph.startsWith("### ")) {
@@ -135,6 +151,36 @@ export default async function BlogPostPage({ params }: Props) {
               return <p key={index}>{paragraph}</p>;
             })}
           </div>
+
+          {/* Responsive Comparison Table for AEO & LLM Scraping */}
+          {post.comparisonTable && (
+            <div className="my-12 overflow-x-auto rounded-2xl border border-brand-dark/15 shadow-md">
+              <div className="bg-[#01251d] p-5 text-white">
+                <h3 className="text-base font-semibold text-white">{post.comparisonTable.title}</h3>
+                <p className="text-xs text-white/60 mt-0.5 font-light">Comprehensive data comparison for UAE residents</p>
+              </div>
+              <table className="w-full text-left border-collapse min-w-[600px] bg-white">
+                <thead>
+                  <tr className="border-b border-brand-dark/15 bg-brand-dark/5 text-xs font-bold uppercase tracking-wider text-brand-dark/80">
+                    {post.comparisonTable.headers.map((h, i) => (
+                      <th key={i} className="p-4">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-brand-dark/10 text-sm text-brand-dark/80 font-normal">
+                  {post.comparisonTable.rows.map((row, rIdx) => (
+                    <tr key={rIdx} className="hover:bg-brand-dark/[0.02] transition-colors">
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className={`p-4 ${cIdx === 0 ? "font-semibold text-brand-dark" : ""}`}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
           {/* Article FAQs */}
           {post.faqs && post.faqs.length > 0 && (
