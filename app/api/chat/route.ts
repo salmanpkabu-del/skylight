@@ -20,15 +20,15 @@ VISA SERVICES: Schengen, USA, NZ, Armenia, Georgia, Azerbaijan, Uzbekistan
 YOUR MISSION: Be their travel-obsessed friend who happens to work at a great agency. Get their contact info FAST so the team can close the deal.
 
 CONVERSATION RULES (STRICT):
-- Max 2 sentences per reply. Short. Punchy. Human.
-- Light humour is welcome — travel is exciting, act like it.
-- After the user's FIRST real message (any destination or travel interest), give a quick helpful answer THEN immediately ask: "Quick one — what's your name and WhatsApp? I'll have our team send you a proper quote in minutes 😊"
-- Once you have name + number, output this EXACTLY on its own line: LEAD_CAPTURED: [Name] | [Phone] | [Destination] | [Dates or 'flexible'] | [Group or 'unknown'] | [Budget or 'unknown']
-- Then confirm warmly in 1 sentence: e.g. "Done, [Name]! Team will ping you shortly 🌟"
-- Never write more than 2 sentences. If you're tempted to write more, stop yourself.
+- Max 2-3 sentences per reply. Short, helpful, punchy, and human.
+- First priority: Provide genuine, helpful answers to their travel questions.
+- After answering 1-2 questions or when they express clear interest, gracefully ask for contact info: "What's your name and WhatsApp or email? I'll have our travel team send you a tailored itinerary & quote in minutes 😊"
+- Accept either a phone number OR an email address as valid contact info.
+- Once you have a name and contact info (phone or email), output this EXACTLY on its own line: LEAD_CAPTURED: [Name] | [Phone or Email] | [Destination] | [Dates or 'flexible'] | [Group or 'unknown'] | [Budget or 'unknown']
+- Then confirm warmly in 1 sentence: e.g. "Done, [Name]! Our travel experts will reach out to you shortly 🌟"
 - End every message with either a question or a 🌍/✈️/😊 emoji.
 - Never make up prices or facts not listed above.
-- Do NOT output LEAD_CAPTURED without both a name AND a phone number.`;
+- Do NOT output LEAD_CAPTURED without both a name AND a valid phone number or email address.`;
 
 function extractLeadDetails(reply: string) {
   const match = reply.match(
@@ -66,7 +66,9 @@ async function sendLeadEmail(lead: {
       auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
     });
 
-    const waLink = `https://wa.me/${lead.contact.replace(/[^0-9]/g, "")}`;
+    const isEmail = lead.contact.includes("@");
+    const contactLink = isEmail ? `mailto:${lead.contact}` : `https://wa.me/${lead.contact.replace(/[^0-9]/g, "")}`;
+    const ctaLabel = isEmail ? `📧 Email ${lead.name}` : `💬 Message ${lead.name} on WhatsApp`;
 
     await transporter.sendMail({
       from: `"Skylight AI Chat" <${process.env.GMAIL_USER}>`,
@@ -88,8 +90,8 @@ async function sendLeadEmail(lead: {
                 <td style="padding: 12px 0; color: #fff; font-weight: 600;">${lead.name}</td>
               </tr>
               <tr style="border-bottom: 1px solid #1e1e1e;">
-                <td style="padding: 12px 0; color: #888; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">📱 WhatsApp</td>
-                <td style="padding: 12px 0;"><a href="${waLink}" style="color: #A6EE42; font-weight: 600; text-decoration: none;">${lead.contact}</a></td>
+                <td style="padding: 12px 0; color: #888; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">📱 Contact</td>
+                <td style="padding: 12px 0;"><a href="${contactLink}" style="color: #A6EE42; font-weight: 600; text-decoration: none;">${lead.contact}</a></td>
               </tr>
               <tr style="border-bottom: 1px solid #1e1e1e;">
                 <td style="padding: 12px 0; color: #888; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">🌍 Destination</td>
@@ -109,10 +111,10 @@ async function sendLeadEmail(lead: {
               </tr>
             </table>
 
-            <!-- WhatsApp CTA -->
+            <!-- Contact CTA -->
             <div style="margin-top: 24px; text-align: center;">
-              <a href="${waLink}" style="display: inline-block; background: #A6EE42; color: #000; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px;">
-                💬 Message ${lead.name} on WhatsApp
+              <a href="${contactLink}" style="display: inline-block; background: #A6EE42; color: #000; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px;">
+                ${ctaLabel}
               </a>
             </div>
 

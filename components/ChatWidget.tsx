@@ -2,7 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useState, useRef, useEffect } from "react";
-import { X, Send, User } from "lucide-react";
+import { X, Send, User, RotateCcw, MessageSquare } from "lucide-react";
 
 interface Message {
   role: "assistant" | "user";
@@ -20,6 +20,68 @@ const SUGGESTIONS = [
   "Plan a custom trip 🗺️",
 ];
 
+// Helper to format simple markdown (bold, italic, links, line breaks) safely
+function renderFormattedMessage(text: string) {
+  const lines = text.split("\n");
+
+  return lines.map((line, i) => {
+    const parts: (string | JSX.Element)[] = [];
+    let keyIdx = 0;
+
+    const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
+    let match;
+    let lastIdx = 0;
+
+    while ((match = regex.exec(line)) !== null) {
+      if (match.index > lastIdx) {
+        parts.push(line.substring(lastIdx, match.index));
+      }
+      const raw = match[0];
+      if (raw.startsWith("**") && raw.endsWith("**")) {
+        parts.push(
+          <strong key={keyIdx++} className="font-semibold text-white">
+            {raw.slice(2, -2)}
+          </strong>
+        );
+      } else if (raw.startsWith("*") && raw.endsWith("*")) {
+        parts.push(
+          <em key={keyIdx++} className="italic">
+            {raw.slice(1, -1)}
+          </em>
+        );
+      } else if (raw.startsWith("[")) {
+        const linkMatch = raw.match(/\[([^\]]+)\]\(([^)]+)\)/);
+        if (linkMatch) {
+          parts.push(
+            <a
+              key={keyIdx++}
+              href={linkMatch[2]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-green underline hover:opacity-80 transition-opacity"
+            >
+              {linkMatch[1]}
+            </a>
+          );
+        } else {
+          parts.push(raw);
+        }
+      }
+      lastIdx = regex.lastIndex;
+    }
+
+    if (lastIdx < line.length) {
+      parts.push(line.substring(lastIdx));
+    }
+
+    return (
+      <span key={i} className="block min-h-[1.1rem]">
+        {parts.length > 0 ? parts : line}
+      </span>
+    );
+  });
+}
+
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
@@ -29,9 +91,42 @@ export default function ChatWidget() {
   const bottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // Restore session from sessionStorage on mount
+  useEffect(() => {
+    try {
+      const savedMsgs = sessionStorage.getItem("skylight_chat_history");
+      const savedLead = sessionStorage.getItem("skylight_chat_lead");
+      if (savedMsgs) {
+        const parsed = JSON.parse(savedMsgs);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setMessages(parsed);
+        }
+      }
+      if (savedLead === "true") {
+        setLeadCaptured(true);
+      }
+    } catch {
+      // Ignore storage errors
+    }
+  }, []);
+
+  // Save to sessionStorage when messages or leadCaptured change
+  useEffect(() => {
+    try {
+      if (messages.length > 1) {
+        sessionStorage.setItem("skylight_chat_history", JSON.stringify(messages));
+      }
+      if (leadCaptured) {
+        sessionStorage.setItem("skylight_chat_lead", "true");
+      }
+    } catch {
+      // Ignore storage errors
+    }
+  }, [messages, leadCaptured]);
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, loading]);
 
   useEffect(() => {
     if (open && !loading) {
@@ -41,6 +136,17 @@ export default function ChatWidget() {
       return () => clearTimeout(timer);
     }
   }, [open, loading]);
+
+  const resetChat = () => {
+    setMessages([INITIAL_MESSAGE]);
+    setLeadCaptured(false);
+    try {
+      sessionStorage.removeItem("skylight_chat_history");
+      sessionStorage.removeItem("skylight_chat_lead");
+    } catch {
+      // Ignore
+    }
+  };
 
   const sendText = async (textToSend: string) => {
     const text = textToSend.trim();
@@ -95,7 +201,7 @@ export default function ChatWidget() {
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-90 translate-y-6 pointer-events-none"
         }`}
-        style={{ height: "520px", maxHeight: "calc(100vh - 90px)" }}
+        style={{ height: "530px", maxHeight: "calc(100vh - 90px)" }}
         role="dialog"
         aria-label="Sky AI Travel Concierge"
         aria-modal="true"
@@ -108,17 +214,51 @@ export default function ChatWidget() {
               <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-brand-green rounded-full" />
             </div>
             <div>
-              <p className="text-sm font-semibold text-white leading-none">Sky Concierge</p>
+              <div className="flex items-center gap-1.5">
+                <p className="text-sm font-semibold text-white leading-none">Sky Concierge</p>
+                {leadCaptured && (
+                  <span className="text-[9px] bg-brand-green/20 text-brand-green border border-brand-green/30 px-1.5 py-0.5 rounded-full font-medium">
+                    Captured ✓
+                  </span>
+                )}
+              </div>
               <p className="text-[10px] text-white/40 mt-0.5">Skylight AI • Instant answers</p>
             </div>
           </div>
-          <button
-            onClick={() => setOpen(false)}
-            className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all"
-            aria-label="Close chat"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
+
+          <div className="flex items-center gap-1.5">
+            {/* Quick WhatsApp button in header */}
+            <a
+              href="https://wa.me/971582738508?text=Hi%20Skylight%20Travel,%20I'd%20like%20to%20inquire%20about%20a%20trip!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-7 px-2.5 rounded-full bg-brand-green/10 hover:bg-brand-green/20 border border-brand-green/30 text-brand-green text-xs flex items-center gap-1 transition-all"
+              title="Chat on WhatsApp"
+            >
+              <MessageSquare className="w-3 h-3" />
+              <span className="text-[11px] font-medium hidden sm:inline">WhatsApp</span>
+            </a>
+
+            {/* Clear Chat option */}
+            {messages.length > 2 && (
+              <button
+                onClick={resetChat}
+                className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/40 hover:text-white transition-all"
+                title="Restart conversation"
+              >
+                <RotateCcw className="w-3 h-3" />
+              </button>
+            )}
+
+            {/* Close button */}
+            <button
+              onClick={() => setOpen(false)}
+              className="w-7 h-7 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/50 hover:text-white transition-all"
+              aria-label="Close chat"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
 
         {/* Messages */}
@@ -135,16 +275,20 @@ export default function ChatWidget() {
                     : "bg-white/10 text-white"
                 }`}
               >
-                {msg.role === "assistant" ? <img src="/icon.svg" alt="Sky" className="w-full h-full" /> : <User className="w-3 h-3" />}
+                {msg.role === "assistant" ? (
+                  <img src="/icon.svg" alt="Sky" className="w-full h-full" />
+                ) : (
+                  <User className="w-3 h-3" />
+                )}
               </div>
               <div
-                className={`max-w-[82%] px-3.5 py-2.5 text-[13px] leading-relaxed whitespace-pre-wrap ${
+                className={`max-w-[85%] px-3.5 py-2.5 text-[13px] leading-relaxed ${
                   msg.role === "assistant"
-                    ? "bg-white/[0.05] text-white/85 border border-white/8 rounded-2xl rounded-tl-sm"
+                    ? "bg-white/[0.05] text-white/90 border border-white/8 rounded-2xl rounded-tl-sm"
                     : "bg-brand-green text-black font-medium rounded-2xl rounded-tr-sm shadow-[0_2px_12px_rgba(166,238,66,0.2)]"
                 }`}
               >
-                {msg.content}
+                {msg.role === "assistant" ? renderFormattedMessage(msg.content) : msg.content}
               </div>
             </div>
           ))}
@@ -166,22 +310,20 @@ export default function ChatWidget() {
           <div ref={bottomRef} />
         </div>
 
-        {/* Suggestion Chips — wrapping grid, no scroll */}
+        {/* Suggestion Chips — wrapping grid */}
         {messages.length <= 2 && (
           <div className="px-4 pt-2.5 pb-1.5 flex flex-wrap gap-1.5 border-t border-white/5 flex-shrink-0">
             {SUGGESTIONS.map((s) => (
               <button
                 key={s}
                 onClick={() => sendText(s)}
-                className="text-[11px] bg-white/5 hover:bg-brand-green/15 hover:border-brand-green/40 border border-white/10 text-white/60 hover:text-white px-3 py-1.5 rounded-full transition-all duration-200"
+                className="text-[11px] bg-white/5 hover:bg-brand-green/15 hover:border-brand-green/40 border border-white/10 text-white/70 hover:text-white px-3 py-1.5 rounded-full transition-all duration-200"
               >
                 {s}
               </button>
             ))}
           </div>
         )}
-
-
 
         {/* Input */}
         <div className="px-3 py-3 border-t border-white/8 rounded-b-2xl flex items-center gap-2 flex-shrink-0 bg-[#030a06]/60">
