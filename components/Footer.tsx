@@ -169,13 +169,13 @@ export default function Footer() {
               </a>
 
               <a
-                href="mailto:skylighttourismllc@gmail.com"
+                href="mailto:info@skylighttourism.com"
                 className="group flex items-center gap-4 text-white/50 hover:text-white transition-colors"
               >
                 <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-brand-black transition-all duration-300">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="text-[14px]">skylighttourismllc@gmail.com</span>
+                <span className="text-[14px]">info@skylighttourism.com</span>
               </a>
             </div>
           </div>

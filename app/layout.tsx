@@ -96,7 +96,7 @@ const jsonLd = {
         addressCountry: "AE",
       },
       telephone: "+971582738508",
-      email: "skylighttourismllc@gmail.com",
+      email: "info@skylighttourism.com",
       sameAs: [
         "https://www.instagram.com/skylighttravel",
         "https://www.facebook.com/skylighttravel",

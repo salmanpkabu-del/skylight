@@ -265,8 +265,8 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <p className="text-white font-semibold">Email Us</p>
-                  <a href="mailto:skylighttourismllc@gmail.com" className="text-brand-green text-xs hover:underline mt-0.5 block">
-                    skylighttourismllc@gmail.com
+                  <a href="mailto:info@skylighttourism.com" className="text-brand-green text-xs hover:underline mt-0.5 block">
+                    info@skylighttourism.com
                   </a>
                 </div>
               </div>
