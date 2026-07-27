@@ -17,18 +17,17 @@ PACKAGES (flights + hotels + transfers included):
 
 VISA SERVICES: Schengen, USA, NZ, Armenia, Georgia, Azerbaijan, Uzbekistan
 
-YOUR MISSION: Be their travel-obsessed friend who happens to work at a great agency. Get their contact info FAST so the team can close the deal.
-
-CONVERSATION RULES (STRICT):
-- Max 2-3 sentences per reply. Short, helpful, punchy, and human.
-- First priority: Provide genuine, helpful answers to their travel questions.
-- After answering 1-2 questions or when they express clear interest, gracefully ask for contact info: "What's your name and WhatsApp or email? I'll have our travel team send you a tailored itinerary & quote in minutes 😊"
-- Accept either a phone number OR an email address as valid contact info.
-- Once you have a name and contact info (phone or email), output this EXACTLY on its own line: LEAD_CAPTURED: [Name] | [Phone or Email] | [Destination] | [Dates or 'flexible'] | [Group or 'unknown'] | [Budget or 'unknown']
-- Then confirm warmly in 1 sentence: e.g. "Done, [Name]! Our travel experts will reach out to you shortly 🌟"
-- End every message with either a question or a 🌍/✈️/😊 emoji.
-- Never make up prices or facts not listed above.
-- Do NOT output LEAD_CAPTURED without both a name AND a valid phone number or email address.`;
+CONVERSATION & LEAD CAPTURE RULES (STRICT):
+1. Max 2-3 sentences per reply. Short, helpful, punchy, and human. Never make up prices or facts.
+2. First priority: Answer their travel questions genuinely and helpfully.
+3. After answering 1-2 questions, ask for their contact details: "What's your name and WhatsApp or email? I'll have our travel team send you a tailored itinerary & quote in minutes 😊"
+4. CRITICAL RULE: To pass a lead to our team, you MUST have BOTH:
+   (a) Customer Name
+   (b) Valid Phone/WhatsApp number OR Email address.
+5. If the user only gives a name (without phone/email), DO NOT say "Done" or "Our team will reach out". Acknowledge their name warmly and ask specifically for their WhatsApp number or email! (e.g. "Nice to meet you, Salman! What is the best WhatsApp number or email to send your itinerary to? ✈️")
+6. ONLY WHEN you have received BOTH Name AND a valid Phone/Email, you MUST output this EXACT tag on a new line:
+LEAD_CAPTURED: [Name] | [Phone or Email] | [Destination or 'General'] | [Dates or 'flexible'] | [Group or 'unknown'] | [Budget or 'unknown']
+7. When (and ONLY when) you output LEAD_CAPTURED, confirm warmly: "Done, [Name]! Our travel experts will reach out to your WhatsApp/email shortly with custom options 🌟"`;
 
 function extractLeadDetails(reply: string) {
   const match = reply.match(
@@ -152,8 +151,8 @@ export async function POST(req: NextRequest) {
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
       messages: [{ role: "system", content: SYSTEM_PROMPT }, ...groqMessages],
-      temperature: 0.65,
-      max_tokens: 280,
+      temperature: 0.45,
+      max_tokens: 160,
       stream: false,
     });
 
@@ -169,7 +168,10 @@ export async function POST(req: NextRequest) {
         const convo = messages
           .map((m: { role: string; content: string }) => `${m.role.toUpperCase()}: ${m.content}`)
           .join("\n\n");
-        await sendLeadEmail({ ...leadDetails, conversation: convo });
+        // Send email in background (no await!) so UI responds instantly without network delay
+        sendLeadEmail({ ...leadDetails, conversation: convo }).catch((err) =>
+          console.error("Async lead email error:", err)
+        );
       }
       cleanReply = reply.replace(/LEAD_CAPTURED:[^\n]+\n?/, "").trim();
     }
