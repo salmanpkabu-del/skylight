@@ -34,8 +34,13 @@ export default function ChatWidget() {
   }, [messages]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
-  }, [open]);
+    if (open && !loading) {
+      const timer = setTimeout(() => {
+        inputRef.current?.focus();
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [open, loading]);
 
   const sendText = async (textToSend: string) => {
     const text = textToSend.trim();
