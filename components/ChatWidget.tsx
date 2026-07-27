@@ -214,14 +214,7 @@ export default function ChatWidget() {
               <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-brand-green rounded-full" />
             </div>
             <div>
-              <div className="flex items-center gap-1.5">
-                <p className="text-sm font-semibold text-white leading-none">Sky Concierge</p>
-                {leadCaptured && (
-                  <span className="text-[9px] bg-brand-green/20 text-brand-green border border-brand-green/30 px-1.5 py-0.5 rounded-full font-medium">
-                    Captured ✓
-                  </span>
-                )}
-              </div>
+              <p className="text-sm font-semibold text-white leading-none">Sky Concierge</p>
               <p className="text-[10px] text-white/40 mt-0.5">Skylight AI • Instant answers</p>
             </div>
           </div>
