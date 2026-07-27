@@ -27,7 +27,7 @@ CONVERSATION & LEAD CAPTURE RULES (STRICT):
 5. If the user only gives a name (without phone/email), DO NOT say "Done" or "Our team will reach out". Acknowledge their name warmly and ask specifically for their WhatsApp number or email! (e.g. "Nice to meet you, Salman! What is the best WhatsApp number or email to send your itinerary to? ✈️")
 6. ONLY WHEN you have received BOTH Name AND a valid Phone/Email, you MUST output this EXACT tag on a new line:
 LEAD_CAPTURED: [Name] | [Phone or Email] | [Destination or 'General'] | [Dates or 'flexible'] | [Group or 'unknown'] | [Budget or 'unknown']
-7. When (and ONLY when) you output LEAD_CAPTURED, confirm warmly: "Done, [Name]! Our travel experts will reach out to your WhatsApp/email shortly with custom options 🌟"`;
+7. When you output LEAD_CAPTURED, keep the conversation natural, open, and helpful! DO NOT sound pushy, robotic, or like a sales trap (never say "Done! Our team will reach out shortly"). Instead, thank them warmly for the details and immediately continue helping them by asking about their trip preferences (e.g. "Thanks Salman! I've noted your contact for our specialists so they can check exact rates. While they do that, are you looking for a relaxing holiday or an adventure tour?" or "Thank you Salman! I've shared that with our team. Do you have specific travel dates in mind yet?").`;
 
 function extractLeadDetails(reply: string) {
   const match = reply.match(
@@ -159,7 +159,6 @@ export async function POST(req: NextRequest) {
     const reply = completion.choices[0]?.message?.content || "I'm sorry, I couldn't process that. Please try again!";
 
     let newLeadCaptured = leadCaptured;
-    let cleanReply = reply;
 
     if (reply.includes("LEAD_CAPTURED:") && !leadCaptured) {
       newLeadCaptured = true;
@@ -173,8 +172,10 @@ export async function POST(req: NextRequest) {
           console.error("Async lead email error:", err)
         );
       }
-      cleanReply = reply.replace(/LEAD_CAPTURED:[^\n]+\n?/, "").trim();
     }
+
+    // ALWAYS strip any internal LEAD_CAPTURED line from the customer's view, regardless of leadCaptured state!
+    const cleanReply = reply.replace(/LEAD_CAPTURED:[^\n]*(\r?\n|$)/g, "").trim();
 
     return NextResponse.json({ reply: cleanReply, leadCaptured: newLeadCaptured });
   } catch (err) {
