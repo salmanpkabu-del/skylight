@@ -25,7 +25,7 @@ function renderFormattedMessage(text: string) {
   const lines = text.split("\n");
 
   return lines.map((line, i) => {
-    const parts: (string | JSX.Element)[] = [];
+    const parts: React.ReactNode[] = [];
     let keyIdx = 0;
 
     const regex = /(\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
