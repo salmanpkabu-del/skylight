@@ -145,6 +145,66 @@ export const blogPosts: BlogPost[] = [
       "From flight tickets and luxury hotel stays to complex multi-destination tour packages and visa processing, we handle every detail under one roof.",
     ],
   },
+  {
+    slug: "visa-free-countries-for-uae-residents-guide",
+    title: "Complete List of Visa-Free Countries for UAE Residence Visa Holders (2025/2026)",
+    excerpt: "Discover all 20+ top destinations UAE residents can visit visa-free or with instant e-Visas. Complete with flight times, entry requirements, and holiday package costs.",
+    category: "Visa Guides",
+    date: "July 28, 2025",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=80",
+    author: {
+      name: "Skylight Visa Experts",
+      role: "Sharjah, UAE",
+    },
+    tldr: "UAE residence visa holders enjoy visa-free entry, visa-on-arrival, or fast e-Visas to over 20 global destinations including Georgia, Armenia, Azerbaijan, Seychelles, Maldives, Uzbekistan, Montenegro, Kenya, and Oman. Most destinations require a valid UAE residency of at least 3 months and a passport valid for 6 months.",
+    comparisonTable: {
+      title: "Visa-Free & Easy Entry Destinations for UAE Residents",
+      headers: ["Destination", "Entry Rule for UAE Residents", "UAE Residency Requirement", "Flight Time from SHJ/DXB"],
+      rows: [
+        ["Georgia (Tbilisi & Batumi)", "Visa-Free / Visa-on-Arrival", "Min. 3 Months Valid Residency", "3.5 Hours"],
+        ["Armenia (Yerevan)", "Visa-Free (Up to 180 Days)", "Valid UAE Residency", "3 Hours"],
+        ["Azerbaijan (Baku)", "Instant ASAN e-Visa", "Valid Passport & UAE ID", "3 Hours"],
+        ["Seychelles (Mahé)", "Visa-Free (Visitor Permit)", "Valid Passport & Resort Booking", "4.5 Hours"],
+        ["Maldives (Male)", "Visa-on-Arrival (30 Days)", "Confirmed Resort Booking", "4 Hours"],
+        ["Montenegro (Podgorica)", "Seasonal Visa-Free", "Valid UAE Residency", "5 Hours"],
+        ["Oman (Muscat & Salalah)", "Visa-Free / 29A e-Visa", "Eligible Profession / ID", "1 Hour"],
+        ["Uzbekistan (Tashkent)", "Fast-Track e-Visa", "Valid Passport & UAE ID", "3.5 Hours"],
+      ],
+    },
+    content: [
+      "Having a valid UAE residence visa comes with incredible travel perks. Many popular holiday destinations across Europe, Asia, and Africa offer visa-free entry, visa-on-arrival, or simplified e-Visas specifically for expats living in the United Arab Emirates.",
+      "Whether you are looking for a weekend escape to the mountains of Georgia or a tropical beach trip to the Maldives, here is the complete 2025/2026 guide to hassle-free travel for UAE residents.",
+      "### 1. Georgia (Visa-Free for 90 Days)",
+      "Georgia is one of the most popular destinations for UAE expats. Under Georgian immigration law, holders of valid UAE residence visas can enter Georgia visa-free for up to 90 days within any 180-day period. All you need is a passport valid for 6 months and your digital or physical UAE Emirates ID.",
+      "### 2. Armenia (Visa-Free for 180 Days)",
+      "Armenia offers one of the most generous entry rules for UAE expats. UAE residents enjoy visa-free travel to Armenia for up to 180 days. Flights from Sharjah (Air Arabia) and Dubai (Flydubai) take just 3 hours, making Yerevan an ideal 3-day weekend trip.",
+      "### 3. Azerbaijan (Fast e-Visa)",
+      "While not strictly visa-free on arrival for all nationalities, Azerbaijan offers an instant ASAN e-Visa for UAE residents. Standard processing takes 3 working days, and urgent e-visas are issued in just 3 hours.",
+      "### 4. Maldives & Seychelles (Tropical Paradise)",
+      "Looking for pristine beaches? The Maldives offers a 30-day visa-on-arrival to all nationalities with a valid hotel booking and return ticket. Seychelles is completely visa-free for all passport holders (a free Visitor's Permit is issued on arrival).",
+      "### 5. Montenegro (Seasonal Visa-Free for UAE Residents)",
+      "During summer months, Montenegro grants visa-free entry to UAE residence visa holders. Nestled in the Balkans, it features stunning fjords in Kotor and historic coastal towns.",
+      "### Key Travel Requirements to Keep in Mind",
+      "- **Passport Validity:** Must have at least 6 months validity remaining from your travel date.\n- **UAE Residence Visa Validity:** Most countries require your UAE residency to be valid for at least 3 to 6 months beyond your travel date.\n- **Proof of Return Ticket & Hotel:** Always carry printed copies of your return flight ticket and hotel voucher.\n- **Sufficient Funds:** Keep a valid credit/debit card or cash for customs verification.",
+      "### Let Skylight Travel Handle Your Next Holiday",
+      "Want a stress-free holiday with flights, 4-star hotels, transfers, and visa guidance included? Skylight Travel Sharjah packages start from AED 1,599 per person. Chat with our UAE travel consultants on WhatsApp today!",
+    ],
+    faqs: [
+      {
+        q: "Can Indian or Pakistani passport holders with a UAE residency enter Georgia visa-free?",
+        a: "Yes! Under Georgian law, entry is granted based on your valid UAE residence visa status, regardless of your passport nationality, provided your UAE residency is valid for at least 3 months.",
+      },
+      {
+        q: "Does Oman grant visa-free entry for UAE residents?",
+        a: "UAE residents in eligible professional categories (and their dependents) can enter Oman visa-free or apply for the 29A e-Visa online.",
+      },
+      {
+        q: "How far in advance should I book my holiday package from UAE?",
+        a: "We recommend booking at least 2 to 3 weeks in advance for short-haul trips (Georgia, Armenia, Azerbaijan) and 4 to 6 weeks in advance for peak holiday seasons like Eid or December.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

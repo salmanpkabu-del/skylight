@@ -53,15 +53,13 @@ export default function About() {
         
         {/* ── 1. Editorial Header ─────────────────────────── */}
         <div className="reveal flex flex-col items-center text-center max-w-4xl mx-auto">
-          <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green mb-6">
+          <span className="text-[10px] font-bold tracking-[0.28em] uppercase text-brand-dark/50 mb-6">
             {t.nav.about}
           </span>
           <h2 className="text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.05] tracking-[-2px] sm:tracking-[-3px] font-semibold text-brand-dark">
             {t.about.titleMain} <br className="hidden sm:block" />
             <span
               style={{
-                fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
-                fontStyle: isAr ? "normal" : "italic",
                 color: "#013025",
               }}
             >
@@ -97,8 +95,7 @@ export default function About() {
           <div className="reveal lg:col-span-4 bg-brand-dark rounded-[32px] p-10 sm:p-14 flex flex-col justify-center items-center text-center relative overflow-hidden group">
             <UaeMap className="absolute w-[180%] h-[180%] -top-[20%] -left-[20%] text-brand-green/15 z-0 pointer-events-none transition-transform duration-1000 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none" />
-            <p className="text-[100px] sm:text-[130px] leading-none tracking-tighter font-bold text-white mb-2 relative z-10"
-               style={{ fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
+            <p className="text-[100px] sm:text-[130px] leading-none tracking-tighter font-bold text-white mb-2 relative z-10">
               6<span className="text-brand-green">+</span>
             </p>
             <p className="text-[12px] sm:text-[14px] font-semibold tracking-[0.2em] uppercase text-white/60 relative z-10">
@@ -112,7 +109,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 pt-8">
           {pillars.map(({ icon: Icon, label, desc }, i) => (
             <div key={label} className="reveal flex flex-col gap-4 group" style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green group-hover:bg-brand-green group-hover:text-brand-dark transition-colors duration-300">
+              <div className="w-12 h-12 rounded-full bg-brand-dark/5 flex items-center justify-center text-brand-dark group-hover:bg-brand-dark group-hover:text-brand-green transition-colors duration-300">
                 <Icon className="w-5 h-5" />
               </div>
               <div>

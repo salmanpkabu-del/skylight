@@ -4,8 +4,6 @@
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --brand-green: #A6EE42;
   --brand-dark: #013025;
-  --font-figtree: 'Figtree', sans-serif;
-  --font-cormorant: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
 }
 
 @theme inline {
@@ -19,7 +17,7 @@
   --color-brand-section: #012920;
 
   --font-family-figtree: var(--font-figtree), sans-serif;
-  --font-family-cormorant: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  --font-family-tajawal: var(--font-tajawal), sans-serif;
 
   --width-container: 1340px;
   --max-width-container: 1340px;

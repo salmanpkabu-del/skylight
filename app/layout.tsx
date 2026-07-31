@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, Cormorant_Garamond, Tajawal } from "next/font/google";
+import { Figtree, Tajawal } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
@@ -10,14 +10,6 @@ const figtree = Figtree({
   variable: "--font-figtree",
   display: "swap",
   preload: true,
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
 });
 
 const tajawal = Tajawal({
@@ -167,7 +159,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AE" className={`${figtree.variable} ${cormorant.variable} ${tajawal.variable}`}>
+    <html lang="en-AE" className={`${figtree.variable} ${tajawal.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -180,6 +172,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="geo.placename" content="Sharjah, United Arab Emirates" />
         <meta name="geo.position" content="25.3573;55.4033" />
         <meta name="ICBM" content="25.3573, 55.4033" />
+
       </head>
       <body className="font-figtree bg-brand-dark text-white antialiased">
         <LanguageProvider>

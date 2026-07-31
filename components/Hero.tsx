@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, MessageCircle, ChevronsDown } from "lucide-react";
 import Navbar from "./Navbar";
 import { packages } from "@/lib/packages-data";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
@@ -50,12 +50,12 @@ export default function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay muted loop playsInline
         />
-        {/* Centre-out vignette so video reads everywhere */}
-        <div className="absolute inset-0 bg-[#012119]/55" />
+        {/* Centre-out vignette — lightened so video breathes */}
+        <div className="absolute inset-0 bg-[#012119]/35" />
         {/* Top: navbar legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#012119]/70 via-transparent to-transparent" />
-        {/* Bottom: stats strip */}
-        <div className="absolute bottom-0 left-0 right-0 h-[52%] bg-gradient-to-t from-[#012119] via-[#012119]/65 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#012119]/60 via-transparent to-transparent" />
+        {/* Bottom: stats strip — reduced from 52% to 38% */}
+        <div className="absolute bottom-0 left-0 right-0 h-[38%] bg-gradient-to-t from-[#012119] via-[#012119]/55 to-transparent" />
       </div>
 
       {/* ── Content ─────────────────────────────────────── */}
@@ -85,8 +85,7 @@ export default function Hero() {
               className="leading-[0.88] tracking-[-0.03em] text-brand-green"
               style={{
                 fontSize: "clamp(56px, 8.5vw, 112px)",
-                fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
-                fontStyle: isAr ? "normal" : "italic",
+                fontStyle: "normal",
                 fontWeight: 700,
               }}
             >
@@ -96,7 +95,7 @@ export default function Hero() {
 
           {/* Description */}
           <p
-            className="text-[15px] sm:text-[16px] leading-[1.8] text-white/55 max-w-[580px]"
+            className="text-[15px] sm:text-[16px] leading-[1.8] text-white/75 max-w-[580px]"
             style={tr(200)}
           >
             {t.hero.desc}
@@ -125,6 +124,25 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* ── Scroll indicator ─────────────────────────────── */}
+        <div
+          className="hidden sm:flex flex-col items-center gap-1 pb-6"
+          style={tr(500)}
+          aria-hidden="true"
+        >
+          <span className="text-[9px] font-medium tracking-[0.22em] uppercase text-white/30">Scroll</span>
+          <ChevronsDown
+            className="w-4 h-4 text-brand-green/70"
+            style={{ animation: "scrollBounce 1.8s ease-in-out infinite" }}
+          />
+          <style>{`
+            @keyframes scrollBounce {
+              0%, 100% { transform: translateY(0); opacity: 0.5; }
+              50% { transform: translateY(5px); opacity: 1; }
+            }
+          `}</style>
+        </div>
+
         {/* ── Bottom strip ────────────────────────────────── */}
         <div className="w-full" style={tr(450)}>
 
@@ -147,11 +165,11 @@ export default function Hero() {
           {/* Stats bar */}
           <div className="flex border-t border-white/10 divide-x divide-white/10 rtl:divide-x-reverse mobile-max:grid mobile-max:grid-cols-2 mobile-max:divide-x-0">
             {stats.map((s) => (
-              <div key={s.label} className="flex-1 flex flex-col items-center py-5 mobile-max:border-b mobile-max:border-white/10 mobile-max:last:border-b-0">
-                <p className="text-[28px] sm:text-[32px] font-semibold text-white leading-none tracking-[-0.02em]">
+              <div key={s.label} className="flex-1 flex flex-col items-center py-4 sm:py-5 mobile-max:border-b mobile-max:border-white/10 mobile-max:last:border-b-0">
+                <p className="text-[26px] sm:text-[32px] font-semibold text-white leading-none tracking-[-0.02em]">
                   {s.num}
                 </p>
-                <p className="text-[9px] font-medium tracking-[0.18em] uppercase text-white/35 mt-1.5">
+                <p className="text-[9px] font-medium tracking-[0.18em] uppercase text-white/50 mt-1.5">
                   {s.label}
                 </p>
               </div>
