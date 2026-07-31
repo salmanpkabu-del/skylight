@@ -111,7 +111,7 @@ export default function ContactForm() {
 
         {/* Visit HQ Card */}
         <a
-          href="https://maps.google.com/?q=Al+Sajaa+Sharjah+UAE"
+          href="https://maps.app.goo.gl/JYWYAQ1FbXEcoKNQ6"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative bg-brand-card/90 border border-white/15 p-5 sm:p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
@@ -338,8 +338,8 @@ export default function ContactForm() {
           <div className="bg-brand-card/80 border border-white/15 rounded-3xl overflow-hidden p-2 shadow-xl relative group">
             <div className="w-full h-64 sm:h-72 rounded-2xl overflow-hidden relative">
               <iframe
-                title="Skylight Travel Sharjah Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115431.14470355447!2d55.4526685!3d25.3211516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5f4b00000001%3A0x0!2sAl%20Sajaa%2C%20Sharjah!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
+                title="Skylight Tourism LLC Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.3318209388103!2d55.6182343!3d25.3266441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f3f996b688a9%3A0xa927f31bab594249!2sSkylight%20Tourism%20LLC!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
@@ -349,11 +349,11 @@ export default function ContactForm() {
               />
               <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md p-3.5 rounded-xl border border-white/15 flex items-center justify-between">
                 <div>
-                  <p className="text-white text-xs font-semibold">Skylight Travel HQ</p>
+                  <p className="text-white text-xs font-semibold">Skylight Tourism LLC</p>
                   <p className="text-white/50 text-[11px]">Sharjah, UAE</p>
                 </div>
                 <a
-                  href="https://maps.google.com/?q=Al+Sajaa+Sharjah+UAE"
+                  href="https://maps.app.goo.gl/JYWYAQ1FbXEcoKNQ6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 bg-brand-green text-black px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-white transition-colors"

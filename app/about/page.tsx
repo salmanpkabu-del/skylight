@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://skylighttravel.ae/about" },
   openGraph: {
     title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
-    description: "Sharjah's trusted travel agency with 10+ years experience and 5,000+ happy UAE families.",
+    description: "Sharjah's trusted travel agency with 6+ years experience and 5,000+ happy UAE families.",
     url: "https://skylighttravel.ae/about",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "About Skylight Travel Sharjah UAE" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "About Skylight Travel | Sharjah UAE",
-    description: "Sharjah's trusted travel agency with 10+ years experience.",
+    description: "Sharjah's trusted travel agency with 6+ years experience.",
   },
 };
 
@@ -31,7 +31,7 @@ const aboutSchema = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About Skylight Travel UAE",
-  description: "Sharjah's premier travel agency with 10+ years of experience and 5,000+ happy UAE families served.",
+  description: "Sharjah's premier travel agency with 6+ years of experience and 5,000+ happy UAE families served.",
   publisher: {
     "@type": "TravelAgency",
     name: "Skylight Travel",
@@ -81,7 +81,7 @@ export default function AboutPage() {
     { 
       icon: <Award className="w-6 h-6" />, 
       title: "UAE-Certified Experts", 
-      desc: "Fully licensed by UAE Tourism Authorities with 10+ years of local experience." 
+      desc: "Fully licensed by UAE Tourism Authorities with 6+ years of local experience." 
     },
     { 
       icon: <MessageCircle className="w-6 h-6" />, 
@@ -144,7 +144,7 @@ export default function AboutPage() {
                 <ShieldCheck className="w-4 h-4 text-brand-green" /> UAE Licensed Agency
               </span>
               <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <Clock className="w-4 h-4 text-brand-green" /> 10+ Years Experience
+                <Clock className="w-4 h-4 text-brand-green" /> 6+ Years Experience
               </span>
               <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
                 <MapPin className="w-4 h-4 text-brand-green" /> Sharjah HQ

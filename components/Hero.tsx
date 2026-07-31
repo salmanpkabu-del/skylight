@@ -10,7 +10,7 @@ const stats = [
   { num: "5,000+", label: "UAE Travellers" },
   { num: "50+", label: "Destinations" },
   { num: "4.9★", label: "Rating" },
-  { num: "10+", label: "Years of Trust" },
+  { num: "6+", label: "Years of Trust" },
 ];
 
 export default function Hero() {
