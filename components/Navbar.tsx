@@ -64,7 +64,7 @@ export default function Navbar() {
           {/* LEFT — nav links desktop */}
           <nav
             aria-label="Primary navigation"
-            className="flex items-center gap-1.5 tab-mobile:hidden"
+            className="hidden lg:flex items-center gap-1.5"
           >
             {navItems.map((item) => (
               <Link
@@ -79,21 +79,21 @@ export default function Navbar() {
           </nav>
 
           {/* CENTER — logo */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 tab-mobile:static tab-mobile:translate-x-0 z-[60]">
+          <Link href="/" className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 z-[60]">
             <Image
               src="/skylight.svg"
               alt="Skylight Travel"
               width={220}
               height={58}
               className={`w-auto object-contain transition-all ${
-                scrolled ? "h-9 sm:h-9 lg:h-9.5" : "h-11 sm:h-11.5 lg:h-12"
+                scrolled ? "h-8 sm:h-9 lg:h-9.5" : "h-10 sm:h-11 lg:h-12"
               }`}
               priority
             />
           </Link>
 
           {/* RIGHT — email + clock desktop */}
-          <div className="flex items-center gap-6 text-right tab-mobile:hidden">
+          <div className="hidden lg:flex items-center gap-6 text-right">
             <a
               href="mailto:info@skylighttourism.com"
               className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/80 hover:text-brand-green transition-colors duration-300 drop-shadow-sm"
@@ -111,7 +111,8 @@ export default function Navbar() {
 
           {/* MOBILE/TABLET hamburger */}
           <button
-            className="hidden tab-mobile:flex items-center justify-center w-10 h-10 text-white z-[60] bg-white/5 rounded-full backdrop-blur-sm border border-white/10 transition-colors hover:bg-white/10"
+            type="button"
+            className="flex lg:hidden items-center justify-center w-10 h-10 text-white z-[60] bg-white/5 rounded-full backdrop-blur-sm border border-white/10 transition-colors hover:bg-white/10 cursor-pointer"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -122,7 +123,7 @@ export default function Navbar() {
 
         {/* FULL SCREEN OVERLAY MENU FOR TAB/MOBILE */}
         <div
-          className={`fixed inset-0 z-50 flex flex-col bg-[#012119]/95 backdrop-blur-xl transition-all duration-500 ease-[var(--ease-spring)] ${
+          className={`fixed inset-0 h-[100dvh] w-screen z-50 flex flex-col bg-[#012119]/98 backdrop-blur-xl transition-all duration-500 ease-[var(--ease-spring)] lg:hidden ${
             mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
           aria-hidden={!mobileOpen}
