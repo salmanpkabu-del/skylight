@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const testimonials = [
   {
@@ -47,6 +48,7 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { t } = useLanguage();
   const [active, setActive] = useState(0);
   const [animating, setAnimating] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -67,7 +69,7 @@ export default function Testimonials() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animating]);
 
-  const t = testimonials[active];
+  const current = testimonials[active];
 
   return (
     <section id="testimonials" ref={ref} className="bg-brand-section py-20 sm:py-24 lg:py-32 overflow-hidden">
@@ -76,25 +78,25 @@ export default function Testimonials() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 mobile-max:mb-10">
           <div>
             <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-green/70 mb-3">
-              Testimonials
+              {t.testimonials.tag}
             </p>
             <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-white
               md-tablet:text-[40px] mobile-max:text-[32px] mobile-max:tracking-[-1.5px]">
-              Real Stories from<br />Real Travellers
+              {t.testimonials.titleMain}<br />{t.testimonials.titleAccent}
             </h2>
           </div>
           <div className="flex gap-3">
             <button
               onClick={() => go(-1)}
               className="w-11 h-11 border border-white/10 flex items-center justify-center text-white hover:bg-brand-green hover:border-brand-green hover:text-black transition-all duration-300"
-              aria-label="Previous testimonial"
+              aria-label={t.testimonials.prev}
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => go(1)}
               className="w-11 h-11 border border-white/10 flex items-center justify-center text-white hover:bg-brand-green hover:border-brand-green hover:text-black transition-all duration-300"
-              aria-label="Next testimonial"
+              aria-label={t.testimonials.next}
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -109,20 +111,20 @@ export default function Testimonials() {
             {/* Quote */}
             <div>
               <div className="flex gap-1 mb-6">
-                {Array.from({ length: t.rating }).map((_, i) => (
+                {Array.from({ length: current.rating }).map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-brand-green text-brand-green" />
                 ))}
               </div>
               <blockquote className="text-2xl leading-relaxed font-medium text-white mobile-max:text-lg">
-                &quot;{t.text}&quot;
+                &quot;{current.text}&quot;
               </blockquote>
               <div className="flex items-center gap-4 mt-8">
                 <div className="w-12 h-12 bg-brand-green text-black font-bold text-lg flex items-center justify-center flex-shrink-0">
-                  {t.avatar}
+                  {current.avatar}
                 </div>
                 <div>
-                  <p className="font-semibold text-white">{t.name}</p>
-                  <p className="text-sm text-white/40">{t.location} • {t.trip}</p>
+                  <p className="font-semibold text-white">{current.name}</p>
+                  <p className="text-sm text-white/40">{current.location} • {current.trip}</p>
                 </div>
               </div>
             </div>
