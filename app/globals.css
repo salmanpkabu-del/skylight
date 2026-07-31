@@ -94,6 +94,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html.lang-ar,
+html.lang-ar body {
+  font-family: var(--font-tajawal), var(--font-figtree), system-ui, sans-serif;
+}
+
 /* ===== NAV LINK UNDERLINE ===== */
 .nav-link-underline {
   position: relative;

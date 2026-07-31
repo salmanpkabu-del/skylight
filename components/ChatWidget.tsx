@@ -3,6 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useRef, useEffect } from "react";
 import { X, Send, User, RotateCcw, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface Message {
   role: "assistant" | "user";
@@ -83,6 +84,7 @@ function renderFormattedMessage(text: string) {
 }
 
 export default function ChatWidget() {
+  const { t, isAr } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
@@ -207,7 +209,7 @@ export default function ChatWidget() {
         }`}
       >
         {/* Label */}
-        <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-1 mr-1">Contact Us</p>
+        <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-1 mx-1">{t.widget.contactUs}</p>
 
         {/* Agent 1 WhatsApp */}
         <a
@@ -221,10 +223,10 @@ export default function ChatWidget() {
             <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">Agent 1</p>
+            <p className="text-white text-sm font-semibold leading-none">{t.widget.agent1}</p>
             <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 58 273 8508</p>
           </div>
-          <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+          <span className="mx-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
         </a>
 
         {/* Agent 2 WhatsApp */}
@@ -239,25 +241,25 @@ export default function ChatWidget() {
             <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">Agent 2</p>
+            <p className="text-white text-sm font-semibold leading-none">{t.widget.agent2}</p>
             <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 55 139 0986</p>
           </div>
-          <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+          <span className="mx-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
         </a>
 
         {/* AI Chat */}
         <button
           onClick={() => { setMenuOpen(false); setOpen(true); }}
-          className="group flex items-center gap-3 bg-[#050e09]/95 backdrop-blur-xl border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-200 min-w-[210px] text-left w-full"
+          className="group flex items-center gap-3 bg-[#050e09]/95 backdrop-blur-xl border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-200 min-w-[210px] text-left rtl:text-right w-full"
         >
           <div className="w-9 h-9 rounded-xl bg-brand-green/15 border border-brand-green/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green/25 group-hover:scale-105 transition-all">
             <img src="/icon.svg" alt="AI" className="w-4.5 h-4.5" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">Sky AI Chat</p>
-            <p className="text-brand-green text-[11px] mt-0.5">Instant answers • 24/7</p>
+            <p className="text-white text-sm font-semibold leading-none">{t.widget.aiChat}</p>
+            <p className="text-brand-green text-[11px] mt-0.5">{t.widget.aiSub}</p>
           </div>
-          <span className="ml-auto w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
+          <span className="mx-auto w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
         </button>
       </div>
 

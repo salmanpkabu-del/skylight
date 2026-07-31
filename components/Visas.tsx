@@ -3,11 +3,14 @@
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Clock } from "lucide-react";
+import { ArrowRight, ArrowLeft, Clock } from "lucide-react";
 import { visas } from "@/lib/visas-data";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Visas() {
+  const { t, isAr } = useLanguage();
   const trackRef = useRef<HTMLDivElement>(null);
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
 
   const allVisas = [...visas, ...visas]; // duplicate for seamless loop
 
@@ -17,15 +20,15 @@ export default function Visas() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-dark/40 mb-3">
-              Visa Services
+              {t.visas.tag}
             </p>
             <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-brand-dark
               md-tablet:text-[40px] mobile-max:text-[32px] mobile-max:tracking-[-1.5px]">
-              Borderless Travel<br />Starts Here
+              {t.visas.titleMain}<br />{t.visas.titleAccent}
             </h2>
           </div>
           <p className="max-w-sm text-base leading-7 text-brand-dark/60 font-medium">
-            Expert visa assistance for UAE residents and expats. From e-visas to embassy appointments, we handle it all.
+            {t.visas.desc}
           </p>
         </div>
       </div>

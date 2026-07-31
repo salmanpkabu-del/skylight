@@ -3,35 +3,37 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, MapPin, Mail, Phone } from "lucide-react";
-
-const navItems = [
-  { label: "Packages", href: "/packages" },
-  { label: "Visas", href: "/visas" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import { Menu, X, MapPin, Mail, Phone, Globe } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Navbar() {
+  const { lang, setLang, t, isAr } = useLanguage();
   const [time, setTime] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const navItems = [
+    { label: t.nav.packages, href: "/packages" },
+    { label: t.nav.visas, href: "/visas" },
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
+
   useEffect(() => {
     const tick = () => {
-      const t = new Intl.DateTimeFormat("en-GB", {
+      const tStr = new Intl.DateTimeFormat("en-GB", {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
         timeZone: "Asia/Dubai",
         hour12: false,
       }).format(new Date());
-      setTime(`UAE ${t}`);
+      setTime(`${isAr ? "الإمارات" : "UAE"} ${tStr}`);
     };
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [isAr]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -68,7 +70,7 @@ export default function Navbar() {
           >
             {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 className="group relative flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-transparent text-xs leading-4 tracking-[-0.12px] font-semibold uppercase text-white/85 hover:text-brand-green hover:bg-brand-green/10 hover:border-brand-green/25 hover:shadow-[0_0_20px_rgba(166,238,66,0.15)] transition-all duration-300"
               >
@@ -92,8 +94,19 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* RIGHT — email + clock desktop */}
-          <div className="hidden lg:flex items-center gap-6 text-right">
+          {/* RIGHT — email + clock + language switcher desktop */}
+          <div className="hidden lg:flex items-center gap-5 text-right">
+            {/* Language Switcher Pill */}
+            <button
+              type="button"
+              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-brand-green hover:text-black border border-white/20 text-xs font-bold uppercase transition-all duration-300 cursor-pointer"
+              title={isAr ? "Switch to English" : "التحويل إلى العربية"}
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{isAr ? "EN" : "عربي"}</span>
+            </button>
+
             <a
               href="mailto:info@skylighttourism.com"
               className="text-xs leading-4 tracking-[-0.12px] font-medium uppercase text-white/80 hover:text-brand-green transition-colors duration-300 drop-shadow-sm"
@@ -109,16 +122,27 @@ export default function Navbar() {
             </span>
           </div>
 
-          {/* MOBILE/TABLET hamburger */}
-          <button
-            type="button"
-            className="flex lg:hidden items-center justify-center w-10 h-10 text-white z-[60] bg-white/5 rounded-full backdrop-blur-sm border border-white/10 transition-colors hover:bg-white/10 cursor-pointer"
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* MOBILE/TABLET controls (Language toggle + Hamburger) */}
+          <div className="flex lg:hidden items-center gap-2 z-[60]">
+            <button
+              type="button"
+              onClick={() => setLang(lang === "en" ? "ar" : "en")}
+              className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 hover:bg-brand-green hover:text-black border border-white/20 text-xs font-bold uppercase transition-all duration-300 cursor-pointer"
+            >
+              <Globe className="w-3.5 h-3.5" />
+              <span>{isAr ? "EN" : "عربي"}</span>
+            </button>
+
+            <button
+              type="button"
+              className="flex items-center justify-center w-10 h-10 text-white bg-white/5 rounded-full backdrop-blur-sm border border-white/10 transition-colors hover:bg-white/10 cursor-pointer"
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* FULL SCREEN OVERLAY MENU FOR TAB/MOBILE */}

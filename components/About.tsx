@@ -2,29 +2,32 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Globe, CheckCircle2, Shield, ArrowRight } from "lucide-react";
+import { Globe, CheckCircle2, Shield, ArrowRight, ArrowLeft } from "lucide-react";
 import UaeMap from "./UaeMap";
-
-const pillars = [
-  {
-    icon: Globe,
-    label: "Expert Planning",
-    desc: "Every itinerary is hand-crafted by UAE-based specialists who know your destination inside out. No templates, no guesswork.",
-  },
-  {
-    icon: CheckCircle2,
-    label: "Personalised Trips",
-    desc: "Whether it's a family holiday, couple getaway, or solo adventure, we tailor every detail around your budget and travel style.",
-  },
-  {
-    icon: Shield,
-    label: "End-to-End Care",
-    desc: "From your first enquiry to the moment you land home, our team is available on WhatsApp 7 days a week for real-time support.",
-  },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function About() {
+  const { t, isAr } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
+
+  const pillars = [
+    {
+      icon: Globe,
+      label: t.about.pillars.expertTitle,
+      desc: t.about.pillars.expertDesc,
+    },
+    {
+      icon: CheckCircle2,
+      label: t.about.pillars.supportTitle,
+      desc: t.about.pillars.supportDesc,
+    },
+    {
+      icon: Shield,
+      label: t.about.pillars.priceTitle,
+      desc: t.about.pillars.priceDesc,
+    },
+  ];
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll(".reveal");
@@ -51,19 +54,18 @@ export default function About() {
         {/* ── 1. Editorial Header ─────────────────────────── */}
         <div className="reveal flex flex-col items-center text-center max-w-4xl mx-auto">
           <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green mb-6">
-            About Skylight
+            {t.nav.about}
           </span>
           <h2 className="text-[42px] sm:text-[56px] lg:text-[72px] leading-[1.05] tracking-[-2px] sm:tracking-[-3px] font-semibold text-brand-dark">
-            Where Every Journey <br className="hidden sm:block" />
-            Begins with{" "}
+            {t.about.titleMain} <br className="hidden sm:block" />
             <span
               style={{
-                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
-                fontStyle: "italic",
+                fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
+                fontStyle: isAr ? "normal" : "italic",
                 color: "#013025",
               }}
             >
-              Trust.
+              {t.about.titleAccent}
             </span>
           </h2>
         </div>
@@ -74,12 +76,8 @@ export default function About() {
           {/* Main Story Card */}
           <div className="reveal lg:col-span-8 bg-[#fafaf9] rounded-[32px] p-10 sm:p-14 flex flex-col justify-between border border-brand-dark/[0.03]">
             <div className="space-y-6 text-[18px] sm:text-[22px] leading-[1.6] text-brand-dark/80 font-medium">
-              <p>
-                Founded in 2020 in Sharjah, Skylight Travel was built on a single belief: <span className="text-brand-dark">every family deserves to experience the world without the stress of planning it alone.</span>
-              </p>
-              <p className="text-[16px] sm:text-[18px] leading-[1.8] text-brand-dark/60">
-                Over the years, we&apos;ve helped more than 5,000 UAE families discover extraordinary destinations, from the Silk Road cities of Uzbekistan to the beaches of Thailand. We do this with complete transparency, fair pricing, and a team that genuinely cares.
-              </p>
+              <p>{t.about.p1}</p>
+              <p className="text-[16px] sm:text-[18px] leading-[1.8] text-brand-dark/60">{t.about.p2}</p>
             </div>
             
             <div className="mt-12 pt-8 border-t border-brand-dark/10">
@@ -87,9 +85,9 @@ export default function About() {
                 href="/about"
                 className="inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.15em] uppercase text-brand-dark hover:text-brand-green transition-colors w-fit group"
               >
-                Read Our Full Story
+                {t.nav.about}
                 <span className="w-8 h-8 rounded-full border border-brand-dark/20 flex items-center justify-center group-hover:border-brand-green transition-colors">
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowIcon className="w-4 h-4 group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5 transition-transform" />
                 </span>
               </Link>
             </div>
@@ -100,11 +98,11 @@ export default function About() {
             <UaeMap className="absolute w-[180%] h-[180%] -top-[20%] -left-[20%] text-brand-green/15 z-0 pointer-events-none transition-transform duration-1000 group-hover:scale-105" />
             <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none" />
             <p className="text-[100px] sm:text-[130px] leading-none tracking-tighter font-bold text-white mb-2 relative z-10"
-               style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
+               style={{ fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
               6<span className="text-brand-green">+</span>
             </p>
             <p className="text-[12px] sm:text-[14px] font-semibold tracking-[0.2em] uppercase text-white/60 relative z-10">
-              Years Serving<br/>UAE Families
+              {t.about.statLabel}
             </p>
           </div>
 

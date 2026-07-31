@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Figtree, Cormorant_Garamond } from "next/font/google";
+import { Figtree, Cormorant_Garamond, Tajawal } from "next/font/google";
 import "./globals.css";
 import ChatWidget from "@/components/ChatWidget";
+import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -16,6 +17,13 @@ const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
+  display: "swap",
+});
+
+const tajawal = Tajawal({
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "700", "800"],
+  variable: "--font-tajawal",
   display: "swap",
 });
 
@@ -159,7 +167,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AE" className={`${figtree.variable} ${cormorant.variable}`}>
+    <html lang="en-AE" className={`${figtree.variable} ${cormorant.variable} ${tajawal.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -174,8 +182,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="ICBM" content="25.3573, 55.4033" />
       </head>
       <body className="font-figtree bg-brand-dark text-white antialiased">
-        {children}
-        <ChatWidget />
+        <LanguageProvider>
+          {children}
+          <ChatWidget />
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { MapPin, Phone, Mail, MessageCircle, Send, Check, Clock, Sparkles, Navigation } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function ContactForm() {
+  const { t, isAr } = useLanguage();
   const [form, setForm] = useState({ 
     name: "", 
     email: "", 
@@ -14,7 +16,13 @@ export default function ContactForm() {
   });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const serviceTypes = ["Holiday Package", "Visa Assistance", "Flight & Hotel", "Umrah / Hajj", "General Enquiry"];
+  const serviceTypes = [
+    t.packages.tag,
+    t.visas.tag,
+    "Flight & Hotel",
+    "Umrah / Hajj",
+    "General Enquiry"
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,11 +58,11 @@ export default function ContactForm() {
             <div className="flex items-center gap-1.5 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
               <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
-                Agent 1 • Online
+                {t.contact.chatAgent1}
               </span>
             </div>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
-              Chat with Agent 1
+              {t.contact.chatAgent1}
             </h3>
             <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
               +971 58 273 8508
@@ -76,11 +84,11 @@ export default function ContactForm() {
             <div className="flex items-center gap-1.5 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
               <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
-                Agent 2 • Online
+                {t.contact.chatAgent2}
               </span>
             </div>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
-              Chat with Agent 2
+              {t.contact.chatAgent2}
             </h3>
             <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
               +971 55 139 0986
@@ -88,7 +96,7 @@ export default function ContactForm() {
           </div>
         </a>
 
-        {/* Call Us Card */}
+        {/* Direct Call Card */}
         <a
           href="tel:+971582738508"
           className="group relative bg-brand-card/90 border border-white/15 p-5 sm:p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
@@ -98,10 +106,10 @@ export default function ContactForm() {
           </div>
           <div className="min-w-0">
             <span className="text-[10px] font-bold tracking-wider uppercase text-brand-green block mb-1">
-              Sun–Fri 9am–9pm
+              {t.contact.callDirect}
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-brand-green transition-colors truncate">
-              Call Direct Line
+              {t.contact.callDirect}
             </h3>
             <p className="text-[11px] text-white/60 mt-0.5 font-mono truncate">
               +971 58 273 8508
@@ -121,13 +129,13 @@ export default function ContactForm() {
           </div>
           <div className="min-w-0">
             <span className="text-[10px] font-bold tracking-wider uppercase text-brand-green block mb-1">
-              Sharjah Office HQ
+              {t.contact.visitHq}
             </span>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-brand-green transition-colors truncate">
-              Visit Sharjah HQ
+              {t.contact.addressValue}
             </h3>
             <p className="text-[11px] text-white/60 mt-0.5 truncate">
-              Walk-ins Welcome
+              {t.contact.walkIns}
             </p>
           </div>
         </a>
@@ -139,10 +147,10 @@ export default function ContactForm() {
         {/* Form Column (7 cols) */}
         <div className="lg:col-span-7 bg-brand-card/80 border border-white/15 p-8 sm:p-10 rounded-3xl backdrop-blur-md shadow-2xl">
           <div className="mb-8">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-green mb-1">Direct Consultation</p>
-            <h2 className="text-2xl sm:text-3xl font-semibold text-white">Send Us a Message</h2>
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-brand-green mb-1">{t.contact.tag}</p>
+            <h2 className="text-2xl sm:text-3xl font-semibold text-white">{t.contact.formTitle}</h2>
             <p className="text-white/60 text-xs sm:text-sm font-light mt-1">
-              Fill in your details below. Our UAE consultants will get back to you within 2 hours.
+              {t.contact.formSub}
             </p>
           </div>
 
@@ -162,7 +170,7 @@ export default function ContactForm() {
               {/* Service Type Pills */}
               <div>
                 <label className="text-xs uppercase tracking-wider text-white/60 block mb-3 font-semibold">
-                  What service are you looking for?
+                  {t.contact.serviceLabel}
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {serviceTypes.map((type) => (
@@ -170,7 +178,7 @@ export default function ContactForm() {
                       key={type}
                       type="button"
                       onClick={() => setForm({ ...form, serviceType: type })}
-                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
+                      className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                         form.serviceType === type
                           ? "bg-brand-green text-black shadow-[0_0_15px_rgba(166,238,66,0.3)]"
                           : "bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
@@ -186,7 +194,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="text-xs uppercase tracking-wider text-white/60 block mb-2 font-semibold">
-                    Full Name *
+                    {t.contact.nameLabel} *
                   </label>
                   <input
                     required
@@ -198,7 +206,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="text-xs uppercase tracking-wider text-white/60 block mb-2 font-semibold">
-                    Phone / WhatsApp *
+                    {t.contact.phoneLabel} *
                   </label>
                   <input
                     required
@@ -214,7 +222,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="text-xs uppercase tracking-wider text-white/60 block mb-2 font-semibold">
-                    Email Address
+                    {t.contact.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -226,7 +234,7 @@ export default function ContactForm() {
                 </div>
                 <div>
                   <label className="text-xs uppercase tracking-wider text-white/60 block mb-2 font-semibold">
-                    Destination / Country
+                    {t.contact.destinationLabel}
                   </label>
                   <input
                     value={form.destination}
@@ -240,7 +248,7 @@ export default function ContactForm() {
               {/* Message */}
               <div>
                 <label className="text-xs uppercase tracking-wider text-white/60 block mb-2 font-semibold">
-                  Trip Details / Message
+                  {t.contact.messageLabel}
                 </label>
                 <textarea
                   rows={4}
@@ -251,13 +259,20 @@ export default function ContactForm() {
                 />
               </div>
 
+              {/* Submit button */}
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="btn-green w-full py-4 text-sm font-bold tracking-[0.1em] uppercase disabled:opacity-60 rounded-xl gap-2.5 shadow-[0_0_25px_rgba(166,238,66,0.2)]"
+                className="w-full btn-green py-4 rounded-xl text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_20px_rgba(166,238,66,0.25)] hover:shadow-[0_0_30px_rgba(166,238,66,0.4)] transition-all"
               >
-                <Send className="w-4 h-4" />
-                <span>{status === "sending" ? "Sending Message..." : "Submit Travel Enquiry"}</span>
+                {status === "sending" ? (
+                  <span>{t.contact.sending}</span>
+                ) : (
+                  <>
+                    <Send className="w-4 h-4" />
+                    <span>{t.contact.submitBtn}</span>
+                  </>
+                )}
               </button>
             </form>
           )}

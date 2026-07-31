@@ -2,20 +2,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { ArrowRight, ArrowLeft, MessageCircle } from "lucide-react";
 import Navbar from "./Navbar";
 import { packages } from "@/lib/packages-data";
-
-const stats = [
-  { num: "5,000+", label: "UAE Travellers" },
-  { num: "50+", label: "Destinations" },
-  { num: "4.9★", label: "Rating" },
-  { num: "6+", label: "Years of Trust" },
-];
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Hero() {
+  const { t, isAr } = useLanguage();
   const [revealed, setRevealed] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const stats = [
+    { num: "5,000+", label: t.hero.stats.travellers },
+    { num: "50+", label: t.hero.stats.destinations },
+    { num: "4.9★", label: t.hero.stats.rating },
+    { num: "6+", label: t.hero.stats.years },
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => setRevealed(true), 100);
@@ -32,6 +34,8 @@ export default function Hero() {
     transition: "opacity 0.8s ease, transform 0.8s ease",
     transitionDelay: `${delay}ms`,
   });
+
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
 
   return (
     <main className="relative w-full h-[100dvh] min-h-[640px] bg-brand-dark overflow-hidden">
@@ -64,7 +68,7 @@ export default function Hero() {
           <div className="flex items-center gap-3" style={tr(0)}>
             <div className="h-px w-6 bg-brand-green flex-shrink-0" />
             <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green">
-              UAE&apos;s Most Trusted Travel Agency
+              {t.hero.eyebrow}
             </span>
             <div className="h-px w-6 bg-brand-green flex-shrink-0" />
           </div>
@@ -75,18 +79,18 @@ export default function Hero() {
               className="font-semibold text-white leading-[0.88] tracking-[-0.05em]"
               style={{ fontSize: "clamp(56px, 8.5vw, 112px)" }}
             >
-              The World
+              {t.hero.headlineMain}
             </h1>
             <p
               className="leading-[0.88] tracking-[-0.03em] text-brand-green"
               style={{
                 fontSize: "clamp(56px, 8.5vw, 112px)",
-                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
-                fontStyle: "italic",
-                fontWeight: 600,
+                fontFamily: isAr ? "var(--font-tajawal), sans-serif" : "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif",
+                fontStyle: isAr ? "normal" : "italic",
+                fontWeight: 700,
               }}
             >
-              Awaits.
+              {t.hero.headlineItalic}
             </p>
           </div>
 
@@ -95,8 +99,7 @@ export default function Hero() {
             className="text-[15px] sm:text-[16px] leading-[1.8] text-white/55 max-w-[580px]"
             style={tr(200)}
           >
-            Crafting premium holidays and securing seamless visas with genuine care.<br className="hidden sm:block" />
-            Trusted by over 5,000 UAE families since 2020.
+            {t.hero.desc}
           </p>
 
           {/* CTAs */}
@@ -106,8 +109,8 @@ export default function Hero() {
               className="btn-green px-8 py-[14px] text-[11px] font-semibold tracking-[0.1em] uppercase"
             >
               <span className="flex items-center gap-2.5">
-                Explore Packages
-                <ArrowRight className="w-3.5 h-3.5" />
+                {t.hero.btnPackages}
+                <ArrowIcon className="w-3.5 h-3.5" />
               </span>
             </Link>
             <a
@@ -117,7 +120,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2.5 px-8 py-[14px] border border-white/20 text-white text-[11px] font-semibold tracking-[0.1em] uppercase hover:border-brand-green hover:text-brand-green transition-all duration-300"
             >
               <MessageCircle className="w-3.5 h-3.5" />
-              WhatsApp Us
+              {t.hero.btnWhatsApp}
             </a>
           </div>
         </div>
@@ -127,8 +130,8 @@ export default function Hero() {
 
           {/* Destination chips */}
           <div className="hidden sm:flex items-center justify-center flex-wrap gap-2 mb-7">
-            <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-white/25 mr-1">
-              Popular →
+            <span className="text-[9px] font-medium tracking-[0.2em] uppercase text-white/25 mx-1">
+              {t.hero.popular}
             </span>
             {packages.map((pkg) => (
               <Link
@@ -142,7 +145,7 @@ export default function Hero() {
           </div>
 
           {/* Stats bar */}
-          <div className="flex border-t border-white/10 divide-x divide-white/10 mobile-max:grid mobile-max:grid-cols-2 mobile-max:divide-x-0">
+          <div className="flex border-t border-white/10 divide-x divide-white/10 rtl:divide-x-reverse mobile-max:grid mobile-max:grid-cols-2 mobile-max:divide-x-0">
             {stats.map((s) => (
               <div key={s.label} className="flex-1 flex flex-col items-center py-5 mobile-max:border-b mobile-max:border-white/10 mobile-max:last:border-b-0">
                 <p className="text-[28px] sm:text-[32px] font-semibold text-white leading-none tracking-[-0.02em]">

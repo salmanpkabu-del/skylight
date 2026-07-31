@@ -1,6 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, MapPin, Phone, Mail, ArrowRight, Send } from "lucide-react";
+import { MessageCircle, MapPin, Phone, Mail, ArrowRight, ArrowLeft, Send } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -24,32 +27,34 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const quickLinks = [
-  { label: "Home", href: "/" },
-  { label: "Packages", href: "/packages" },
-  { label: "Visas", href: "/visas" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
-
-const serviceLinks = [
-  { label: "Flight Bookings", href: "/contact" },
-  { label: "Hotel Reservations", href: "/contact" },
-  { label: "Holiday Tour Packages", href: "/packages" },
-  { label: "Visa Assistance", href: "/visas" },
-  { label: "Umrah & Hajj Packages", href: "/contact" },
-  { label: "Car Rental Services", href: "/contact" },
-  { label: "Cruise Bookings", href: "/contact" },
-];
-
-const socials = [
-  { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com/skylighttravel", label: "Instagram" },
-  { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com/skylighttravel", label: "Facebook" },
-  { icon: <LinkedinIcon className="w-4 h-4" />, href: "https://linkedin.com/company/skylighttravel", label: "LinkedIn" },
-  { icon: <MessageCircle className="w-4 h-4" />, href: "https://wa.me/971582738508", label: "WhatsApp" },
-];
-
 export default function Footer() {
+  const { t, isAr } = useLanguage();
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
+
+  const quickLinks = [
+    { label: t.nav.about, href: "/about" },
+    { label: t.nav.packages, href: "/packages" },
+    { label: t.nav.visas, href: "/visas" },
+    { label: t.nav.contact, href: "/contact" },
+    { label: "Blog", href: "/blog" },
+  ];
+
+  const serviceLinks = [
+    { label: `${t.nav.packages} — Uzbekistan`, href: "/package/unforgettable-uzbekistan" },
+    { label: `${t.nav.packages} — Armenia`, href: "/package/armenia-revealed" },
+    { label: `${t.nav.packages} — Thailand`, href: "/package/thailand-escape" },
+    { label: `${t.nav.visas} — Schengen`, href: "/visas/schengen" },
+    { label: `${t.nav.visas} — USA B1/B2`, href: "/visas/usa" },
+    { label: `${t.nav.visas} — Japan`, href: "/visas/japan" },
+  ];
+
+  const socials = [
+    { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com/skylighttravel", label: "Instagram" },
+    { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com/skylighttravel", label: "Facebook" },
+    { icon: <LinkedinIcon className="w-4 h-4" />, href: "https://linkedin.com/company/skylighttravel", label: "LinkedIn" },
+    { icon: <MessageCircle className="w-4 h-4" />, href: "https://wa.me/971582738508", label: "WhatsApp" },
+  ];
+
   return (
     <footer className="bg-[#011c15] relative overflow-hidden text-white pt-24 lg:pt-32 border-t border-white/10">
       
@@ -73,24 +78,24 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[15px] leading-relaxed text-white/50 mb-10 max-w-sm">
-              Sharjah&apos;s trusted travel & tourism company, where every journey begins with trust. We craft premium holidays and secure seamless visas with genuine care.
+              {t.footer.desc}
             </p>
             
             {/* Newsletter Input */}
             <div className="w-full max-w-sm relative group">
-              <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-green/80 mb-4">Newsletter</p>
+              <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-green/80 mb-4">{t.footer.newsletter}</p>
               <div className="relative flex items-center">
                 <input 
                   type="email" 
-                  placeholder="Your email address" 
+                  placeholder={t.footer.emailPlaceholder}
                   className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-6 pr-14 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-green/50 focus:bg-white/10 transition-all duration-300"
                 />
                 <button 
                   type="button"
                   aria-label="Subscribe"
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-green text-brand-black flex items-center justify-center hover:scale-105 transition-transform duration-300"
+                  className="absolute right-2 rtl:right-auto rtl:left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-green text-brand-black flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
                 >
-                  <Send className="w-4 h-4 ml-[-2px]" />
+                  <Send className="w-4 h-4 ml-[-2px] rtl:ml-0 rtl:mr-[-2px]" />
                 </button>
               </div>
             </div>
@@ -99,7 +104,7 @@ export default function Footer() {
           {/* Quick Links - spans 2 */}
           <div className="lg:col-span-2">
             <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-8">
-              Explore
+              {t.footer.explore}
             </h4>
             <ul className="flex flex-col gap-4">
               {quickLinks.map((l) => (
@@ -109,7 +114,7 @@ export default function Footer() {
                     className="group flex items-center gap-2 text-[15px] text-white/50 hover:text-white transition-colors w-fit"
                   >
                     <span className="w-0 overflow-hidden opacity-0 group-hover:w-3 group-hover:opacity-100 transition-all duration-300 ease-[var(--ease-spring)] flex items-center text-brand-green">
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowIcon className="w-3 h-3" />
                     </span>
                     {l.label}
                   </Link>
@@ -121,7 +126,7 @@ export default function Footer() {
           {/* Services - spans 3 */}
           <div className="lg:col-span-3">
             <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-8">
-              Services
+              {t.footer.services}
             </h4>
             <ul className="flex flex-col gap-4">
               {serviceLinks.map((l) => (
@@ -131,7 +136,7 @@ export default function Footer() {
                     className="group flex items-center gap-2 text-[15px] text-white/50 hover:text-white transition-colors w-fit"
                   >
                     <span className="w-0 overflow-hidden opacity-0 group-hover:w-3 group-hover:opacity-100 transition-all duration-300 ease-[var(--ease-spring)] flex items-center text-brand-green">
-                      <ArrowRight className="w-3 h-3" />
+                      <ArrowIcon className="w-3 h-3" />
                     </span>
                     {l.label}
                   </Link>
@@ -143,7 +148,7 @@ export default function Footer() {
           {/* Contact - spans 3 */}
           <div className="lg:col-span-3">
             <h4 className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/30 mb-8">
-              Get in Touch
+              {t.footer.getInTouch}
             </h4>
             <div className="flex flex-col gap-6">
               <a
@@ -165,7 +170,7 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-brand-black transition-all duration-300">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="text-[14px]">+971 58 273 8508</span>
+                <span className="text-[14px] font-medium">+971 58 273 8508</span>
               </a>
 
               <a
@@ -175,7 +180,7 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-brand-black transition-all duration-300">
                   <Mail className="w-4 h-4" />
                 </div>
-                <span className="text-[14px]">info@skylighttourism.com</span>
+                <span className="text-[14px] font-medium">info@skylighttourism.com</span>
               </a>
             </div>
           </div>
@@ -183,45 +188,24 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col-reverse md:flex-row md:items-center justify-between gap-8 relative z-20">
-          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-[13px] text-white/40">
-            <span>© {new Date().getFullYear()} Skylight Travel. All rights reserved.</span>
-            <span className="hidden sm:inline text-white/20">•</span>
-            <span className="flex items-center gap-2">
-              Created &amp; Cared by
-              <a
-                href="https://www.jellycutstudio.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Jellycut Studio"
-                className="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity duration-300"
-              >
-                <Image
-                  src="/jellycut.svg"
-                  alt="Jellycut Studio"
-                  width={80}
-                  height={21}
-                  className="h-4 sm:h-[18px] w-auto invert brightness-0"
-                />
-              </a>
-            </span>
-          </div>
-          
-          <div className="flex items-center gap-3">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+          <p>© {new Date().getFullYear()} {t.footer.copyright}</p>
+          <div className="flex items-center gap-4">
             {socials.map((s) => (
               <a
                 key={s.label}
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:text-brand-green hover:border-brand-green/40 hover:bg-brand-green/10 transition-all"
                 aria-label={s.label}
-                className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/50 hover:bg-brand-green hover:text-brand-black hover:border-brand-green transition-all duration-300 group"
               >
-                <span className="group-hover:scale-110 transition-transform duration-300">{s.icon}</span>
+                {s.icon}
               </a>
             ))}
           </div>
         </div>
+
       </div>
     </footer>
   );

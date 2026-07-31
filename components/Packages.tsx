@@ -3,11 +3,14 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Star, Users, ArrowRight } from "lucide-react";
+import { Clock, Star, Users, ArrowRight, ArrowLeft } from "lucide-react";
 import { packages } from "@/lib/packages-data";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Packages() {
+  const { t, isAr } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
+  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
 
   useEffect(() => {
     const els = ref.current?.querySelectorAll(".reveal, .reveal-left");
@@ -27,19 +30,19 @@ export default function Packages() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 mobile-max:mb-10">
           <div className="reveal-left">
             <p className="text-[11px] font-medium tracking-[0.2em] uppercase text-brand-green/70 mb-3">
-              Holiday Packages
+              {t.packages.tag}
             </p>
             <h2 className="text-[56px] leading-[1.05] tracking-[-2.5px] font-semibold text-white
               md-tablet:text-[40px] mobile-max:text-[32px] mobile-max:tracking-[-1.5px]">
-              Your Dream<br />Holidays Await
+              {t.packages.titleMain}<br />{t.packages.titleAccent}
             </h2>
           </div>
           <Link
             href="/packages"
             className="reveal self-start md:self-end flex items-center gap-2 text-sm font-semibold tracking-[0.08em] uppercase text-white/60 hover:text-brand-green transition-colors group"
           >
-            Explore All Packages
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {t.packages.viewAll}
+            <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
           </Link>
         </div>
 
