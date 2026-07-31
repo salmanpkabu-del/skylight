@@ -36,7 +36,7 @@ export default function ContactForm() {
       
       {/* 4 Quick Contact Methods Banner */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        {/* WhatsApp Card — Sainul */}
+        {/* WhatsApp Card — Agent 1 */}
         <a
           href="https://wa.me/+971582738508"
           target="_blank"
@@ -50,11 +50,11 @@ export default function ContactForm() {
             <div className="flex items-center gap-1.5 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
               <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
-                Sainul • Online
+                Agent 1 • Online
               </span>
             </div>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
-              Chat with Sainul
+              Chat with Agent 1
             </h3>
             <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
               +971 58 273 8508
@@ -62,7 +62,7 @@ export default function ContactForm() {
           </div>
         </a>
 
-        {/* WhatsApp Card — Anzar */}
+        {/* WhatsApp Card — Agent 2 */}
         <a
           href="https://wa.me/+971551390986"
           target="_blank"
@@ -76,11 +76,11 @@ export default function ContactForm() {
             <div className="flex items-center gap-1.5 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
               <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
-                Anzar • Online
+                Agent 2 • Online
               </span>
             </div>
             <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
-              Chat with Anzar
+              Chat with Agent 2
             </h3>
             <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
               +971 55 139 0986
@@ -281,13 +281,13 @@ export default function ContactForm() {
                   <p className="text-white font-semibold">WhatsApp Travel Specialists</p>
                   <div className="mt-1 space-y-1 text-xs">
                     <p>
-                      <span className="text-white/50">Sainul: </span>
+                      <span className="text-white/50">Agent 1: </span>
                       <a href="https://wa.me/+971582738508" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
                         +971 58 273 8508
                       </a>
                     </p>
                     <p>
-                      <span className="text-white/50">Anzar: </span>
+                      <span className="text-white/50">Agent 2: </span>
                       <a href="https://wa.me/+971551390986" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
                         +971 55 139 0986
                       </a>

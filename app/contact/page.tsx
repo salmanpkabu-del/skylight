@@ -8,7 +8,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact Skylight Travel | Travel Agency in Sharjah",
   description:
-    "Contact Skylight Travel in Sharjah, UAE. Speak with our travel consultants Sainul (+971 58 273 8508) or Anzar (+971 55 139 0986) via WhatsApp, call, or email info@skylighttourism.com.",
+    "Contact Skylight Travel in Sharjah, UAE. Speak with our travel consultants via WhatsApp +971 58 273 8508 or +971 55 139 0986, call, or email info@skylighttourism.com.",
   alternates: { canonical: "https://skylighttravel.ae/contact" },
   openGraph: {
     title: "Contact Skylight Travel | Sharjah UAE",

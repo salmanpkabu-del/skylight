@@ -209,9 +209,9 @@ export default function ChatWidget() {
         {/* Label */}
         <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-1 mr-1">Contact Us</p>
 
-        {/* Sainul WhatsApp */}
+        {/* Agent 1 WhatsApp */}
         <a
-          href="https://wa.me/+971582738508?text=Hi%20Sainul!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
+          href="https://wa.me/+971582738508?text=Hi!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setMenuOpen(false)}
@@ -221,15 +221,15 @@ export default function ChatWidget() {
             <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">Sainul</p>
+            <p className="text-white text-sm font-semibold leading-none">Agent 1</p>
             <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 58 273 8508</p>
           </div>
           <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
         </a>
 
-        {/* Anzar WhatsApp */}
+        {/* Agent 2 WhatsApp */}
         <a
-          href="https://wa.me/+971551390986?text=Hi%20Anzar!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
+          href="https://wa.me/+971551390986?text=Hi!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => setMenuOpen(false)}
@@ -239,7 +239,7 @@ export default function ChatWidget() {
             <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
           </div>
           <div>
-            <p className="text-white text-sm font-semibold leading-none">Anzar</p>
+            <p className="text-white text-sm font-semibold leading-none">Agent 2</p>
             <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 55 139 0986</p>
           </div>
           <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
