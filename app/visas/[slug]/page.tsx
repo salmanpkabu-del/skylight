@@ -27,12 +27,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${visa.country} Visa Assistance from UAE | ${visa.type} — AED ${visa.price}`,
     description: `Get your ${visa.country} ${visa.type} from Dubai or Sharjah, UAE. Processing time: ${visa.processingTime}. Full VFS & embassy document preparation by Skylight Travel.`,
-    alternates: { canonical: `https://skylighttravel.ae/visas/${visa.id}` },
+    alternates: { canonical: `https://www.skylighttourism.com/visas/${visa.id}` },
     openGraph: {
       title: `${visa.country} Visa Assistance from UAE | Skylight Travel`,
       description: `Fast & reliable ${visa.country} visa assistance for UAE residents. 99.4% approval rate. Apply today via WhatsApp!`,
       type: "website",
-      url: `https://skylighttravel.ae/visas/${visa.id}`,
+      url: `https://www.skylighttourism.com/visas/${visa.id}`,
     },
   };
 }
@@ -89,9 +89,9 @@ export default async function VisaDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-      { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://skylighttravel.ae/visas" },
-      { "@type": "ListItem", position: 3, name: `${visa.country} Visa`, item: `https://skylighttravel.ae/visas/${visa.id}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+      { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.skylighttourism.com/visas" },
+      { "@type": "ListItem", position: 3, name: `${visa.country} Visa`, item: `https://www.skylighttourism.com/visas/${visa.id}` },
     ],
   };
 

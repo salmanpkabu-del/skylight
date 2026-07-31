@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${post.title} | Skylight Travel Journal`,
     description: post.excerpt,
-    alternates: { canonical: `https://skylighttravel.ae/blog/${slug}` },
+    alternates: { canonical: `https://www.skylighttourism.com/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -56,7 +56,7 @@ export default async function BlogPostPage({ params }: Props) {
       name: "Skylight Travel",
       logo: {
         "@type": "ImageObject",
-        url: "https://skylighttravel.ae/skylight.svg",
+        url: "https://www.skylighttourism.com/skylight.svg",
       },
     },
     speakable: {
@@ -69,9 +69,9 @@ export default async function BlogPostPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://skylighttravel.ae/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://skylighttravel.ae/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.skylighttourism.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://www.skylighttourism.com/blog/${post.slug}` },
     ],
   };
 

@@ -4,7 +4,7 @@ import { visas } from "@/lib/visas-data";
 import { blogPosts } from "@/lib/blog-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://skylighttravel.ae";
+  const baseUrl = "https://www.skylighttourism.com";
 
   const packageUrls = packages.map((pkg) => ({
     url: `${baseUrl}/package/${pkg.slug}`,

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${pkg.name} — ${pkg.duration} from AED ${pkg.price.toLocaleString()}`,
     description: `Book the ${pkg.name} holiday package from UAE. ${pkg.duration}, ${pkg.highlights.join(", ")}. From ${pkg.currency} ${pkg.price.toLocaleString()}/person.`,
-    alternates: { canonical: `https://skylighttravel.ae/package/${slug}` },
+    alternates: { canonical: `https://www.skylighttourism.com/package/${slug}` },
   };
 }
 
@@ -71,9 +71,9 @@ export default async function PackagePage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-      { "@type": "ListItem", position: 2, name: "Packages", item: "https://skylighttravel.ae/packages" },
-      { "@type": "ListItem", position: 3, name: pkg.name, item: `https://skylighttravel.ae/package/${pkg.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+      { "@type": "ListItem", position: 2, name: "Packages", item: "https://www.skylighttourism.com/packages" },
+      { "@type": "ListItem", position: 3, name: pkg.name, item: `https://www.skylighttourism.com/package/${pkg.slug}` },
     ],
   };
 

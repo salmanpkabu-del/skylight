@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   title: "Visa Assistance from UAE | Schengen, USA, UK & Silk Road",
   description:
     "Expert visa assistance for UAE residents. We handle Schengen, USA, UK, Armenia, Georgia, Azerbaijan and more. Full documentation & VFS appointment support from Sharjah.",
-  alternates: { canonical: "https://skylighttravel.ae/visas" },
+  alternates: { canonical: "https://www.skylighttourism.com/visas" },
   openGraph: {
     title: "Visa Assistance from UAE | Schengen, USA, UK & More",
     description: "Expert visa assistance for UAE residents. Schengen, USA, UK, Japan & Silk Road e-Visas. 99.4% approval rate.",
-    url: "https://skylighttravel.ae/visas",
+    url: "https://www.skylighttourism.com/visas",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skylight Travel Visa Assistance UAE" }],
   },
   twitter: {
@@ -80,7 +80,7 @@ const itemListSchema = {
   itemListElement: visas.map((v, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    url: `https://skylighttravel.ae/visas/${v.id}`,
+    url: `https://www.skylighttourism.com/visas/${v.id}`,
     name: `${v.country} Visa Assistance`,
   })),
 };
@@ -89,8 +89,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://skylighttravel.ae/visas" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+    { "@type": "ListItem", position: 2, name: "Visa Services", item: "https://www.skylighttourism.com/visas" },
   ],
 };
 

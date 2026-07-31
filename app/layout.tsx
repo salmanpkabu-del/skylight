@@ -20,7 +20,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://skylighttravel.ae"),
+  metadataBase: new URL("https://www.skylighttourism.com"),
   title: {
     default: "Skylight Travel — Best Travel Agency in Sharjah & UAE | Holiday Packages, Visas",
     template: "%s | Skylight Travel UAE",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_AE",
-    url: "https://skylighttravel.ae",
+    url: "https://www.skylighttourism.com",
     siteName: "Skylight Travel",
     title: "Skylight Travel — Best Travel Agency in Sharjah & UAE",
     description:
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
   alternates: {
-    canonical: "https://skylighttravel.ae",
+    canonical: "https://www.skylighttourism.com",
   },
   verification: {
     google: "your-google-site-verification-token",
@@ -80,12 +80,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "TravelAgency",
-      "@id": "https://skylighttravel.ae/#organization",
+      "@id": "https://www.skylighttourism.com/#organization",
       name: "Skylight Travel",
-      url: "https://skylighttravel.ae",
+      url: "https://www.skylighttourism.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://skylighttravel.ae/skylight.svg",
+        url: "https://www.skylighttourism.com/skylight.svg",
       },
       description:
         "Skylight Travel is Sharjah's premier travel agency offering holiday packages, visa assistance, flight bookings, and more.",
@@ -121,20 +121,20 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://skylighttravel.ae/#website",
-      url: "https://skylighttravel.ae",
+      "@id": "https://www.skylighttourism.com/#website",
+      url: "https://www.skylighttourism.com",
       name: "Skylight Travel",
-      publisher: { "@id": "https://skylighttravel.ae/#organization" },
+      publisher: { "@id": "https://www.skylighttourism.com/#organization" },
       potentialAction: {
         "@type": "SearchAction",
-        target: { "@type": "EntryPoint", urlTemplate: "https://skylighttravel.ae/packages?q={search_term_string}" },
+        target: { "@type": "EntryPoint", urlTemplate: "https://www.skylighttourism.com/packages?q={search_term_string}" },
         "query-input": "required name=search_term_string",
       },
       inLanguage: "en-AE",
     },
     {
       "@type": "FAQPage",
-      "@id": "https://skylighttravel.ae/#faq",
+      "@id": "https://www.skylighttourism.com/#faq",
       mainEntity: [
         {
           "@type": "Question",

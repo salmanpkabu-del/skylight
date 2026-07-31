@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   title: "Holiday Packages from UAE 2025 | Uzbekistan, Thailand, Georgia & More",
   description:
     "Book custom holiday packages from UAE with Skylight Travel. Explore Uzbekistan, Armenia, Thailand, Georgia, Azerbaijan, Kerala & more. Packages from AED 1,699/person.",
-  alternates: { canonical: "https://skylighttravel.ae/packages" },
+  alternates: { canonical: "https://www.skylighttourism.com/packages" },
   openGraph: {
     title: "Holiday Packages from UAE 2025 | Skylight Travel",
     description: "Custom holiday packages from Sharjah & Dubai. Uzbekistan, Thailand, Georgia and more from AED 1,699.",
-    url: "https://skylighttravel.ae/packages",
+    url: "https://www.skylighttourism.com/packages",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Skylight Travel Holiday Packages UAE" }],
   },
   twitter: {
@@ -73,7 +73,7 @@ const itemListSchema = {
   itemListElement: packages.map((p, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    url: `https://skylighttravel.ae/package/${p.slug}`,
+    url: `https://www.skylighttourism.com/package/${p.slug}`,
     name: `${p.name} Package`,
   })),
 };
@@ -82,8 +82,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-    { "@type": "ListItem", position: 2, name: "Holiday Packages", item: "https://skylighttravel.ae/packages" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+    { "@type": "ListItem", position: 2, name: "Holiday Packages", item: "https://www.skylighttourism.com/packages" },
   ],
 };
 

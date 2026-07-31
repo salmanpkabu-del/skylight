@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Contact Skylight Travel | Travel Agency in Sharjah",
   description:
     "Contact Skylight Travel in Sharjah, UAE. Speak with our travel consultants via WhatsApp +971 58 273 8508 or +971 55 139 0986, call, or email info@skylighttourism.com.",
-  alternates: { canonical: "https://skylighttravel.ae/contact" },
+  alternates: { canonical: "https://www.skylighttourism.com/contact" },
   openGraph: {
     title: "Contact Skylight Travel | Sharjah UAE",
     description: "Speak with our travel consultants in Sharjah via WhatsApp, phone, or email.",
-    url: "https://skylighttravel.ae/contact",
+    url: "https://www.skylighttourism.com/contact",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact Skylight Travel Sharjah UAE" }],
   },
   twitter: {
@@ -46,8 +46,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://skylighttravel.ae/contact" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://www.skylighttourism.com/contact" },
   ],
 };
 

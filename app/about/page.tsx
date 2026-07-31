@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
   description:
     "Learn about Skylight Travel — Sharjah's trusted travel agency with 5,000+ happy UAE families. Your journey, our passion.",
-  alternates: { canonical: "https://skylighttravel.ae/about" },
+  alternates: { canonical: "https://www.skylighttourism.com/about" },
   openGraph: {
     title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
     description: "Sharjah's trusted travel agency with 6+ years experience and 5,000+ happy UAE families.",
-    url: "https://skylighttravel.ae/about",
+    url: "https://www.skylighttourism.com/about",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "About Skylight Travel Sharjah UAE" }],
   },
   twitter: {
@@ -35,7 +35,7 @@ const aboutSchema = {
   publisher: {
     "@type": "TravelAgency",
     name: "Skylight Travel",
-    url: "https://skylighttravel.ae",
+    url: "https://www.skylighttourism.com",
   },
 };
 
@@ -43,8 +43,8 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://skylighttravel.ae" },
-    { "@type": "ListItem", position: 2, name: "About Us", item: "https://skylighttravel.ae/about" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.skylighttourism.com" },
+    { "@type": "ListItem", position: 2, name: "About Us", item: "https://www.skylighttourism.com/about" },
   ],
 };
 

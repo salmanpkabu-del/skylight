@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://skylighttravel.ae/sitemap.xml",
+    sitemap: "https://www.skylighttourism.com/sitemap.xml",
   };
 }
