@@ -83,10 +83,10 @@ export default function Navbar() {
             <Image
               src="/skylight.svg"
               alt="Skylight Travel"
-              width={180}
-              height={42}
+              width={220}
+              height={58}
               className={`w-auto object-contain transition-all ${
-                scrolled ? "h-6 sm:h-7 lg:h-7.5" : "h-7 sm:h-8 lg:h-8"
+                scrolled ? "h-9 sm:h-9 lg:h-9.5" : "h-11 sm:h-11.5 lg:h-12"
               }`}
               priority
             />
