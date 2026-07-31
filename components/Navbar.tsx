@@ -101,21 +101,21 @@ export default function Navbar() {
               type="button"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-              className="relative flex items-center gap-0 h-[28px] rounded-full bg-white/8 border border-white/15 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/50 hover:shadow-[0_0_16px_rgba(166,238,66,0.15)] px-[3px]"
+              className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 hover:shadow-[0_0_16px_rgba(166,238,66,0.18)] px-[4px]"
             >
               {/* Sliding highlight */}
               <span
-                className={`absolute top-[3px] h-[22px] w-[34px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[3px]" : "left-[37px]"
+                className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[4px]" : "left-[36px]"
                 }`}
               />
               {/* AR label */}
-              <span className={`relative z-10 w-[34px] text-center text-[10px] font-bold tracking-[0.12em] transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/50"
-              }`}>ع</span>
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/45"
+              }`}>AR</span>
               {/* EN label */}
-              <span className={`relative z-10 w-[34px] text-center text-[10px] font-bold tracking-[0.12em] transition-colors duration-200 ${
-                !isAr ? "text-black" : "text-white/50"
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                !isAr ? "text-black" : "text-white/45"
               }`}>EN</span>
             </button>
 
@@ -141,18 +141,18 @@ export default function Navbar() {
               type="button"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-              className="relative flex items-center gap-0 h-[28px] rounded-full bg-white/8 border border-white/15 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/50 px-[3px]"
+              className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 px-[4px]"
             >
               <span
-                className={`absolute top-[3px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[3px]" : "left-[35px]"
+                className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[4px]" : "left-[36px]"
                 }`}
               />
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-bold transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/50"
-              }`}>ع</span>
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-bold tracking-[0.1em] transition-colors duration-200 ${
-                !isAr ? "text-black" : "text-white/50"
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/45"
+              }`}>AR</span>
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                !isAr ? "text-black" : "text-white/45"
               }`}>EN</span>
             </button>
 
