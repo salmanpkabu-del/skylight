@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, MapPin, Mail, Phone, Globe } from "lucide-react";
+import { Menu, X, MapPin, Mail, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Navbar() {
@@ -96,15 +96,27 @@ export default function Navbar() {
 
           {/* RIGHT — email + clock + language switcher desktop */}
           <div className="hidden lg:flex items-center gap-5 text-right">
-            {/* Language Switcher Pill */}
+            {/* Premium Segmented Language Toggle */}
             <button
               type="button"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-brand-green hover:text-black border border-white/20 text-xs font-bold uppercase transition-all duration-300 cursor-pointer"
-              title={isAr ? "Switch to English" : "التحويل إلى العربية"}
+              aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
+              className="relative flex items-center gap-0 h-[28px] rounded-full bg-white/8 border border-white/15 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/50 hover:shadow-[0_0_16px_rgba(166,238,66,0.15)] px-[3px]"
             >
-              <Globe className="w-3.5 h-3.5" />
-              <span>{isAr ? "EN" : "عربي"}</span>
+              {/* Sliding highlight */}
+              <span
+                className={`absolute top-[3px] h-[22px] w-[34px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[3px]" : "left-[37px]"
+                }`}
+              />
+              {/* AR label */}
+              <span className={`relative z-10 w-[34px] text-center text-[10px] font-bold tracking-[0.12em] transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/50"
+              }`}>ع</span>
+              {/* EN label */}
+              <span className={`relative z-10 w-[34px] text-center text-[10px] font-bold tracking-[0.12em] transition-colors duration-200 ${
+                !isAr ? "text-black" : "text-white/50"
+              }`}>EN</span>
             </button>
 
             <a
@@ -124,13 +136,24 @@ export default function Navbar() {
 
           {/* MOBILE/TABLET controls (Language toggle + Hamburger) */}
           <div className="flex lg:hidden items-center gap-2 z-[60]">
+            {/* Premium Segmented Toggle — Mobile */}
             <button
               type="button"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 hover:bg-brand-green hover:text-black border border-white/20 text-xs font-bold uppercase transition-all duration-300 cursor-pointer"
+              aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
+              className="relative flex items-center gap-0 h-[28px] rounded-full bg-white/8 border border-white/15 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/50 px-[3px]"
             >
-              <Globe className="w-3.5 h-3.5" />
-              <span>{isAr ? "EN" : "عربي"}</span>
+              <span
+                className={`absolute top-[3px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[3px]" : "left-[35px]"
+                }`}
+              />
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-bold transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/50"
+              }`}>ع</span>
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-bold tracking-[0.1em] transition-colors duration-200 ${
+                !isAr ? "text-black" : "text-white/50"
+              }`}>EN</span>
             </button>
 
             <button
@@ -195,7 +218,7 @@ export default function Navbar() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 text-white/70">
                 <div className="flex flex-col gap-4">
-                  <h3 className="text-xs uppercase tracking-widest text-white/40 font-semibold mb-2">Get in touch</h3>
+                  <h3 className="text-xs uppercase tracking-widest text-white/40 font-semibold mb-2">{t.nav.getInTouch}</h3>
                   <a href="mailto:info@skylighttourism.com" className="flex items-center gap-3 hover:text-brand-green transition-colors w-fit">
                     <Mail size={18} />
                     <span className="text-sm sm:text-base">info@skylighttourism.com</span>
@@ -206,13 +229,13 @@ export default function Navbar() {
                   </a>
                   <div className="flex items-center gap-3 mt-1">
                     <MapPin size={18} className="shrink-0 text-brand-green" />
-                    <span className="text-sm sm:text-base leading-snug max-w-[200px]">Sharjah, United Arab Emirates</span>
+                    <span className="text-sm sm:text-base leading-snug max-w-[200px]">{t.contact.addressValue}</span>
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:items-end justify-between gap-8 sm:gap-4">
                   <div className="flex flex-col gap-4 sm:items-end">
-                     <h3 className="text-xs uppercase tracking-widest text-white/40 font-semibold mb-2">Local Time</h3>
+                     <h3 className="text-xs uppercase tracking-widest text-white/40 font-semibold mb-2">{t.nav.localTime}</h3>
                      <span className="text-2xl sm:text-3xl font-light text-white tabular-nums tracking-tight">{time}</span>
                   </div>
                   

@@ -92,7 +92,7 @@ export default function Packages() {
                     <Clock className="w-3.5 h-3.5" /> {pkg.duration}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <Users className="w-3.5 h-3.5" /> {pkg.groupSize} pax
+                    <Users className="w-3.5 h-3.5" /> {pkg.groupSize} {t.packages.pax}
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Star className="w-3.5 h-3.5 fill-brand-green text-brand-green" /> {pkg.rating}
@@ -111,14 +111,14 @@ export default function Packages() {
                 {/* Price */}
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/5">
                   <div>
-                    <p className="text-[10px] text-white/30 tracking-wider uppercase">Starting from</p>
+                    <p className="text-[10px] text-white/30 tracking-wider uppercase">{t.packages.from}</p>
                     <p className="text-2xl font-semibold text-white">
                       {pkg.currency} {pkg.price.toLocaleString()}
-                      <span className="text-sm font-normal text-white/40"> /person</span>
+                      <span className="text-sm font-normal text-white/40"> /{t.packages.pax}</span>
                     </p>
                   </div>
                   <div className="w-9 h-9 rounded-full bg-brand-green/10 border border-brand-green/20 flex items-center justify-center group-hover:bg-brand-green group-hover:border-brand-green transition-all duration-300">
-                    <ArrowRight className="w-4 h-4 text-brand-green group-hover:text-black transition-colors" />
+                    <ArrowIcon className="w-4 h-4 text-brand-green group-hover:text-black transition-colors" />
                   </div>
                 </div>
               </div>
@@ -132,7 +132,7 @@ export default function Packages() {
             href="/packages"
             className="btn-green px-10 py-4 text-sm font-semibold tracking-[0.1em] uppercase rounded-full shadow-lg"
           >
-            View All Packages
+            {t.packages.viewAll}
           </Link>
         </div>
       </div>

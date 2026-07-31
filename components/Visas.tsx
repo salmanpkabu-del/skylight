@@ -62,14 +62,14 @@ export default function Visas() {
                   }`}
                 >
                   {visa.processingTime.includes("Free") || visa.processingTime.includes("Arrival")
-                    ? "Visa Free"
+                    ? t.visas.visaFree
                     : visa.processingTime}
                 </span>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white group-hover:text-brand-green transition-colors flex items-center justify-between">
                   <span>{visa.country}</span>
-                  <span className="text-xs text-brand-green opacity-0 group-hover:opacity-100 transition-opacity font-normal">View →</span>
+                  <span className="text-xs text-brand-green opacity-0 group-hover:opacity-100 transition-opacity font-normal">{isAr ? "عرض ←" : "View →"}</span>
                 </h3>
                 <p className="text-sm text-white/50 mt-0.5">{visa.type}</p>
               </div>
@@ -80,7 +80,7 @@ export default function Visas() {
               <p className="text-sm text-white/60 leading-6">{visa.description}</p>
               <div className="text-brand-green text-xl font-semibold mt-auto flex items-center justify-between">
                 <span>{visa.price}</span>
-                <span className="text-xs text-white/60 font-normal uppercase tracking-wider group-hover:text-white transition-colors">Apply</span>
+                <span className="text-xs text-white/60 font-normal uppercase tracking-wider group-hover:text-white transition-colors">{t.visas.apply}</span>
               </div>
             </Link>
           ))}
@@ -98,8 +98,8 @@ export default function Visas() {
           href="/visas"
           className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.08em] uppercase text-brand-dark border-b-2 border-brand-green pb-0.5 hover:text-brand-dark/60 transition-colors group"
         >
-          All Visa Services
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          {t.visas.viewAll}
+          <ArrowIcon className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
         </Link>
       </div>
     </section>
