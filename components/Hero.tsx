@@ -34,7 +34,7 @@ export default function Hero() {
   });
 
   return (
-    <main className="relative w-full h-screen min-h-[640px] bg-brand-dark overflow-hidden">
+    <main className="relative w-full h-[100dvh] min-h-[640px] bg-brand-dark overflow-hidden">
       <Navbar />
 
       {/* ── Video ───────────────────────────────────────── */}

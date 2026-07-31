@@ -147,7 +147,7 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-6">
               <a
-                href="https://maps.google.com/?q=Al+Sajaa+Sharjah+UAE"
+                href="https://maps.app.goo.gl/JYWYAQ1FbXEcoKNQ6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-start gap-4 text-white/50 hover:text-white transition-colors"

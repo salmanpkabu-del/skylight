@@ -180,8 +180,8 @@ export default function Navbar() {
                     <span className="text-sm sm:text-base">+971 58 273 8508</span>
                   </a>
                   <div className="flex items-center gap-3 mt-1">
-                    <MapPin size={18} className="shrink-0" />
-                    <span className="text-sm sm:text-base leading-snug max-w-[200px]">Dubai, United Arab Emirates</span>
+                    <MapPin size={18} className="shrink-0 text-brand-green" />
+                    <span className="text-sm sm:text-base leading-snug max-w-[200px]">Sharjah, United Arab Emirates</span>
                   </div>
                 </div>
                 
