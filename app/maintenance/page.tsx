@@ -198,7 +198,7 @@ export default function MaintenancePage() {
       <footer className="relative z-10 max-w-6xl w-full mx-auto px-6 py-6 text-center border-t border-white/10 text-xs text-white/40 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-1.5">
           <MapPin className="w-3.5 h-3.5 text-brand-green" />
-          <span>Al Sajaa, Sharjah, United Arab Emirates</span>
+          <span>Sharjah, United Arab Emirates</span>
         </div>
         <div>
           &copy; {new Date().getFullYear()} Skylight Travel & Tourism LLC. All rights reserved.

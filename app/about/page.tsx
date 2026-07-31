@@ -12,7 +12,7 @@ import CTABanner from "@/components/CTABanner";
 export const metadata: Metadata = {
   title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
   description:
-    "Learn about Skylight Travel — Sharjah's trusted travel agency with 10+ years experience, 5,000+ happy UAE families, and dedicated consultants in Al Sajaa. Your journey, our passion.",
+    "Learn about Skylight Travel — Sharjah's trusted travel agency with 5,000+ happy UAE families. Your journey, our passion.",
   alternates: { canonical: "https://skylighttravel.ae/about" },
   openGraph: {
     title: "About Skylight Travel | Trusted Travel Agency in Sharjah, UAE",
@@ -50,16 +50,16 @@ const breadcrumbSchema = {
 
 export default function AboutPage() {
   const stats = [
-    { value: "5,000+", label: "UAE Families Served", sub: "Trusted since 2014" },
+    { value: "5,000+", label: "UAE Families Served", sub: "Trusted since 2020" },
     { value: "50+", label: "Global Destinations", sub: "Worldwide holiday packages" },
     { value: "99.4%", label: "Visa Approval Rate", sub: "Schengen, Japan, UK & more" },
     { value: "4.9★", label: "Google Rating", sub: "Over 800+ 5-star reviews" },
   ];
 
   const milestones = [
-    { year: "2014", title: "Founded in Sharjah", desc: "Started in Al Sajaa, Sharjah with a clear mission to simplify visa processing & holiday planning for UAE residents." },
-    { year: "2018", title: "Expanded Destinations", desc: "Launched curated packages across Uzbekistan, Armenia, Georgia, Thailand, and Azerbaijan." },
+    { year: "2020", title: "Founded as Highsky Travels", desc: "Started in Sharjah as Highsky Travels with a clear mission to simplify visa processing & holiday planning for UAE residents." },
     { year: "2024", title: "5,000+ Families Milestone", desc: "Celebrated serving over 5,000 UAE families with personalized 1-on-1 WhatsApp & walk-in service." },
+    { year: "2026", title: "Rebranded to Skylight Travel", desc: "Officially rebranded to Skylight Travel, introducing enhanced digital services and premium custom holiday experiences." },
   ];
 
   const features = [
@@ -131,11 +131,11 @@ export default function AboutPage() {
 
             <h1 className="text-[44px] sm:text-[60px] lg:text-[72px] leading-[1.02] tracking-[-2.5px] font-semibold text-white mb-6">
               Crafting Unforgettable <br className="hidden sm:inline" />
-              <span className="text-gradient">Journeys Since 2014</span>
+              <span className="text-gradient">Journeys Since 2020</span>
             </h1>
 
             <p className="text-base sm:text-xl text-white/75 leading-relaxed font-light mb-10 max-w-2xl">
-              Sharjah&apos;s trusted travel & tourism company — headquartered in Al Sajaa, UAE. Committed to delivering seamless holiday packages and hassle-free visas with genuine care.
+              Sharjah&apos;s trusted travel & tourism company — headquartered in Sharjah, UAE. Committed to delivering seamless holiday packages and hassle-free visas with genuine care.
             </p>
 
             {/* Quick Trust Badges */}
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 <Clock className="w-4 h-4 text-brand-green" /> 10+ Years Experience
               </span>
               <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 backdrop-blur-md">
-                <MapPin className="w-4 h-4 text-brand-green" /> Al Sajaa, Sharjah HQ
+                <MapPin className="w-4 h-4 text-brand-green" /> Sharjah HQ
               </span>
             </div>
           </div>
@@ -174,74 +174,133 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Story & Milestone Journey (Dark Theme) */}
-      <section className="bg-brand-section py-20 lg:py-28 relative overflow-hidden">
-        <div className="w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
-            {/* Story Text (7 cols) */}
-            <div className="lg:col-span-7">
-              <p className="text-[11px] font-semibold tracking-[0.2em] uppercase text-brand-green mb-3">Our Legacy</p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-6">
-                Built on Trust, Care & Dedication
-              </h2>
-              
-              <div className="space-y-4 text-base leading-relaxed text-white/70 font-light mb-10">
-                <p>
-                  Skylight Travel was founded in 2014 with a simple promise: to eliminate the confusion and stress of international travel for every resident living in the United Arab Emirates.
-                </p>
-                <p>
-                  From our headquarters in Al Sajaa, Sharjah, we have grown from a local ticket office into a full-service travel company — managing custom holiday itineraries, express visa approvals, 4-star hotel stays, and flight bookings for over 5,000 families every year.
-                </p>
-              </div>
+      {/* ── Our Story & Journey ─────────────────────────────── */}
+      <section className="bg-brand-section py-28 lg:py-36 relative overflow-hidden">
 
-              {/* Milestones Timeline */}
-              <div className="space-y-6 border-l-2 border-brand-green/20 pl-6 sm:pl-8 ml-2">
-                {milestones.map((m) => (
-                  <div key={m.year} className="relative group">
-                    <div className="absolute -left-[31px] sm:-left-[39px] top-0.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-brand-green text-brand-green font-mono text-[10px] flex items-center justify-center group-hover:bg-brand-green group-hover:text-black transition-colors">
-                      •
-                    </div>
-                    <span className="text-xs font-bold text-brand-green tracking-widest uppercase">{m.year}</span>
-                    <h3 className="text-lg font-semibold text-white mt-0.5">{m.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed font-light mt-1 max-w-xl">{m.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        {/* Soft ambient glow */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full opacity-30"
+          style={{ background: "radial-gradient(ellipse, rgba(166,238,66,0.06) 0%, transparent 70%)" }} />
 
-            {/* Visual Photo Card Showcase (5 cols) */}
+        <div className="relative z-10 w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12">
+
+          {/* ── Eyebrow ── */}
+          <div className="flex items-center gap-3 mb-14">
+            <div className="h-px w-8 bg-brand-green" />
+            <span className="text-[11px] font-bold tracking-[0.28em] uppercase text-brand-green">Our Story</span>
+            <div className="h-px w-8 bg-brand-green" />
+          </div>
+
+          {/* ── Bento Grid: photo left, full-height content right ── */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:items-stretch">
+
+            {/* ── LEFT: Photo Card — full height ── */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-brand-card group">
-                <div className="relative h-[380px] sm:h-[460px] w-full">
-                  <Image
-                    src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=800&q=80"
-                    alt="Skylight Travel HQ in Sharjah UAE"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-[var(--ease-spring)]"
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#012119] via-[#012119]/40 to-transparent" />
-                  
-                  {/* Glass Info Badge */}
-                  <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-black/50 backdrop-blur-md border border-white/15">
-                    <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-5 h-5" />
+              <div className="relative h-[400px] lg:h-full rounded-3xl overflow-hidden group"
+                style={{ border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 40px 80px rgba(0,0,0,0.5)" }}>
+                <Image
+                  src="/images/about-hq.png"
+                  alt="Skylight Travel — Family travel consultation in Sharjah UAE"
+                  fill
+                  className="object-cover group-hover:scale-[1.05] transition-transform duration-[1200ms] ease-out"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0"
+                  style={{ background: "linear-gradient(160deg, rgba(1,33,25,0.15) 0%, rgba(1,33,25,0.65) 55%, rgba(1,33,25,0.97) 100%)" }} />
+
+                {/* Est. badge */}
+                <div className="absolute top-5 left-5 px-3 py-1.5 rounded-xl text-[11px] font-black tracking-widest uppercase"
+                  style={{ background: "rgba(166,238,66,0.15)", border: "1px solid rgba(166,238,66,0.3)", color: "#a6ee42" }}>
+                  Est. 2020
+                </div>
+
+                {/* Bottom: stats + HQ pill */}
+                <div className="absolute bottom-0 left-0 right-0 p-7 space-y-4">
+                  <div className="flex items-center gap-3">
+                    {[{ v: "5,000+", l: "Families Served" }, { v: "4.9★", l: "Google Rating" }, { v: "6+", l: "Years Active" }].map((s, i) => (
+                      <div key={i} className="flex-1 text-center">
+                        <p className="text-brand-green font-black text-xl leading-none">{s.v}</p>
+                        <p className="text-white/40 text-[9px] font-medium tracking-wide mt-1.5 uppercase">{s.l}</p>
                       </div>
-                      <div>
-                        <p className="text-white font-semibold text-sm">Skylight Travel Headquarters</p>
-                        <p className="text-white/60 text-xs mt-0.5">Al Sajaa, Sharjah, United Arab Emirates</p>
-                        <p className="text-[11px] text-brand-green font-mono mt-2 flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" /> Open 6 Days a Week (Walk-ins Welcome)
-                        </p>
-                      </div>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-3 px-4 py-3.5 rounded-2xl"
+                    style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(20px)", border: "1px solid rgba(255,255,255,0.1)" }}>
+                    <MapPin className="w-4 h-4 text-brand-green flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-white text-[13px] font-semibold leading-none">Skylight Travel HQ</p>
+                      <p className="text-white/40 text-[11px] mt-1">Sharjah, United Arab Emirates</p>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                      <span className="text-brand-green text-[9px] font-black tracking-widest uppercase">Open</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* ── RIGHT: Full-height flex column — headline top, milestones bottom ── */}
+            <div className="lg:col-span-7 flex flex-col justify-between gap-10 lg:pl-6">
+
+              {/* TOP: Headline + Story narrative */}
+              <div>
+                <h2 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-semibold text-white tracking-tight leading-[1.05] mb-8">
+                  Built on Trust,{" "}
+                  <span style={{ background: "linear-gradient(135deg, #a6ee42 0%, #7ed600 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                    Care &amp; Dedication
+                  </span>
+                </h2>
+                <div className="space-y-5 text-[16px] sm:text-[17px] leading-[1.9] text-white/55 font-light max-w-xl">
+                  <p>
+                    In <span className="text-white font-semibold">2020</span>, a small team in Sharjah started{" "}
+                    <span className="text-brand-green font-semibold">Highsky Travels</span> with a simple belief — every UAE family deserves to see the world without the stress of planning it alone.
+                  </p>
+                  <p>
+                    Six years on, in <span className="text-white font-semibold">2026</span> we rebranded to{" "}
+                    <span className="text-brand-green font-semibold">Skylight Travel</span>, bringing a fresh digital experience to over 5,000 families who trust us with their most precious moments.
+                  </p>
+                </div>
+              </div>
+
+              {/* BOTTOM: Milestone cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {milestones.map((m, i) => (
+                  <div key={m.year} className="group relative rounded-2xl overflow-hidden transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_20px_48px_rgba(0,0,0,0.4)]"
+                    style={{
+                      background: "rgba(255,255,255,0.03)",
+                      border: "1px solid rgba(255,255,255,0.07)",
+                    }}
+                  >
+                    {/* Top accent bar — full green for latest, dim for others */}
+                    <div className="h-[3px] w-full transition-all duration-300"
+                      style={{
+                        background: i === milestones.length - 1
+                          ? "linear-gradient(to right, #a6ee42, #6dcb00)"
+                          : "rgba(166,238,66,0.2)",
+                      }}
+                    />
+
+                    <div className="p-5">
+                      {/* Year + Latest badge row */}
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-[11px] font-black tracking-[0.2em] text-brand-green uppercase">{m.year}</span>
+                        {i === milestones.length - 1 && (
+                          <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full"
+                            style={{ background: "rgba(166,238,66,0.1)", border: "1px solid rgba(166,238,66,0.2)" }}>
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
+                            <span className="text-[8px] font-black text-brand-green tracking-widest uppercase">Latest</span>
+                          </div>
+                        )}
+                      </div>
+                      <h3 className="text-[13px] font-bold text-white leading-snug mb-2">{m.title}</h3>
+                      <p className="text-[11px] text-white/40 leading-relaxed font-light">{m.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
       </section>

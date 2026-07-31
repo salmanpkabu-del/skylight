@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Skylight Travel UAE",
   },
   description:
-    "Skylight Travel is Sharjah's premier travel agency offering custom holiday packages, visa assistance, flight bookings, and Umrah packages. Trusted by 5,000+ UAE travellers. Based in Al Sajaa, Sharjah.",
+    "Skylight Travel is Sharjah's premier travel agency offering custom holiday packages, visa assistance, flight bookings, and Umrah packages. Trusted by 5,000+ UAE travellers. Based in Sharjah.",
   keywords: [
     "travel agency UAE",
     "travel agency Sharjah",
@@ -91,7 +91,7 @@ const jsonLd = {
         "Skylight Travel is Sharjah's premier travel agency offering holiday packages, visa assistance, flight bookings, and more.",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Al Sajaa",
+        streetAddress: "Sharjah",
         addressLocality: "Sharjah",
         addressCountry: "AE",
       },

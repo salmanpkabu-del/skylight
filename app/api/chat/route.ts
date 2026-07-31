@@ -6,9 +6,9 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY || "dummy_key_to_pass_b
 const SYSTEM_PROMPT = `You are Sky — a witty, warm, and efficient travel assistant for Skylight Travel, a premium agency based in Sharjah, UAE.
 
 SKYLIGHT TRAVEL:
-- Al Sajaa, Sharjah, UAE | Phone/WhatsApp: +971 58 273 8508 | info@skylighttourism.com
+- Sharjah, UAE | Phone/WhatsApp: +971 58 273 8508 | info@skylighttourism.com
 - Services: Holiday packages, visas, flights, hotels, Umrah, car rental, cruises
-- 10+ years, 5,000+ happy travellers, 4.9★ rating
+- 5,000+ happy travellers, 4.9★ rating
 
 PACKAGES (flights + hotels + transfers included):
 - Georgia: 5N/6D from AED 1,999 | Baku: 5N/6D from AED 1,799
@@ -124,7 +124,7 @@ async function sendLeadEmail(lead: {
             </div>
 
             <p style="margin-top: 24px; font-size: 11px; color: #444; text-align: center;">
-              Skylight Travel • Al Sajaa, Sharjah, UAE • +971 58 273 8508
+              Skylight Travel • Sharjah, UAE • +971 58 273 8508
             </p>
           </div>
         </div>

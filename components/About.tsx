@@ -75,10 +75,10 @@ export default function About() {
           <div className="reveal lg:col-span-8 bg-[#fafaf9] rounded-[32px] p-10 sm:p-14 flex flex-col justify-between border border-brand-dark/[0.03]">
             <div className="space-y-6 text-[18px] sm:text-[22px] leading-[1.6] text-brand-dark/80 font-medium">
               <p>
-                Founded in 2014 in Al Sajaa, Sharjah, Skylight Travel was built on a single belief: <span className="text-brand-dark">every family deserves to experience the world without the stress of planning it alone.</span>
+                Founded in 2020 in Sharjah, Skylight Travel was built on a single belief: <span className="text-brand-dark">every family deserves to experience the world without the stress of planning it alone.</span>
               </p>
               <p className="text-[16px] sm:text-[18px] leading-[1.8] text-brand-dark/60">
-                Over a decade later, we&apos;ve helped more than 5,000 UAE families discover extraordinary destinations, from the Silk Road cities of Uzbekistan to the beaches of Thailand. We do this with complete transparency, fair pricing, and a team that genuinely cares.
+                Over the years, we&apos;ve helped more than 5,000 UAE families discover extraordinary destinations, from the Silk Road cities of Uzbekistan to the beaches of Thailand. We do this with complete transparency, fair pricing, and a team that genuinely cares.
               </p>
             </div>
             

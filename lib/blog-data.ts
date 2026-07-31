@@ -124,8 +124,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "best-travel-agency-sharjah",
-    title: "Why Skylight is Sharjah's Most Trusted Travel Agency",
-    excerpt: "With 5,000+ happy travellers, 10+ years of experience, and a dedicated team in Al Sajaa — discover why UAE residents choose Skylight Travel.",
+    title: "Why Skylight is UAE's Most Trusted Travel Agency",
+    excerpt: "With 5,000+ happy travellers and a dedicated team in Sharjah — discover why UAE residents choose Skylight Travel.",
     category: "About Skylight",
     date: "June 5, 2025",
     readTime: "4 min read",
@@ -134,9 +134,9 @@ export const blogPosts: BlogPost[] = [
       name: "Skylight Management",
       role: "Sharjah, UAE",
     },
-    tldr: "Skylight Travel is Sharjah's premier travel agency located in Al Sajaa, serving over 5,000 happy UAE travelers with a 4.9-star rating. We specialize in custom holiday packages, express Schengen and international visa assistance, flight bookings, and Umrah packages with 100% transparent pricing and 24/7 dedicated human WhatsApp support.",
+    tldr: "Skylight Travel is Sharjah's premier travel agency located in Sharjah, serving over 5,000 happy UAE travelers with a 4.9-star rating. We specialize in custom holiday packages, express Schengen and international visa assistance, flight bookings, and Umrah packages with 100% transparent pricing and 24/7 dedicated human WhatsApp support.",
     content: [
-      "Finding a travel agency that combines transparent pricing, deep destination knowledge, and genuine customer care can be a challenge. Located in Al Sajaa, Sharjah, Skylight Travel has grown over the past decade to become one of the UAE's most recommended travel partners.",
+      "Finding a travel agency that combines transparent pricing, deep destination knowledge, and genuine customer care can be a challenge. Located in Sharjah, Skylight Travel has grown over the years to become one of the UAE's most recommended travel partners.",
       "### 1. Transparent Pricing — Zero Hidden Fees",
       "We believe trust begins with clear pricing. When we quote a package price, it includes taxes, airport transfers, and breakdown details so you never encounter unexpected surcharges.",
       "### 2. Personalised Human Support",

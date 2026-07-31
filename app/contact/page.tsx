@@ -6,12 +6,12 @@ import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Skylight Travel | Travel Agency in Al Sajaa, Sharjah",
+  title: "Contact Skylight Travel | Travel Agency in Sharjah",
   description:
-    "Contact Skylight Travel in Al Sajaa, Sharjah, UAE. Speak with our travel consultants via WhatsApp +971 58 273 8508, call, or email info@skylighttourism.com.",
+    "Contact Skylight Travel in Sharjah, UAE. Speak with our travel consultants Sainul (+971 58 273 8508) or Anzar (+971 55 139 0986) via WhatsApp, call, or email info@skylighttourism.com.",
   alternates: { canonical: "https://skylighttravel.ae/contact" },
   openGraph: {
-    title: "Contact Skylight Travel | Al Sajaa, Sharjah UAE",
+    title: "Contact Skylight Travel | Sharjah UAE",
     description: "Speak with our travel consultants in Sharjah via WhatsApp, phone, or email.",
     url: "https://skylighttravel.ae/contact",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Contact Skylight Travel Sharjah UAE" }],
@@ -35,7 +35,7 @@ const contactJsonLd = {
     email: "info@skylighttourism.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Al Sajaa",
+      streetAddress: "Sharjah",
       addressLocality: "Sharjah",
       addressCountry: "AE",
     },
@@ -54,7 +54,7 @@ const breadcrumbSchema = {
 const contactFaqs = [
   { 
     q: "Do I need an appointment to visit your Sharjah office?", 
-    a: "No appointment needed! Walk-ins are always welcome Sunday to Friday, 9:00 AM – 9:00 PM at our Al Sajaa, Sharjah office." 
+    a: "No appointment needed! Walk-ins are always welcome Sunday to Friday, 9:00 AM – 9:00 PM at our Sharjah office." 
   },
   { 
     q: "How quickly will I receive my custom travel quote?", 

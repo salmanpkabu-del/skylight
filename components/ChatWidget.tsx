@@ -83,6 +83,7 @@ function renderFormattedMessage(text: string) {
 }
 
 export default function ChatWidget() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState("");
@@ -181,18 +182,84 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Compact Trigger Button */}
+      {/* Floating Trigger Button */}
       <button
-        onClick={() => setOpen(true)}
-        className={`fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-11 h-11 rounded-full bg-brand-dark border border-brand-green/50 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(166,238,66,0.3)] hover:border-brand-green transition-all duration-300 group ${
-          open ? "opacity-0 pointer-events-none scale-90" : "opacity-100 scale-100"
+        onClick={() => { if (open) { setOpen(false); } else { setMenuOpen((v) => !v); } }}
+        className={`fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 w-12 h-12 rounded-full bg-[#012119] border-2 flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_24px_rgba(166,238,66,0.35)] transition-all duration-300 group ${
+          open
+            ? "opacity-0 pointer-events-none scale-90"
+            : menuOpen
+            ? "border-brand-green scale-110 shadow-[0_0_24px_rgba(166,238,66,0.4)]"
+            : "border-brand-green/50 hover:border-brand-green scale-100"
         }`}
-        aria-label="Open AI travel concierge"
+        aria-label="Contact Skylight Travel"
       >
-        {/* Pulsing ring */}
-        <span className="absolute inset-0 rounded-full border border-brand-green/30 animate-ping opacity-60" />
+        <span className={`absolute inset-0 rounded-full border border-brand-green/30 animate-ping opacity-50 ${ menuOpen ? "hidden" : "" }`} />
         <img src="/icon.svg" alt="Sky" className="w-5 h-5 group-hover:scale-110 transition-transform" />
       </button>
+
+      {/* Contact Picker Menu */}
+      <div
+        className={`fixed bottom-20 right-5 sm:bottom-22 sm:right-6 z-50 flex flex-col gap-2 items-end transition-all duration-300 ease-out origin-bottom-right ${
+          menuOpen && !open
+            ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 scale-90 translate-y-4 pointer-events-none"
+        }`}
+      >
+        {/* Label */}
+        <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/40 mb-1 mr-1">Contact Us</p>
+
+        {/* Sainul WhatsApp */}
+        <a
+          href="https://wa.me/+971582738508?text=Hi%20Sainul!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setMenuOpen(false)}
+          className="group flex items-center gap-3 bg-[#050e09]/95 backdrop-blur-xl border border-[#25D366]/30 hover:border-[#25D366] hover:bg-[#25D366]/10 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-200 min-w-[210px]"
+        >
+          <div className="w-9 h-9 rounded-xl bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+            <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
+          </div>
+          <div>
+            <p className="text-white text-sm font-semibold leading-none">Sainul</p>
+            <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 58 273 8508</p>
+          </div>
+          <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+        </a>
+
+        {/* Anzar WhatsApp */}
+        <a
+          href="https://wa.me/+971551390986?text=Hi%20Anzar!%20I'd%20like%20to%20plan%20a%20trip%20with%20Skylight%20Travel."
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => setMenuOpen(false)}
+          className="group flex items-center gap-3 bg-[#050e09]/95 backdrop-blur-xl border border-[#25D366]/30 hover:border-[#25D366] hover:bg-[#25D366]/10 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-200 min-w-[210px]"
+        >
+          <div className="w-9 h-9 rounded-xl bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+            <MessageSquare className="w-4.5 h-4.5 text-black fill-current" />
+          </div>
+          <div>
+            <p className="text-white text-sm font-semibold leading-none">Anzar</p>
+            <p className="text-[#25D366] text-[11px] mt-0.5 font-mono">+971 55 139 0986</p>
+          </div>
+          <span className="ml-auto w-2 h-2 rounded-full bg-[#25D366] animate-pulse flex-shrink-0" />
+        </a>
+
+        {/* AI Chat */}
+        <button
+          onClick={() => { setMenuOpen(false); setOpen(true); }}
+          className="group flex items-center gap-3 bg-[#050e09]/95 backdrop-blur-xl border border-brand-green/30 hover:border-brand-green hover:bg-brand-green/10 rounded-2xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all duration-200 min-w-[210px] text-left w-full"
+        >
+          <div className="w-9 h-9 rounded-xl bg-brand-green/15 border border-brand-green/30 flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green/25 group-hover:scale-105 transition-all">
+            <img src="/icon.svg" alt="AI" className="w-4.5 h-4.5" />
+          </div>
+          <div>
+            <p className="text-white text-sm font-semibold leading-none">Sky AI Chat</p>
+            <p className="text-brand-green text-[11px] mt-0.5">Instant answers • 24/7</p>
+          </div>
+          <span className="ml-auto w-2 h-2 rounded-full bg-brand-green animate-pulse flex-shrink-0" />
+        </button>
+      </div>
 
       {/* Chat Panel */}
       <div

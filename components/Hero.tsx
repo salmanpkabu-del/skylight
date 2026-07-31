@@ -64,7 +64,7 @@ export default function Hero() {
           <div className="flex items-center gap-3" style={tr(0)}>
             <div className="h-px w-6 bg-brand-green flex-shrink-0" />
             <span className="text-[10px] font-semibold tracking-[0.28em] uppercase text-brand-green">
-              Sharjah&apos;s Most Trusted Travel Agency
+              UAE&apos;s Most Trusted Travel Agency
             </span>
             <div className="h-px w-6 bg-brand-green flex-shrink-0" />
           </div>
@@ -96,7 +96,7 @@ export default function Hero() {
             style={tr(200)}
           >
             Crafting premium holidays and securing seamless visas with genuine care.<br className="hidden sm:block" />
-            Trusted by over 5,000 UAE families since 2014.
+            Trusted by over 5,000 UAE families since 2020.
           </p>
 
           {/* CTAs */}

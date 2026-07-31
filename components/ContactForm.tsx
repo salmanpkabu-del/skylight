@@ -34,30 +34,56 @@ export default function ContactForm() {
   return (
     <div className="space-y-16">
       
-      {/* 3 Quick Contact Methods Banner */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {/* WhatsApp Card */}
+      {/* 4 Quick Contact Methods Banner */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        {/* WhatsApp Card — Sainul */}
         <a
-          href="https://wa.me/971582738508"
+          href="https://wa.me/+971582738508"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative bg-[#25D366]/10 border border-[#25D366]/30 p-6 rounded-2xl hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 shadow-lg flex items-start gap-4"
+          className="group relative bg-[#25D366]/10 border border-[#25D366]/30 p-5 sm:p-6 rounded-2xl hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 shadow-lg flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-xl bg-[#25D366] text-black flex items-center justify-center flex-shrink-0 group-hover:bg-black group-hover:text-[#25D366] transition-colors">
-            <MessageCircle className="w-6 h-6 fill-current" />
+          <div className="w-11 h-11 rounded-xl bg-[#25D366] text-black flex items-center justify-center flex-shrink-0 group-hover:bg-black group-hover:text-[#25D366] transition-colors">
+            <MessageCircle className="w-5.5 h-5.5 fill-current" />
           </div>
-          <div>
-            <div className="flex items-center gap-2 mb-1">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5 mb-1">
               <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
-              <span className="text-[10px] font-bold tracking-widest uppercase text-[#25D366] group-hover:text-black">
-                Online Now
+              <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
+                Sainul • Online
               </span>
             </div>
-            <h3 className="text-base font-semibold text-white group-hover:text-black transition-colors">
-              Chat on WhatsApp
+            <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
+              Chat with Sainul
             </h3>
-            <p className="text-xs text-white/60 group-hover:text-black/80 transition-colors mt-0.5">
-              +971 58 273 8508 • &lt; 5 min response
+            <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
+              +971 58 273 8508
+            </p>
+          </div>
+        </a>
+
+        {/* WhatsApp Card — Anzar */}
+        <a
+          href="https://wa.me/+971551390986"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative bg-[#25D366]/10 border border-[#25D366]/30 p-5 sm:p-6 rounded-2xl hover:bg-[#25D366] hover:border-[#25D366] transition-all duration-300 shadow-lg flex items-start gap-4"
+        >
+          <div className="w-11 h-11 rounded-xl bg-[#25D366] text-black flex items-center justify-center flex-shrink-0 group-hover:bg-black group-hover:text-[#25D366] transition-colors">
+            <MessageCircle className="w-5.5 h-5.5 fill-current" />
+          </div>
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-2 h-2 rounded-full bg-[#25D366] group-hover:bg-black animate-pulse" />
+              <span className="text-[10px] font-bold tracking-wider uppercase text-[#25D366] group-hover:text-black truncate">
+                Anzar • Online
+              </span>
+            </div>
+            <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-black transition-colors truncate">
+              Chat with Anzar
+            </h3>
+            <p className="text-[11px] text-white/60 group-hover:text-black/80 transition-colors mt-0.5 font-mono">
+              +971 55 139 0986
             </p>
           </div>
         </a>
@@ -65,20 +91,20 @@ export default function ContactForm() {
         {/* Call Us Card */}
         <a
           href="tel:+971582738508"
-          className="group relative bg-brand-card/90 border border-white/15 p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
+          className="group relative bg-brand-card/90 border border-white/15 p-5 sm:p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-black transition-colors">
-            <Phone className="w-6 h-6" />
+          <div className="w-11 h-11 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-black transition-colors">
+            <Phone className="w-5.5 h-5.5" />
           </div>
-          <div>
-            <span className="text-[10px] font-bold tracking-widest uppercase text-brand-green block mb-1">
+          <div className="min-w-0">
+            <span className="text-[10px] font-bold tracking-wider uppercase text-brand-green block mb-1">
               Sun–Fri 9am–9pm
             </span>
-            <h3 className="text-base font-semibold text-white group-hover:text-brand-green transition-colors">
-              Call Travel Specialist
+            <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-brand-green transition-colors truncate">
+              Call Direct Line
             </h3>
-            <p className="text-xs text-white/60 mt-0.5">
-              +971 58 273 8508 • Direct Line
+            <p className="text-[11px] text-white/60 mt-0.5 font-mono truncate">
+              +971 58 273 8508
             </p>
           </div>
         </a>
@@ -88,20 +114,20 @@ export default function ContactForm() {
           href="https://maps.google.com/?q=Al+Sajaa+Sharjah+UAE"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative bg-brand-card/90 border border-white/15 p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
+          className="group relative bg-brand-card/90 border border-white/15 p-5 sm:p-6 rounded-2xl hover:border-brand-green/50 hover:bg-brand-card transition-all duration-300 shadow-lg flex items-start gap-4"
         >
-          <div className="w-12 h-12 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-black transition-colors">
-            <MapPin className="w-6 h-6" />
+          <div className="w-11 h-11 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0 group-hover:bg-brand-green group-hover:text-black transition-colors">
+            <MapPin className="w-5.5 h-5.5" />
           </div>
-          <div>
-            <span className="text-[10px] font-bold tracking-widest uppercase text-brand-green block mb-1">
+          <div className="min-w-0">
+            <span className="text-[10px] font-bold tracking-wider uppercase text-brand-green block mb-1">
               Sharjah Office HQ
             </span>
-            <h3 className="text-base font-semibold text-white group-hover:text-brand-green transition-colors">
-              Visit Al Sajaa HQ
+            <h3 className="text-sm sm:text-base font-semibold text-white group-hover:text-brand-green transition-colors truncate">
+              Visit Sharjah HQ
             </h3>
-            <p className="text-xs text-white/60 mt-0.5">
-              Sharjah, UAE • Walk-ins Welcome
+            <p className="text-[11px] text-white/60 mt-0.5 truncate">
+              Walk-ins Welcome
             </p>
           </div>
         </a>
@@ -248,13 +274,36 @@ export default function ContactForm() {
 
             <div className="space-y-5 text-sm text-white/80">
               <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                </div>
+                <div>
+                  <p className="text-white font-semibold">WhatsApp Travel Specialists</p>
+                  <div className="mt-1 space-y-1 text-xs">
+                    <p>
+                      <span className="text-white/50">Sainul: </span>
+                      <a href="https://wa.me/+971582738508" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
+                        +971 58 273 8508
+                      </a>
+                    </p>
+                    <p>
+                      <span className="text-white/50">Anzar: </span>
+                      <a href="https://wa.me/+971551390986" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
+                        +971 55 139 0986
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-xl bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
                   <p className="text-white font-semibold">Head Office Address</p>
                   <p className="text-white/60 text-xs mt-0.5 leading-relaxed">
-                    Al Sajaa Industrial Area, Sharjah, United Arab Emirates
+                    Sharjah, United Arab Emirates
                   </p>
                 </div>
               </div>
@@ -301,7 +350,7 @@ export default function ContactForm() {
               <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md p-3.5 rounded-xl border border-white/15 flex items-center justify-between">
                 <div>
                   <p className="text-white text-xs font-semibold">Skylight Travel HQ</p>
-                  <p className="text-white/50 text-[11px]">Al Sajaa, Sharjah, UAE</p>
+                  <p className="text-white/50 text-[11px]">Sharjah, UAE</p>
                 </div>
                 <a
                   href="https://maps.google.com/?q=Al+Sajaa+Sharjah+UAE"

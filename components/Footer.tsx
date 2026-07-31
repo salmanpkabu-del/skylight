@@ -69,7 +69,7 @@ export default function Footer() {
                 alt="Skylight Travel"
                 width={200}
                 height={50}
-                className="h-10 sm:h-12 w-auto invert brightness-0 hover:opacity-80 transition-opacity"
+                className="h-10 sm:h-12 w-auto hover:opacity-80 transition-opacity"
               />
             </Link>
             <p className="text-[15px] leading-relaxed text-white/50 mb-10 max-w-sm">
@@ -155,7 +155,7 @@ export default function Footer() {
                 <div className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-green group-hover:text-brand-black transition-all duration-300 mt-[-4px]">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="text-[14px] leading-relaxed max-w-[180px]">Al Sajaa, Sharjah<br/>United Arab Emirates</span>
+                <span className="text-[14px] leading-relaxed max-w-[180px]">Sharjah<br/>United Arab Emirates</span>
               </a>
               
               <a

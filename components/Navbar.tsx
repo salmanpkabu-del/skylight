@@ -85,7 +85,7 @@ export default function Navbar() {
               alt="Skylight Travel"
               width={180}
               height={42}
-              className={`w-auto object-contain invert brightness-0 transition-all ${
+              className={`w-auto object-contain transition-all ${
                 scrolled ? "h-6 sm:h-7 lg:h-7.5" : "h-7 sm:h-8 lg:h-8"
               }`}
               priority

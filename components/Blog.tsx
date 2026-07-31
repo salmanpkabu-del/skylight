@@ -26,8 +26,8 @@ const posts = [
   },
   {
     slug: "best-travel-agency-sharjah",
-    title: "Why Skylight is Sharjah's Most Trusted Travel Agency",
-    excerpt: "With 5,000+ happy travellers, 10+ years of experience, and a dedicated team in Al Sajaa, discover why UAE residents choose Skylight Travel.",
+    title: "Why Skylight is UAE's Most Trusted Travel Agency",
+    excerpt: "With 5,000+ happy travellers and a dedicated team in Sharjah, discover why UAE residents choose Skylight Travel.",
     category: "About Skylight",
     date: "June 5, 2025",
     readTime: "4 min read",
