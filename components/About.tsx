@@ -101,7 +101,7 @@ export default function About() {
             <div className="absolute inset-0 bg-gradient-to-br from-brand-green/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0 pointer-events-none" />
             <p className="text-[100px] sm:text-[130px] leading-none tracking-tighter font-bold text-white mb-2 relative z-10"
                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}>
-              10<span className="text-brand-green">+</span>
+              6<span className="text-brand-green">+</span>
             </p>
             <p className="text-[12px] sm:text-[14px] font-semibold tracking-[0.2em] uppercase text-white/60 relative z-10">
               Years Serving<br/>UAE Families
