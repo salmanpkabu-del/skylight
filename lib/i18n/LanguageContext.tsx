@@ -20,7 +20,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     try {
       const savedLang = localStorage.getItem("skylight_lang") as Language;
       if (savedLang === "en" || savedLang === "ar") {
-        setLangState(savedLang);
+        queueMicrotask(() => setLangState(savedLang));
       }
     } catch {
       // Fallback to default

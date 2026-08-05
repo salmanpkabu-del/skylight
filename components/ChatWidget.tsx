@@ -84,7 +84,7 @@ function renderFormattedMessage(text: string) {
 }
 
 export default function ChatWidget() {
-  const { t, isAr } = useLanguage();
+  const { t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([INITIAL_MESSAGE]);
@@ -102,11 +102,11 @@ export default function ChatWidget() {
       if (savedMsgs) {
         const parsed = JSON.parse(savedMsgs);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          setMessages(parsed);
+          queueMicrotask(() => setMessages(parsed));
         }
       }
       if (savedLead === "true") {
-        setLeadCaptured(true);
+        queueMicrotask(() => setLeadCaptured(true));
       }
     } catch {
       // Ignore storage errors

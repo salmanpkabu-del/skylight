@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, MessageCircle, Send, Check, Clock, Sparkles, Navig
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function ContactForm() {
-  const { t, isAr } = useLanguage();
+  const { t } = useLanguage();
   const [form, setForm] = useState({ 
     name: "", 
     email: "", 

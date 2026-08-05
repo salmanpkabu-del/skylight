@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export function middleware(_req: NextRequest) {
+export function proxy() {
   // Maintenance mode disabled — allow all traffic to site
   return NextResponse.next();
 }

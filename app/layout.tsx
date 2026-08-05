@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Figtree, Tajawal } from "next/font/google";
 import "./globals.css";
-import ChatWidget from "@/components/ChatWidget";
+import dynamic from "next/dynamic";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+
+const ChatWidget = dynamic(() => import("@/components/ChatWidget"));
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -98,8 +100,9 @@ const jsonLd = {
       telephone: "+971582738508",
       email: "info@skylighttourism.com",
       sameAs: [
-        "https://www.instagram.com/skylighttravel",
-        "https://www.facebook.com/skylighttravel",
+        "https://www.instagram.com/skylight_tourism/",
+        "https://www.facebook.com/people/Sky-Light-Tourism/61562084041070/",
+        "https://www.linkedin.com/company/skylighttourism/"
       ],
       openingHoursSpecification: [
         {

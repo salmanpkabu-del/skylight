@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, MapPin, Phone, Mail, ArrowRight, ArrowLeft, Send } from "lucide-react";
@@ -30,6 +31,29 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 export default function Footer() {
   const { t, isAr } = useLanguage();
   const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const quickLinks = [
     { label: t.nav.about, href: "/about" },
@@ -49,9 +73,9 @@ export default function Footer() {
   ];
 
   const socials = [
-    { icon: <InstagramIcon className="w-4 h-4" />, href: "https://instagram.com/skylighttravel", label: "Instagram" },
-    { icon: <FacebookIcon className="w-4 h-4" />, href: "https://facebook.com/skylighttravel", label: "Facebook" },
-    { icon: <LinkedinIcon className="w-4 h-4" />, href: "https://linkedin.com/company/skylighttravel", label: "LinkedIn" },
+    { icon: <InstagramIcon className="w-4 h-4" />, href: "https://www.instagram.com/skylight_tourism/", label: "Instagram" },
+    { icon: <FacebookIcon className="w-4 h-4" />, href: "https://www.facebook.com/people/Sky-Light-Tourism/61562084041070/", label: "Facebook" },
+    { icon: <LinkedinIcon className="w-4 h-4" />, href: "https://www.linkedin.com/company/skylighttourism/", label: "LinkedIn" },
     { icon: <MessageCircle className="w-4 h-4" />, href: "https://wa.me/971582738508", label: "WhatsApp" },
   ];
 
@@ -82,23 +106,37 @@ export default function Footer() {
             </p>
             
             {/* Newsletter Input */}
-            <div className="w-full max-w-sm relative group">
-              <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-green/80 mb-4">{t.footer.newsletter}</p>
+            <form onSubmit={handleSubscribe} className="w-full max-w-sm relative group">
+              <p className="text-[11px] font-semibold tracking-[0.15em] uppercase text-brand-green/80 mb-4">
+                {status === "success" ? "Subscribed! 🎉" : t.footer.newsletter}
+              </p>
               <div className="relative flex items-center">
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.footer.emailPlaceholder}
-                  className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-6 pr-14 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-green/50 focus:bg-white/10 transition-all duration-300"
+                  disabled={status === "loading" || status === "success"}
+                  className="w-full bg-white/5 border border-white/10 rounded-full py-4 pl-6 pr-14 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-green/50 focus:bg-white/10 transition-all duration-300 disabled:opacity-50"
+                  required
                 />
                 <button 
-                  type="button"
+                  type="submit"
+                  disabled={status === "loading" || status === "success"}
                   aria-label="Subscribe"
-                  className="absolute right-2 rtl:right-auto rtl:left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-green text-brand-black flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer"
+                  className="absolute right-2 rtl:right-auto rtl:left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-brand-green text-brand-black flex items-center justify-center hover:scale-105 transition-transform duration-300 cursor-pointer disabled:opacity-50 disabled:hover:scale-100"
                 >
-                  <Send className="w-4 h-4 ml-[-2px] rtl:ml-0 rtl:mr-[-2px]" />
+                  {status === "loading" ? (
+                    <div className="w-4 h-4 border-2 border-brand-black border-t-transparent rounded-full animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4 ml-[-2px] rtl:ml-0 rtl:mr-[-2px]" />
+                  )}
                 </button>
               </div>
-            </div>
+              {status === "error" && (
+                <p className="text-[10px] text-red-400 mt-2 absolute">Something went wrong. Please try again.</p>
+              )}
+            </form>
           </div>
           
           {/* Quick Links - spans 2 */}
