@@ -80,14 +80,21 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CENTER — logo */}
-          <Link href="/" className="lg:absolute lg:left-1/2 lg:-translate-x-1/2 z-[60]">
+          {/* CENTER — logo with minimal premium magical glow */}
+          <Link
+            href="/"
+            className="group relative lg:absolute lg:left-1/2 lg:-translate-x-1/2 z-[60] flex items-center justify-center transition-transform duration-500 active:scale-95"
+            aria-label="Skylight Travel"
+          >
+            {/* Ambient Radial Magical Glow Aura */}
+            <div className="absolute inset-0 -inset-x-6 -inset-y-3 bg-[radial-gradient(ellipse_at_center,rgba(166,238,66,0.35)_0%,rgba(166,238,66,0.08)_50%,transparent_75%)] rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
             <Image
               src="/skylight.svg"
               alt="Skylight Travel"
               width={220}
               height={58}
-              className={`w-auto object-contain transition-all ${
+              className={`w-auto object-contain transition-all duration-500 relative z-10 group-hover:scale-[1.03] group-hover:drop-shadow-[0_0_16px_rgba(166,238,66,0.5)] ${
                 scrolled ? "h-8 sm:h-9 lg:h-9.5" : "h-10 sm:h-11 lg:h-12"
               }`}
               priority

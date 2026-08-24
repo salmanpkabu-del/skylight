@@ -93,13 +93,20 @@ export default function Footer() {
           
           {/* Brand Col - spans 4 */}
           <div className="lg:col-span-4 flex flex-col items-start pr-0 lg:pr-8 md-tablet:col-span-2">
-            <Link href="/" className="mb-8 block">
+            <Link
+              href="/"
+              className="group relative mb-8 inline-flex items-center justify-center transition-transform duration-500 active:scale-95"
+              aria-label="Skylight Travel"
+            >
+              {/* Ambient Radial Magical Glow Aura */}
+              <div className="absolute inset-0 -inset-x-6 -inset-y-3 bg-[radial-gradient(ellipse_at_center,rgba(166,238,66,0.35)_0%,rgba(166,238,66,0.08)_50%,transparent_75%)] rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
               <Image
                 src="/skylight.svg"
                 alt="Skylight Travel"
                 width={200}
                 height={50}
-                className="h-10 sm:h-12 w-auto hover:opacity-80 transition-opacity"
+                className="h-10 sm:h-12 w-auto object-contain transition-all duration-500 relative z-10 group-hover:scale-[1.03] group-hover:drop-shadow-[0_0_16px_rgba(166,238,66,0.5)]"
               />
             </Link>
             <p className="text-[15px] leading-relaxed text-white/50 mb-10 max-w-sm">
