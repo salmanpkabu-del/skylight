@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MessageCircle, MapPin, Phone, Mail, ArrowRight, ArrowLeft, Send } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
+import JellycutLogo from "@/components/JellycutLogo";
 
 const InstagramIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
@@ -226,9 +227,37 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
-          <p>© {new Date().getFullYear()} {t.footer.copyright}</p>
-          <div className="flex items-center gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-xs text-white/40">
+          <p className="text-center md:text-start w-full md:w-auto">
+            © {new Date().getFullYear()} {t.footer.copyright}
+          </p>
+
+          {/* Jellycut Agency Badge with Magical Hover Interaction */}
+          <a
+            href="https://www.jellycutstudio.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Created and cared by Jellycut Studio"
+            className="group/jelly relative inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-brand-green/50 transition-all duration-500 shadow-sm hover:shadow-[0_0_24px_rgba(166,238,66,0.3)] backdrop-blur-sm overflow-hidden"
+          >
+            {/* Aurora Glow Aura */}
+            <div className="absolute -inset-px rounded-full bg-gradient-to-r from-brand-green/0 via-brand-green/20 to-emerald-400/0 opacity-0 group-hover/jelly:opacity-100 transition-opacity duration-700 blur-sm pointer-events-none" />
+
+            {/* Shimmer Light Beam Effect */}
+            <div className="absolute inset-0 -translate-x-[150%] group-hover/jelly:translate-x-[200%] transition-transform duration-1000 ease-out bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 pointer-events-none" />
+
+            {/* Text */}
+            <span className="text-[12px] font-medium tracking-wide text-white/50 group-hover/jelly:text-white/90 transition-colors duration-300 relative z-10">
+              {t.footer.createdAndCaredBy}
+            </span>
+
+            {/* Logo */}
+            <div className="relative z-10 flex items-center pl-0.5">
+              <JellycutLogo className="h-3.5 w-auto text-white/70 group-hover/jelly:text-brand-green group-hover/jelly:scale-105 transition-all duration-300 filter group-hover/jelly:drop-shadow-[0_0_8px_rgba(166,238,66,0.6)]" />
+            </div>
+          </a>
+
+          <div className="flex items-center justify-center gap-4">
             {socials.map((s) => (
               <a
                 key={s.label}

@@ -147,6 +147,7 @@ export interface TranslationDict {
     newsletter: string;
     emailPlaceholder: string;
     copyright: string;
+    createdAndCaredBy: string;
   };
 }
 
@@ -317,6 +318,7 @@ export const dictionary: Record<Language, TranslationDict> = {
       newsletter: "Newsletter",
       emailPlaceholder: "Your email address",
       copyright: "Skylight Tourism LLC. All rights reserved.",
+      createdAndCaredBy: "Created & cared by",
     },
   },
 
@@ -486,6 +488,7 @@ export const dictionary: Record<Language, TranslationDict> = {
       newsletter: "النشرة البريدية",
       emailPlaceholder: "عنوان بريدك الإلكتروني",
       copyright: "سكاي لايت للسياحة ش.ذ.م.م. جميع الحقوق محفوظة.",
+      createdAndCaredBy: "تصميم وعناية بواسطة",
     },
   },
 };
