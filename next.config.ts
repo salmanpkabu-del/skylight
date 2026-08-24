@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "images.unsplash.com" },
@@ -26,6 +27,16 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        // Static assets long-term caching
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         // Security + performance headers on all routes
         source: "/(.*)",
