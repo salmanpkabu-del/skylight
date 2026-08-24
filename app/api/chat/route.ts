@@ -148,13 +148,39 @@ export async function POST(req: NextRequest) {
       content: m.content,
     }));
 
-    const completion = await groq.chat.completions.create({
-      model: "llama-3.3-70b-versatile",
-      messages: [{ role: "system", content: SYSTEM_PROMPT }, ...groqMessages],
-      temperature: 0.45,
-      max_tokens: 160,
-      stream: false,
-    });
+    const candidateModels = [
+      "groq/compound",
+      "openai/gpt-oss-120b",
+      "groq/compound-mini",
+      "llama-3.3-70b-versatile",
+      "llama-3.1-8b-instant",
+    ];
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    let completion: any = null;
+    let lastError = null;
+
+    for (const model of candidateModels) {
+      try {
+        completion = await groq.chat.completions.create({
+          model,
+          messages: [{ role: "system", content: SYSTEM_PROMPT }, ...groqMessages],
+          temperature: 0.45,
+          max_tokens: 160,
+          stream: false,
+        });
+        if (completion?.choices?.[0]?.message?.content) {
+          break;
+        }
+      } catch (err: unknown) {
+        lastError = err;
+        console.warn(`Model ${model} failed, trying next fallback...`);
+      }
+    }
+
+    if (!completion) {
+      throw lastError || new Error("No model response");
+    }
 
     const reply = completion.choices[0]?.message?.content || "I'm sorry, I couldn't process that. Please try again!";
 
