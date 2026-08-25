@@ -60,7 +60,7 @@ export default function Navbar() {
             : "bg-gradient-to-b from-black/75 via-black/30 to-transparent"
         }`}
       >
-        <div className={`w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 flex items-center justify-between ${
+        <div dir="ltr" className={`w-full max-w-[1340px] mx-auto px-5 sm:px-8 lg:px-12 transition-all duration-300 flex items-center justify-between ${
           scrolled ? "py-2.5 sm:py-3" : "pt-6 pb-3 sm:pt-7 sm:pb-3.5 lg:pt-8 lg:pb-4"
         }`}>
           {/* LEFT — nav links desktop */}
