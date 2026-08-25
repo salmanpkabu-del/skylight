@@ -107,19 +107,19 @@ export default function Navbar() {
             <div
               dir="ltr"
               role="group"
-              className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 hover:shadow-[0_0_14px_rgba(166,238,66,0.15)] transition-all duration-300 cursor-pointer"
+              className="relative grid grid-cols-2 h-7 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 hover:shadow-[0_0_12px_rgba(166,238,66,0.15)] transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
             >
               {/* Green pill — always on the left, never moves */}
               <span className="absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green" />
               {/* Left slot: active language (always green) */}
               <button type="button" aria-label={isAr ? "Switch to English" : "Switch to English"}
-                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
+                className="relative z-10 px-2.5 py-0.5 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
                 {isAr ? "AR" : "EN"}
               </button>
               {/* Right slot: inactive language (always dim) */}
               <button type="button" aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
+                className="relative z-10 px-2.5 py-0.5 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
                 {isAr ? "EN" : "AR"}
               </button>
             </div>
@@ -145,16 +145,16 @@ export default function Navbar() {
             <div
               dir="ltr"
               role="group"
-              className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 transition-all duration-300 cursor-pointer"
+              className="relative grid grid-cols-2 h-7 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
             >
               <span className="absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green" />
               <button type="button" aria-label={isAr ? "Switch to English" : "Switch to English"}
-                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
+                className="relative z-10 px-2.5 py-0.5 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
                 {isAr ? "AR" : "EN"}
               </button>
               <button type="button" aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
+                className="relative z-10 px-2.5 py-0.5 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
                 {isAr ? "EN" : "AR"}
               </button>
             </div>
