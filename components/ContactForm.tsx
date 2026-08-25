@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail, MessageCircle, Send, Check, Clock, Sparkles, Navig
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function ContactForm() {
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
   const [form, setForm] = useState({ 
     name: "", 
     email: "", 
@@ -19,9 +19,9 @@ export default function ContactForm() {
   const serviceTypes = [
     t.packages.tag,
     t.visas.tag,
-    "Flight & Hotel",
-    "Umrah / Hajj",
-    "General Enquiry"
+    isAr ? "طيران وفنادق" : "Flight & Hotel",
+    isAr ? "عمرة / حج" : "Umrah / Hajj",
+    isAr ? "استفسار عام" : "General Enquiry"
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -159,9 +159,14 @@ export default function ContactForm() {
               <div className="w-14 h-14 rounded-full bg-brand-green text-black flex items-center justify-center mx-auto mb-2 shadow-[0_0_25px_rgba(166,238,66,0.3)]">
                 <Check className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-semibold text-white">Message Received!</h3>
+              <h3 className="text-2xl font-semibold text-white">
+                {isAr ? "تم استلام رسالتك!" : "Message Received!"}
+              </h3>
               <p className="text-white/70 text-sm max-w-md mx-auto leading-relaxed">
-                Thank you for contacting Skylight Travel. A travel specialist will reach out to you via WhatsApp or email within 2 hours.
+                {isAr 
+                  ? "شكراً لتواصلك مع سكاي لايت للسفريات. سيتواصل معك مستشار السفر عبر واتساب أو البريد الإلكتروني خلال ساعتين."
+                  : "Thank you for contacting Skylight Travel. A travel specialist will reach out to you via WhatsApp or email within 2 hours."
+                }
               </p>
             </div>
           ) : (
@@ -201,7 +206,7 @@ export default function ContactForm() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full bg-white/5 border border-white/15 text-white text-sm px-4 py-3.5 rounded-xl focus:border-brand-green focus:ring-1 focus:ring-brand-green/30 focus:outline-none placeholder-white/30 transition-colors"
-                    placeholder="e.g. Mohammed Al Hashimi"
+                    placeholder={isAr ? "مثال: محمد الهاشمي" : "e.g. Mohammed Al Hashimi"}
                   />
                 </div>
                 <div>
@@ -240,7 +245,7 @@ export default function ContactForm() {
                     value={form.destination}
                     onChange={(e) => setForm({ ...form, destination: e.target.value })}
                     className="w-full bg-white/5 border border-white/15 text-white text-sm px-4 py-3.5 rounded-xl focus:border-brand-green focus:ring-1 focus:ring-brand-green/30 focus:outline-none placeholder-white/30 transition-colors"
-                    placeholder="e.g. Uzbekistan, Thailand, Schengen..."
+                    placeholder={isAr ? "مثال: أوزبكستان، تايلاند، شنغن..." : "e.g. Uzbekistan, Thailand, Schengen..."}
                   />
                 </div>
               </div>
@@ -255,7 +260,7 @@ export default function ContactForm() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full bg-white/5 border border-white/15 text-white text-sm px-4 py-3.5 rounded-xl focus:border-brand-green focus:ring-1 focus:ring-brand-green/30 focus:outline-none placeholder-white/30 transition-colors resize-none"
-                  placeholder="Tell us your travel dates, number of adults/children, hotel preferences..."
+                  placeholder={isAr ? "أخبرنا بتواريخ السفر، عدد المسافرين، وتفضيلات الفنادق..." : "Tell us your travel dates, number of adults/children, hotel preferences..."}
                 />
               </div>
 
@@ -269,7 +274,7 @@ export default function ContactForm() {
                   <span>{t.contact.sending}</span>
                 ) : (
                   <>
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 rtl:rotate-180" />
                     <span>{t.contact.submitBtn}</span>
                   </>
                 )}
@@ -284,7 +289,7 @@ export default function ContactForm() {
           {/* Office & Direct Contact Details */}
           <div className="bg-brand-card/80 border border-white/15 p-8 rounded-3xl backdrop-blur-md shadow-xl space-y-6">
             <h3 className="text-xl font-semibold text-white flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-brand-green" /> Direct Contact Details
+              <Sparkles className="w-5 h-5 text-brand-green" /> {t.contact.directDetails}
             </h3>
 
             <div className="space-y-5 text-sm text-white/80">
@@ -293,16 +298,16 @@ export default function ContactForm() {
                   <MessageCircle className="w-5 h-5 fill-current" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">WhatsApp Travel Specialists</p>
+                  <p className="text-white font-semibold">{isAr ? "خبراء السفر عبر واتساب" : "WhatsApp Travel Specialists"}</p>
                   <div className="mt-1 space-y-1 text-xs">
                     <p>
-                      <span className="text-white/50">Agent 1: </span>
+                      <span className="text-white/50">{t.widget.agent1}: </span>
                       <a href="https://wa.me/+971582738508" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
                         +971 58 273 8508
                       </a>
                     </p>
                     <p>
-                      <span className="text-white/50">Agent 2: </span>
+                      <span className="text-white/50">{t.widget.agent2}: </span>
                       <a href="https://wa.me/+971551390986" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline font-mono">
                         +971 55 139 0986
                       </a>
@@ -316,9 +321,9 @@ export default function ContactForm() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Head Office Address</p>
+                  <p className="text-white font-semibold">{t.contact.headOffice}</p>
                   <p className="text-white/60 text-xs mt-0.5 leading-relaxed">
-                    Sharjah, United Arab Emirates
+                    {t.contact.addressValue}
                   </p>
                 </div>
               </div>
@@ -328,7 +333,7 @@ export default function ContactForm() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Email Us</p>
+                  <p className="text-white font-semibold">{isAr ? "راسلنا بالبريد الإلكتروني" : "Email Us"}</p>
                   <a href="mailto:info@skylighttourism.com" className="text-brand-green text-xs hover:underline mt-0.5 block">
                     info@skylighttourism.com
                   </a>
@@ -340,9 +345,9 @@ export default function ContactForm() {
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Working Hours</p>
+                  <p className="text-white font-semibold">{t.contact.workingHours}</p>
                   <p className="text-white/60 text-xs mt-0.5">
-                    Sunday – Friday: 9:00 AM – 9:00 PM (UAE Time)
+                    {t.contact.workingHoursValue}
                   </p>
                 </div>
               </div>
@@ -365,7 +370,7 @@ export default function ContactForm() {
               <div className="absolute bottom-3 left-3 right-3 bg-black/75 backdrop-blur-md p-3.5 rounded-xl border border-white/15 flex items-center justify-between">
                 <div>
                   <p className="text-white text-xs font-semibold">Skylight Tourism LLC</p>
-                  <p className="text-white/50 text-[11px]">Sharjah, UAE</p>
+                  <p className="text-white/50 text-[11px]">{t.contact.addressValue}</p>
                 </div>
                 <a
                   href="https://maps.app.goo.gl/JYWYAQ1FbXEcoKNQ6"
@@ -373,7 +378,7 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 bg-brand-green text-black px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-white transition-colors"
                 >
-                  <Navigation className="w-3 h-3" /> Get Directions
+                  <Navigation className="w-3 h-3" /> {t.contact.getDirections}
                 </a>
               </div>
             </div>

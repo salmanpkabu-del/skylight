@@ -1,6 +1,12 @@
 export type Language = "en" | "ar";
 
 export interface TranslationDict {
+  common: {
+    backToHome: string;
+    startingFrom: string;
+    perPerson: string;
+    pax: string;
+  };
   nav: {
     packages: string;
     visas: string;
@@ -149,10 +155,98 @@ export interface TranslationDict {
     copyright: string;
     createdAndCaredBy: string;
   };
+  aboutPage: {
+    heroTag: string;
+    heroTitleMain: string;
+    heroTitleAccent: string;
+    heroDesc: string;
+    badgeLicensed: string;
+    badgeExperience: string;
+    badgeHQ: string;
+    stats: Array<{ value: string; label: string; sub: string }>;
+    storyEyebrow: string;
+    photoEst: string;
+    photoServed: string;
+    photoRating: string;
+    photoYears: string;
+    photoHqTitle: string;
+    photoHqSub: string;
+    photoOpen: string;
+    storyTitleMain: string;
+    storyTitleAccent: string;
+    storyP1Bold1: string;
+    storyP1Bold2: string;
+    storyP1Rest: string;
+    storyP2Bold1: string;
+    storyP2Bold2: string;
+    storyP2Rest: string;
+    milestones: Array<{ year: string; title: string; desc: string }>;
+    latestBadge: string;
+    whyChooseTag: string;
+    whyChooseTitle: string;
+    whyChooseSub: string;
+    features: Array<{ title: string; desc: string }>;
+    contactTag: string;
+    contactTitle: string;
+    contactDesc: string;
+    btnWhatsApp: string;
+    btnCall: string;
+  };
+  packagesPage: {
+    heroTag: string;
+    heroTitleMain: string;
+    heroTitleAccent: string;
+    heroDesc: string;
+    badgeFrom: string;
+    badgeFlightHotel: string;
+    badgeWhatsApp: string;
+    faqTag: string;
+    faqTitle: string;
+    faqs: Array<{ q: string; a: string }>;
+  };
+  visasPage: {
+    heroTag: string;
+    heroTitleMain: string;
+    heroTitleAccent: string;
+    heroDesc: string;
+    badgeApproval: string;
+    badgeExpress: string;
+    badgeVFS: string;
+    processTag: string;
+    processTitle: string;
+    steps: Array<{ num: string; title: string; desc: string }>;
+    faqTag: string;
+    faqTitle: string;
+    faqs: Array<{ q: string; a: string }>;
+  };
+  contactPage: {
+    heroTag: string;
+    heroTitleMain: string;
+    heroTitleAccent: string;
+    heroDesc: string;
+    badgeWhatsApp: string;
+    badgeEmail: string;
+    badgeNoHidden: string;
+    faqTag: string;
+    faqTitle: string;
+    faqs: Array<{ q: string; a: string }>;
+  };
+  blogPage: {
+    tag: string;
+    heroTitleMain: string;
+    heroTitleAccent: string;
+    heroDesc: string;
+  };
 }
 
 export const dictionary: Record<Language, TranslationDict> = {
   en: {
+    common: {
+      backToHome: "Back to Home",
+      startingFrom: "Starting From",
+      perPerson: " /person",
+      pax: "pax",
+    },
     nav: {
       packages: "Packages",
       visas: "Visas",
@@ -320,9 +414,132 @@ export const dictionary: Record<Language, TranslationDict> = {
       copyright: "Skylight Tourism LLC. All rights reserved.",
       createdAndCaredBy: "Created & cared by",
     },
+    aboutPage: {
+      heroTag: "About Skylight Travel",
+      heroTitleMain: "Crafting Unforgettable",
+      heroTitleAccent: "Journeys Since 2020",
+      heroDesc: "Sharjah's trusted travel & tourism company — headquartered in Sharjah, UAE. Committed to delivering seamless holiday packages and hassle-free visas with genuine care.",
+      badgeLicensed: "UAE Licensed Agency",
+      badgeExperience: "6+ Years Experience",
+      badgeHQ: "Sharjah HQ",
+      stats: [
+        { value: "5,000+", label: "UAE Families Served", sub: "Trusted since 2020" },
+        { value: "50+", label: "Global Destinations", sub: "Worldwide holiday packages" },
+        { value: "99.4%", label: "Visa Approval Rate", sub: "Schengen, Japan, UK & more" },
+        { value: "4.9★", label: "Google Rating", sub: "Over 800+ 5-star reviews" },
+      ],
+      storyEyebrow: "Our Story",
+      photoEst: "Est. 2020",
+      photoServed: "Families Served",
+      photoRating: "Google Rating",
+      photoYears: "Years Active",
+      photoHqTitle: "Skylight Travel HQ",
+      photoHqSub: "Sharjah, United Arab Emirates",
+      photoOpen: "Open",
+      storyTitleMain: "Built on Trust, ",
+      storyTitleAccent: "Care & Dedication",
+      storyP1Bold1: "2020",
+      storyP1Bold2: "Highsky Travels",
+      storyP1Rest: "In 2020, a small team in Sharjah started Highsky Travels with a simple belief — every UAE family deserves to see the world without the stress of planning it alone.",
+      storyP2Bold1: "2026",
+      storyP2Bold2: "Skylight Travel",
+      storyP2Rest: "Six years on, in 2026 we rebranded to Skylight Travel, bringing a fresh digital experience to over 5,000 families who trust us with their most precious moments.",
+      milestones: [
+        { year: "2020", title: "Founded as Highsky Travels", desc: "Started in Sharjah as Highsky Travels with a clear mission to simplify visa processing & holiday planning for UAE residents." },
+        { year: "2024", title: "5,000+ Families Milestone", desc: "Celebrated serving over 5,000 UAE families with personalized 1-on-1 WhatsApp & walk-in service." },
+        { year: "2026", title: "Rebranded to Skylight Travel", desc: "Officially rebranded to Skylight Travel, introducing enhanced digital services and premium custom holiday experiences." },
+      ],
+      latestBadge: "Latest",
+      whyChooseTag: "Why Choose Us",
+      whyChooseTitle: "What Sets Skylight Apart",
+      whyChooseSub: "We treat your holiday as if it were our own family's trip.",
+      features: [
+        { title: "Transparent Pricing", desc: "No hidden fees or unexpected surcharges. Every quote is itemized, detailed, and clear before you pay." },
+        { title: "Dedicated Consultant", desc: "A real human travel expert — reachable via WhatsApp, phone, or office walk-in — handles your trip from start to finish." },
+        { title: "99.4% Visa Success", desc: "Deep expertise in Schengen, Japan, US, UK, and Silk Road visas with meticulous document review." },
+        { title: "UAE-Certified Experts", desc: "Fully licensed by UAE Tourism Authorities with 6+ years of local experience." },
+        { title: "24/7 On-Trip Assistance", desc: "Our UAE team is available on WhatsApp throughout your journey for flight changes or emergency support." },
+        { title: "Best Price Promise", desc: "We match or beat any comparable travel quote while delivering 4-star handpicked hotel stays." },
+      ],
+      contactTag: "Personalized Service",
+      contactTitle: "Speak to a Skylight Travel Specialist Today",
+      contactDesc: "Whether you need a quick visa assessment or want us to craft a custom 7-day itinerary, our UAE team is standing by.",
+      btnWhatsApp: "Chat on WhatsApp",
+      btnCall: "Call Us Now",
+    },
+    packagesPage: {
+      heroTag: "Holiday Packages 2025",
+      heroTitleMain: "Curated Holiday Escapes",
+      heroTitleAccent: "From the UAE",
+      heroDesc: "All-inclusive travel packages crafted by UAE specialists — flights, 4-star hotels, guided tours, and complete visa assistance included.",
+      badgeFrom: "Packages from AED 1,699",
+      badgeFlightHotel: "Flight + 4★ Hotel Included",
+      badgeWhatsApp: "24/7 WhatsApp Support",
+      faqTag: "Got Questions?",
+      faqTitle: "Frequently Asked Questions",
+      faqs: [
+        { q: "How much do holiday packages from UAE cost?", a: "Holiday packages from UAE start from AED 1,699 per person for 4-night trips to Uzbekistan or Azerbaijan. Packages to Thailand, Georgia, and Armenia start from AED 1,999–2,899 per person including flights, hotels, and guided tours." },
+        { q: "What is included in Skylight Travel packages?", a: "Skylight Travel packages typically include return flights from UAE, 4-star hotel accommodation, daily breakfast, all airport transfers, guided city tours, and travel insurance. Visa assistance is also provided." },
+        { q: "Can I customise a holiday package?", a: "Absolutely. All Skylight Travel packages can be fully customised for your travel dates, budget, group size, and preferred hotels. Contact our team via WhatsApp or phone for a personalised quote." },
+        { q: "Are visa fees included in the package price?", a: "For visa-free destinations (such as Georgia and Armenia for UAE residents), no visa fees apply. For e-visa destinations like Uzbekistan or Azerbaijan, full visa assistance and processing are included." },
+      ],
+    },
+    visasPage: {
+      heroTag: "Visa Services 2025",
+      heroTitleMain: "Hassle-Free Visa Assistance",
+      heroTitleAccent: "For UAE Residents",
+      heroDesc: "Complete documentation, flight reservations, and embassy appointment scheduling handled by UAE visa specialists.",
+      badgeApproval: "99.4% Approval Rate",
+      badgeExpress: "Express E-Visa Support",
+      badgeVFS: "VFS & Embassy Appointment Support",
+      processTag: "How It Works",
+      processTitle: "4-Step Simple Visa Process",
+      steps: [
+        { num: "01", title: "Consultation & Document Check", desc: "Our visa team checks your residence visa validity and lists exact embassy requirements." },
+        { num: "02", title: "Form & Flight Reservation", desc: "We complete your official application forms and issue verifiable flight & hotel bookings." },
+        { num: "03", title: "VFS / Embassy Appointment", desc: "We secure your appointment slot at VFS Global or TLScontact and format your file." },
+        { num: "04", title: "Passport & Visa Delivery", desc: "Track your visa status until your passport is returned stamped and ready for travel." },
+      ],
+      faqTag: "Got Questions?",
+      faqTitle: "Frequently Asked Questions",
+      faqs: [
+        { q: "How long does a Schengen visa take from the UAE?", a: "A Schengen visa from the UAE typically takes 10–15 working days after your VFS appointment. We recommend applying at least 4–6 weeks before travel. Skylight Travel handles document preparation and appointment booking." },
+        { q: "What documents are required for a USA visa from UAE?", a: "For a USA B1/B2 tourist visa from UAE, you need a valid passport (6+ months), completed DS-160 form, bank statements, employment NOC letter, photographs, and travel itinerary. We assist with all documentation." },
+        { q: "Which countries are visa-free for UAE residents?", a: "UAE residents can travel visa-free to Georgia (up to 90 days), Armenia, and Montenegro. UAE passport holders enjoy visa-free access to 170+ countries. Contact Skylight Travel for destination-specific guidance." },
+      ],
+    },
+    contactPage: {
+      heroTag: "Contact Skylight Travel",
+      heroTitleMain: "Plan Your Next",
+      heroTitleAccent: "Adventure Today",
+      heroDesc: "Speak directly to our UAE-based travel consultants — personalized advice, transparent quotes, zero obligation.",
+      badgeWhatsApp: "< 5 Min WhatsApp Response",
+      badgeEmail: "< 2 Hour Email Response",
+      badgeNoHidden: "Zero Hidden Fees",
+      faqTag: "Got Questions?",
+      faqTitle: "Frequently Asked Questions",
+      faqs: [
+        { q: "Do I need an appointment to visit your Sharjah office?", a: "No appointment needed! Walk-ins are always welcome Sunday to Friday, 9:00 AM – 9:00 PM at our Sharjah office." },
+        { q: "How quickly will I receive my custom travel quote?", a: "Our consultants respond within 2 to 5 minutes on WhatsApp and within 2 hours for email inquiries with detailed itemized options." },
+        { q: "Can you assist with urgent visa processing?", a: "Yes! We specialize in express e-visa applications for Uzbekistan, Azerbaijan, Armenia, Schengen, UK, Japan, and US visa appointments." },
+        { q: "What payment methods do you accept?", a: "We accept credit/debit cards, online bank transfers, and cash payments at our Sharjah office." },
+      ],
+    },
+    blogPage: {
+      tag: "Skylight Travel Journal",
+      heroTitleMain: "Insider Guides &",
+      heroTitleAccent: "Travel Inspiration",
+      heroDesc: "Expert travel advice, Schengen visa walkthroughs, and curated destination guides crafted specifically for UAE residents and families.",
+    },
   },
 
   ar: {
+    common: {
+      backToHome: "العودة للرئيسية",
+      startingFrom: "يبدأ من",
+      perPerson: " / شخص",
+      pax: "شخص",
+    },
     nav: {
       packages: "الباقات السياحية",
       visas: "تأشيرات السفر",
@@ -489,6 +706,123 @@ export const dictionary: Record<Language, TranslationDict> = {
       emailPlaceholder: "عنوان بريدك الإلكتروني",
       copyright: "سكاي لايت للسياحة ش.ذ.م.م. جميع الحقوق محفوظة.",
       createdAndCaredBy: "تصميم وعناية بواسطة",
+    },
+    aboutPage: {
+      heroTag: "عن سكاي لايت للسفريات",
+      heroTitleMain: "نصنع رحلات",
+      heroTitleAccent: "لا تُنسى منذ 2020",
+      heroDesc: "شركة السفر والسياحة الموثوقة في الشارقة — مقرها الرئيسي في الشارقة، الإمارات. ملتزمون بتقديم باقات عطلات متكاملة وتأشيرات سفر بكل سهولة وعناية فائقة.",
+      badgeLicensed: "وكالة مرخصة في الإمارات",
+      badgeExperience: "خبرة تزيد عن 6 سنوات",
+      badgeHQ: "المقر الرئيسي في الشارقة",
+      stats: [
+        { value: "5,000+", label: "عائلة في الإمارات", sub: "موضع ثقة منذ 2020" },
+        { value: "50+", label: "وجهة سياحية عالمية", sub: "باقات عطلات حول العالم" },
+        { value: "99.4%", label: "نسبة قبول التأشيرات", sub: "شنغن، اليابان، بريطانيا والمزيد" },
+        { value: "4.9★", label: "تقييم جوجل", sub: "أكثر من 800 تقييم 5 نجوم" },
+      ],
+      storyEyebrow: "قصتنا",
+      photoEst: "تأسست 2020",
+      photoServed: "عائلة تمت خدمتهم",
+      photoRating: "تقييم جوجل",
+      photoYears: "سنوات نشاط",
+      photoHqTitle: "مقر سكاي لايت للسفريات",
+      photoHqSub: "الشارقة، الإمارات العربية المتحدة",
+      photoOpen: "مفتوح الآن",
+      storyTitleMain: "مبنيون على الثقة، ",
+      storyTitleAccent: "والرعاية والإخلاص",
+      storyP1Bold1: "2020",
+      storyP1Bold2: "هاي سكاي للسفريات",
+      storyP1Rest: "في عام 2020، بدأ فريق صغير في الشارقة شركة هاي سكاي للسفريات بإيمان بسيط — كل عائلة في الإمارات تستحق رؤية العالم بدون عناء التخطيط بمفردها.",
+      storyP2Bold1: "2026",
+      storyP2Bold2: "سكاي لايت للسفريات",
+      storyP2Rest: "وبعد ست سنوات، في عام 2026 جددنا هويتنا إلى سكاي لايت للسفريات، لنقدم تجربة رقمية فاخرة لأكثر من 5000 عائلة تثق بنا في أغلى لحظاتها.",
+      milestones: [
+        { year: "2020", title: "التأسيس باسم هاي سكاي للسفريات", desc: "انطلقت في الشارقة بمهمة واضحة لتسهيل استخراج التأشيرات وتخطيط العطلات للمقيمين في الإمارات." },
+        { year: "2024", title: "إنجاز خدمة أكثر من 5,000 عائلة", desc: "الاحتفال بخدمة أكثر من 5,000 عائلة في الإمارات بخدمة مخصصة 1 على 1 عبر واتساب والزيارة المباشرة." },
+        { year: "2026", title: "التجديد إلى سكاي لايت للسفريات", desc: "إطلاق الهوية الجديدة مع خدمات رقمية متطورة وتجارب عطلات سياحية فاخرة ومخصصة." },
+      ],
+      latestBadge: "الأحدث",
+      whyChooseTag: "لماذا تختارنا",
+      whyChooseTitle: "ما الذي يميز سكاي لايت",
+      whyChooseSub: "نهتم بعطلتك تماماً كما لو كانت رحلة عائلتنا الخاصة.",
+      features: [
+        { title: "أسعار واضحة وشفافة", desc: "لا رسوم خفية أو تكاليف مفاجئة. كل عرض سعر مفصل وواضح بالكامل قبل السداد." },
+        { title: "مستشار سفر مخصص", desc: "خبير سفر حقيقي — متاح عبر واتساب أو الهاتف أو الزيارة المباشرة — يتابع رحلتك من البداية حتى النهاية." },
+        { title: "نسبة نجاح 99.4% للتأشيرات", desc: "خبرة واسعة في تأشيرات شنغن واليابان وأمريكا وبريطانيا وطريق الحرير مع تدقيق دقيق للمستندات." },
+        { title: "خبراء معتمدون في الإمارات", desc: "مرخصون بالكامل من هيئات السياحة في الإمارات بخبرة محلية تتجاوز 6 سنوات." },
+        { title: "دعم 24/7 طوال الرحلة", desc: "فريقنا في الإمارات متاح عبر واتساب طوال رحلتك لأي تعديل على الطيران أو المساعدة الطارئة." },
+        { title: "ضمان أفضل الأسعار", desc: "نطابق أو نتفوق على أي عرض سعر مماثل مع توفير إقامات منتقاة في فنادق 4 نجوم." },
+      ],
+      contactTag: "خدمة شخصية متميزة",
+      contactTitle: "تحدث مع متخصص سفر من سكاي لايت اليوم",
+      contactDesc: "سواء كنت بحاجة لتقييم سريع للتأشيرة أو تصميم برنامج سياحي مخصص لمدة 7 أيام، فريقنا في الإمارات بانتظارك.",
+      btnWhatsApp: "تواصل عبر واتساب",
+      btnCall: "اتصل بنا الآن",
+    },
+    packagesPage: {
+      heroTag: "باقات العطلات 2025",
+      heroTitleMain: "عطلات سياحية مميزة",
+      heroTitleAccent: "من الإمارات",
+      heroDesc: "باقات سفر متكاملة صممها خبراء في الإمارات — تشمل تذاكر الطيران، فنادق 4 نجوم، جولات سياحية مرشدة، ومساعدة كاملة في التأشيرات.",
+      badgeFrom: "باقات تبدأ من 1,699 درهم",
+      badgeFlightHotel: "تشمل الطيران + فندق 4 نجوم",
+      badgeWhatsApp: "دعم واتساب على مدار الساعة",
+      faqTag: "لديك أسئلة؟",
+      faqTitle: "الأسئلة الشائعة حول الباقات",
+      faqs: [
+        { q: "كم تبلغ تكلفة باقات العطلات من الإمارات؟", a: "تبدأ باقات العطلات من 1,699 درهم للشخص لرحلات 4 ليالٍ إلى أوزبكستان أو أذربيجان. وتبدأ باقات تايلاند وجورجيا وأرمينيا من 1,999 إلى 2,899 درهم للشخص شاملة الطيران والفنادق والجولات." },
+        { q: "ما الذي تشمله باقات سكاي لايت للسفريات؟", a: "تشمل الباقات عادةً رحلات طيران ذهاباً وإياباً من الإمارات، إقامة في فنادق 4 نجوم مع الإفطار، جميع التنقلات من وإلى المطار، جولات سياحية مع مرشد، وتأمين السفر، بالإضافة إلى المساعدة في التأشيرة." },
+        { q: "هل يمكنني تعديل وتخصيص باقة العطلة؟", a: "بالتأكيد. يمكن تخصيص جميع باقات سكاي لايت بالكامل لتناسب تواريخ سفرك، ميزانيتك، عدد المسافرين، وفنادقك المفضلة. تواصل مع فريقنا عبر واتساب للحصول على عرض مخصص." },
+        { q: "هل رسوم التأشيرة مشمولة في سعر الباقة؟", a: "بالنسبة للوجهات التي لا تتطلب تأشيرة لمقيمي الإمارات (مثل جورجيا وأرمينيا)، لا توجد رسوم تأشيرة. أما الوجهات ذات التأشيرة الإلكترونية كأوزبكستان وأذربيجان، فتشمل الباقة المساعدة الكاملة واستخراج التأشيرة." },
+      ],
+    },
+    visasPage: {
+      heroTag: "خدمات التأشيرات 2025",
+      heroTitleMain: "خدمات تأشيرات سلسة",
+      heroTitleAccent: "للمقيمين في الإمارات",
+      heroDesc: "إعداد متكامل للمستندات وحجوزات طيران وفنادق موثوقة وجدولة مواعيد السفارات بإشراف متخصصي التأشيرات في الإمارات.",
+      badgeApproval: "نسبة قبول 99.4%",
+      badgeExpress: "تأشيرات إلكترونية سريعة",
+      badgeVFS: "حجز مواعيد VFS والسفارات",
+      processTag: "خطوات العمل",
+      processTitle: "4 خطوات بسيطة للحصول على التأشيرة",
+      steps: [
+        { num: "01", title: "الاستشارة وتدقيق المستندات", desc: "يفحص فريقنا صلاحية إقامتك ويوفر قائمة دقيقة بمتطلبات السفارة." },
+        { num: "02", title: "تعبئة النماذج وحجز الطيران", desc: "نقوم بتعبئة طلبات التأشيرة الرسمية وإصدار حجوزات طيران وفنادق موثوقة ومؤكدة." },
+        { num: "03", title: "حجز موعد VFS / السفارة", desc: "نحجز لك أقرب موعد متاح في مراكز VFS أو TLScontact ونجهز ملفك بالكامل." },
+        { num: "04", title: "استلام الجواز والتأشيرة", desc: "تتبع حالة طلبك حتى استلام جواز سفرك مختوماً وجاهزاً للسفر." },
+      ],
+      faqTag: "لديك أسئلة؟",
+      faqTitle: "الأسئلة الشائعة حول التأشيرات",
+      faqs: [
+        { q: "كم تستغرق تأشيرة شنغن من الإمارات؟", a: "تستغرق تأشيرة شنغن عادةً من 10 إلى 15 يوم عمل بعد موعد VFS. نوصي بالتقديم قبل 4 إلى 6 أسابيع من موعد السفر. تتولى سكاي لايت تجهيز المستندات وحجز المواعيد." },
+        { q: "ما هي المستندات المطلوبة لتأشيرة أمريكا من الإمارات؟", a: "لتأشيرة السياحة الأمريكية B1/B2، يلزم جواز سفر ساري (6+ أشهر)، استمارة DS-160، كشف حساب بنكي، خطاب عدم ممانعة من جهة العمل، صور شخصية، وخطة سفر. نساعدك في كافة الإجراءات." },
+        { q: "ما هي الدول التي يدخلها مقيمو الإمارات بدون تأشيرة مسبقة؟", a: "يمكن لمقيمي الإمارات السفر بدون تأشيرة مسبقة أو بتأشيرة عند الوصول إلى جورجيا (حتى 90 يوماً)، أرمينيا، والجبل الأسود. تواصل معنا لمعرفة متطلبات كل وجهة بدقة." },
+      ],
+    },
+    contactPage: {
+      heroTag: "تواصل مع سكاي لايت للسفريات",
+      heroTitleMain: "خطط لمغامرتك",
+      heroTitleAccent: "القادمة اليوم",
+      heroDesc: "تحدث مباشرة مع مستشاري السفر لدينا في الإمارات — استشارات مخصصة وعروض أسعار شفافة بدون أي التزام.",
+      badgeWhatsApp: "رد عبر واتساب خلال أقل من 5 دقائق",
+      badgeEmail: "رد عبر البريد خلال أقل من ساعتين",
+      badgeNoHidden: "بدون أي رسوم خفية",
+      faqTag: "لديك أسئلة؟",
+      faqTitle: "الأسئلة الشائعة",
+      faqs: [
+        { q: "هل أحتاج إلى موعد مسبق لزيارة مكتب الشارقة؟", a: "لا داعي لأي موعد! نرحب بزيارتك مباشرة من الأحد إلى الجمعة، من 9:00 صباحاً حتى 9:00 مساءً في مكتبنا بالشارقة." },
+        { q: "ما سرعة استلام عرض السعر المخصص لرحلتي؟", a: "يجيب مستشارونا خلال 2 إلى 5 دقائق عبر واتساب، وخلال ساعتين عبر البريد الإلكتروني مع خيارات مفصلة." },
+        { q: "هل تقدمون خدمات استخراج التأشيرات العاجلة؟", a: "نعم! نتخصص في التأشيرات الإلكترونية السريعة لأوزبكستان وأذربيجان وأرمينيا ومواعيد تأشيرات شنغن وبريطانيا وأمريكا واليابان." },
+        { q: "ما هي طرق الدفع المتاحة لديكم؟", a: "نقبل بطاقات الائتمان والخصم، التحويلات البنكية المباشرة، والدفع نقداً في مكتبنا بالشارقة." },
+      ],
+    },
+    blogPage: {
+      tag: "مجلة سكاي لايت للسفر",
+      heroTitleMain: "أدلة السفر و",
+      heroTitleAccent: "الإلهام السياحي",
+      heroDesc: "نصائح سفر من الخبراء، وأدلة شاملة لتأشيرات شنغن، ووجهات سياحية مختارة خصيصاً للمقيمين والعائلات في الإمارات.",
     },
   },
 };
