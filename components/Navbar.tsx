@@ -106,6 +106,7 @@ export default function Navbar() {
             {/* Premium Segmented Language Toggle */}
             <button
               type="button"
+              dir="ltr"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
               className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 hover:shadow-[0_0_16px_rgba(166,238,66,0.18)] px-[4px]"
@@ -146,6 +147,7 @@ export default function Navbar() {
             {/* Premium Segmented Toggle — Mobile */}
             <button
               type="button"
+              dir="ltr"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
               aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
               className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 px-[4px]"
