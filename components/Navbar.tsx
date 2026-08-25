@@ -103,33 +103,25 @@ export default function Navbar() {
 
           {/* RIGHT — email + clock + language switcher desktop */}
           <div className="hidden lg:flex items-center gap-5 text-right">
-            {/* Premium Segmented Language Toggle — desktop */}
+            {/* Language Toggle — desktop: green pill always LEFT, labels swap */}
             <div
               dir="ltr"
               role="group"
               className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 hover:shadow-[0_0_14px_rgba(166,238,66,0.15)] transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
             >
-              {/* Sliding background — fills exactly one column */}
-              <span
-                className={`absolute inset-y-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[calc(50%+0px)]" : "left-[3px]"
-                }`}
-              />
-              <button
-                type="button"
-                aria-label="Switch to English"
-                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
-                  !isAr ? "text-black" : "text-white/45"
-                }`}
-              >EN</button>
-              <button
-                type="button"
-                aria-label="Switch to Arabic"
-                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
-                  isAr ? "text-black" : "text-white/45"
-                }`}
-              >AR</button>
+              {/* Green pill — always on the left, never moves */}
+              <span className="absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green" />
+              {/* Left slot: active language (always green) */}
+              <button type="button" aria-label={isAr ? "Switch to English" : "Switch to English"}
+                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
+                {isAr ? "AR" : "EN"}
+              </button>
+              {/* Right slot: inactive language (always dim) */}
+              <button type="button" aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
+                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
+                {isAr ? "EN" : "AR"}
+              </button>
             </div>
 
             <a
@@ -149,32 +141,22 @@ export default function Navbar() {
 
           {/* MOBILE/TABLET controls (Language toggle + Hamburger) */}
           <div className="flex lg:hidden items-center gap-2 z-[60]">
-            {/* Premium Segmented Toggle — mobile */}
+            {/* Language Toggle — mobile: green pill always LEFT, labels swap */}
             <div
               dir="ltr"
               role="group"
               className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
             >
-              <span
-                className={`absolute inset-y-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[calc(50%+0px)]" : "left-[3px]"
-                }`}
-              />
-              <button
-                type="button"
-                aria-label="Switch to English"
-                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
-                  !isAr ? "text-black" : "text-white/45"
-                }`}
-              >EN</button>
-              <button
-                type="button"
-                aria-label="Switch to Arabic"
-                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
-                  isAr ? "text-black" : "text-white/45"
-                }`}
-              >AR</button>
+              <span className="absolute inset-y-[3px] left-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green" />
+              <button type="button" aria-label={isAr ? "Switch to English" : "Switch to English"}
+                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-black rounded-full">
+                {isAr ? "AR" : "EN"}
+              </button>
+              <button type="button" aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
+                className="relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] text-white/45 rounded-full">
+                {isAr ? "EN" : "AR"}
+              </button>
             </div>
 
             <button
