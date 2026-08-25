@@ -111,20 +111,20 @@ export default function Navbar() {
               aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
               className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 hover:shadow-[0_0_16px_rgba(166,238,66,0.18)] px-[4px]"
             >
-              {/* Sliding highlight */}
+              {/* Sliding highlight — left=EN active, right=AR active */}
               <span
                 className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[4px]" : "left-[36px]"
+                  isAr ? "left-[36px]" : "left-[4px]"
                 }`}
               />
-              {/* AR label */}
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/45"
-              }`}>AR</span>
-              {/* EN label */}
+              {/* EN label — first/left */}
               <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
                 !isAr ? "text-black" : "text-white/45"
               }`}>EN</span>
+              {/* AR label — second/right */}
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/45"
+              }`}>AR</span>
             </button>
 
             <a
@@ -154,15 +154,15 @@ export default function Navbar() {
             >
               <span
                 className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[4px]" : "left-[36px]"
+                  isAr ? "left-[36px]" : "left-[4px]"
                 }`}
               />
               <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/45"
-              }`}>AR</span>
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
                 !isAr ? "text-black" : "text-white/45"
               }`}>EN</span>
+              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
+                isAr ? "text-black" : "text-white/45"
+              }`}>AR</span>
             </button>
 
             <button
