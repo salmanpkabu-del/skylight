@@ -103,29 +103,34 @@ export default function Navbar() {
 
           {/* RIGHT — email + clock + language switcher desktop */}
           <div className="hidden lg:flex items-center gap-5 text-right">
-            {/* Premium Segmented Language Toggle */}
-            <button
-              type="button"
+            {/* Premium Segmented Language Toggle — desktop */}
+            <div
               dir="ltr"
+              role="group"
+              className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 hover:shadow-[0_0_14px_rgba(166,238,66,0.15)] transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-              className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 hover:shadow-[0_0_16px_rgba(166,238,66,0.18)] px-[4px]"
             >
-              {/* Sliding highlight — left=EN active, right=AR active */}
+              {/* Sliding background — fills exactly one column */}
               <span
-                className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[36px]" : "left-[4px]"
+                className={`absolute inset-y-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[calc(50%+0px)]" : "left-[3px]"
                 }`}
               />
-              {/* EN label — first/left */}
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                !isAr ? "text-black" : "text-white/45"
-              }`}>EN</span>
-              {/* AR label — second/right */}
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/45"
-              }`}>AR</span>
-            </button>
+              <button
+                type="button"
+                aria-label="Switch to English"
+                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
+                  !isAr ? "text-black" : "text-white/45"
+                }`}
+              >EN</button>
+              <button
+                type="button"
+                aria-label="Switch to Arabic"
+                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
+                  isAr ? "text-black" : "text-white/45"
+                }`}
+              >AR</button>
+            </div>
 
             <a
               href="mailto:info@skylighttourism.com"
@@ -144,26 +149,33 @@ export default function Navbar() {
 
           {/* MOBILE/TABLET controls (Language toggle + Hamburger) */}
           <div className="flex lg:hidden items-center gap-2 z-[60]">
-            {/* Premium Segmented Toggle — Mobile */}
-            <button
-              type="button"
+            {/* Premium Segmented Toggle — mobile */}
+            <div
               dir="ltr"
+              role="group"
+              className="relative grid grid-cols-2 h-8 rounded-full p-[3px] bg-white/10 border border-white/15 backdrop-blur-sm hover:border-brand-green/40 transition-all duration-300 cursor-pointer"
               onClick={() => setLang(lang === "en" ? "ar" : "en")}
-              aria-label={isAr ? "Switch to English" : "التحويل إلى العربية"}
-              className="relative flex items-center h-[30px] rounded-full bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden cursor-pointer transition-all duration-300 hover:border-brand-green/60 px-[4px]"
             >
               <span
-                className={`absolute top-[4px] h-[22px] w-[32px] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
-                  isAr ? "left-[36px]" : "left-[4px]"
+                className={`absolute inset-y-[3px] w-[calc(50%-3px)] rounded-full bg-brand-green transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+                  isAr ? "left-[calc(50%+0px)]" : "left-[3px]"
                 }`}
               />
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                !isAr ? "text-black" : "text-white/45"
-              }`}>EN</span>
-              <span className={`relative z-10 w-[32px] text-center text-[10px] font-extrabold tracking-[0.14em] leading-none transition-colors duration-200 ${
-                isAr ? "text-black" : "text-white/45"
-              }`}>AR</span>
-            </button>
+              <button
+                type="button"
+                aria-label="Switch to English"
+                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
+                  !isAr ? "text-black" : "text-white/45"
+                }`}
+              >EN</button>
+              <button
+                type="button"
+                aria-label="Switch to Arabic"
+                className={`relative z-10 px-3.5 py-1 text-[10px] font-extrabold tracking-[0.12em] rounded-full transition-colors duration-200 ${
+                  isAr ? "text-black" : "text-white/45"
+                }`}
+              >AR</button>
+            </div>
 
             <button
               type="button"
